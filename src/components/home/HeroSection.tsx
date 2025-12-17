@@ -91,47 +91,63 @@ export function HeroSection() {
         </div>
       </div>
       {/* Accreditation text — CENTERED */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-36 z-20 w-[92%] max-w-6xl">
-        <div className="flex justify-center gap-3 flex-wrap">
-          {[
-            "2021 – KBUDEK Eksternal Kalite Kontrol Programı",
-            "2022 – KBUDEK Eksternal Kalite Kontrol Programı",
-          ].map((item) => (
-            <span
-              key={item}
-              className="px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-sm"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
-      {/* Logos marquee — CENTERED + LOCKED */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-12 z-20 w-[92%] max-w-6xl">
-        {/* subtle readability strip */}
-        <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-2xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-8">
+        <div className="container-wide max-w-3xl mx-auto">
+          {/* Accreditation badges - fixed position below stats */}
+          <div className="flex justify-center gap-3 flex-wrap mb-6">
+            {[
+              "2021 – KBUDEK Eksternal Kalite Kontrol Programı",
+              "2022 – KBUDEK Eksternal Kalite Kontrol Programı",
+            ].map((item) => (
+              <span
+                key={item}
+                className="px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-sm"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
 
-        <div
-          ref={marqueeRef}
-          className="relative flex items-center gap-14 px-8 py-4 overflow-hidden whitespace-nowrap"
-        >
-          {[
-            "/accreditations/image__5_-removebg-preview.png",
-            "/accreditations/image__6_-removebg-preview.png",
-            "/accreditations/image__7_-removebg-preview.png",
-            "/accreditations/image__8_-removebg-preview.png",
-            "/accreditations/image__5_-removebg-preview.png",
-            "/accreditations/image__6_-removebg-preview.png",
-          ].map((src, i) => (
-            <img
-              key={i}
-              src={getImagePath(src)}
-              className="h-10 md:h-12 lg:h-14 opacity-90 grayscale-[20%] flex-shrink-0"
-              alt="Akreditasyon"
-            />
-          ))}
+          {/* Scrolling logos - no background */}
+          <div className="relative w-full overflow-hidden">
+            <div
+              className="flex items-center gap-12 md:gap-16"
+              style={{
+                animation: "scroll 30s linear infinite",
+              }}
+            >
+              {[
+                "/accreditations/kktc.png",
+                "/accreditations/kbudek.png",
+                "/accreditations/etik-hastanesi.png",
+                "/accreditations/turak.png",
+                "/accreditations/kktc.png",
+                "/accreditations/kbudek.png",
+                "/accreditations/etik-hastanesi.png",
+                "/accreditations/turak.png",
+              ].map((src, i) => (
+                <img
+                  key={i}
+                  src={getImagePath(src)}
+                  className="h-12 md:h-14 lg:h-16 opacity-90 flex-shrink-0"
+                  alt="Akreditasyon"
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
       {/* Fade into next section
       <div className="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-white" /> */}
     </section>
