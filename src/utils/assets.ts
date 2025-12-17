@@ -1,5 +1,7 @@
 export const getImagePath = (path: string) => {
-  // Remove leading slash if present
+  console.log("BASE_URL:", import.meta.env.BASE_URL);
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;
-  return `${import.meta.env.BASE_URL}${cleanPath}`;
+  const fullPath = `${import.meta.env.BASE_URL}${cleanPath}`;
+  console.log("Full path:", fullPath);
+  return fullPath;
 };

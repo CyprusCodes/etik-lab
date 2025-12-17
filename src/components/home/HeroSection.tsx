@@ -125,7 +125,7 @@ export function HeroSection() {
           ].map((src, i) => (
             <img
               key={i}
-              src={src}
+              src={getImagePath(src)}
               className="h-10 md:h-12 lg:h-14 opacity-90 grayscale-[20%] flex-shrink-0"
               alt="Akreditasyon"
             />
