@@ -33,6 +33,7 @@ import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Appointment from "./pages/Appointment";
 import TestTracking from "./pages/TestTracking";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename="/etik-lab">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           
