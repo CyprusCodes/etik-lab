@@ -13,12 +13,10 @@ export function HeroSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const HEADER_HEIGHT = "80px";
-
   return (
     <section
       className="relative w-full overflow-hidden flex flex-col"
-      style={{ minHeight: "100vh" }}
+      style={{ minHeight: "100vh", paddingTop: "120px" }}
     >
       {/* Background */}
       <div
@@ -34,10 +32,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/75" />
 
-      <div
-        className="relative z-10 flex-1 flex items-center justify-center px-4 pt-12 sm:pt-16 md:pt-20"
-        style={{ paddingTop: HEADER_HEIGHT }}
-      >
+      <div className="relative z-10 flex-1 flex items-center justify-center px-4">
         <div className="container-wide text-center max-w-3xl">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6">
             <span className="block">Bilimin Işığında</span>
@@ -100,7 +95,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom section */}
-      <div className="relative z-20 pb-6 sm:pb-8 md:pb-10 px-4 mt-auto">
+      <div className="relative z-20 pb-6 sm:pb-8 md:pb-10 px-4 mt-8 sm:mt-12 md:mt-16">
         <div className="container-wide max-w-6xl mx-auto space-y-4 sm:space-y-6">
           <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
             {[
