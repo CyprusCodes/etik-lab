@@ -113,13 +113,9 @@ export function HeroSection() {
           <div className="relative w-full overflow-hidden flex justify-center">
             <div
               className="flex items-center gap-8 md:gap-12 lg:gap-16"
-              style={{ animation: "scroll 30s linear infinite" }}
+              // style={{ animation: "scroll 30s linear infinite" }}
             >
               {[
-                "/accreditations/kktc.png",
-                "/accreditations/kbudek.png",
-                "/accreditations/etik-hastanesi.png",
-                "/accreditations/turak.png",
                 "/accreditations/kktc.png",
                 "/accreditations/kbudek.png",
                 "/accreditations/etik-hastanesi.png",
