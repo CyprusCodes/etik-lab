@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { getImagePath } from "@/utils/assets";
 
 const navigationItems = [
   { label: "Anasayfa", href: "/" },
@@ -79,7 +80,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img
-              src="/logo.png"
+              src={getImagePath("/logo.png")}
               alt="Etik Lab Laboratuvarı"
               className={cn(
                 "transition-all duration-300",

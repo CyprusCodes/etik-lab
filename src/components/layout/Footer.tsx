@@ -9,6 +9,7 @@ import {
   Twitter,
   Linkedin,
 } from "lucide-react";
+import { getImagePath } from "@/utils/assets";
 
 const footerLinks = {
   hizmetler: [
@@ -43,7 +44,10 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <img src="/image.png" alt="Etik Lab Laboratuvarı" />
+              <img
+                src={getImagePath("/logo-with-bg.png")}
+                alt="Etik Lab Laboratuvarı"
+              />
             </Link>
 
             <p className="text-white/70 mb-8 max-w-sm leading-relaxed">
