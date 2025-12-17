@@ -13,8 +13,13 @@ export function HeroSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const HEADER_HEIGHT = "80px";
+
   return (
-    <section className="relative w-full h-screen overflow-hidden flex flex-col">
+    <section
+      className="relative w-full overflow-hidden flex flex-col"
+      style={{ minHeight: "100vh" }}
+    >
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -27,19 +32,21 @@ export function HeroSection() {
       />
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/75" />
 
-      {/* Main content - centered vertically with flex-1 */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-4">
+      <div
+        className="relative z-10 flex-1 flex items-center justify-center px-4 pt-12 sm:pt-16 md:pt-20"
+        style={{ paddingTop: HEADER_HEIGHT }}
+      >
         <div className="container-wide text-center max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 sm:mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6">
             <span className="block">Bilimin Işığında</span>
             <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               İleri Teknoloji
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-10 md:mb-12 font-light px-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8  font-light px-4">
             10+ yıllık deneyim, akredite kalite, modern teknoloji ile sağlığınız
             için en doğru tanı
           </p>
@@ -73,7 +80,7 @@ export function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-10 md:pt-12 border-t border-white/20 grid grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20 grid grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               { value: "10+", label: "Yıllık Deneyim" },
               { value: "100+", label: "Farklı Test" },
@@ -92,10 +99,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom section - fixed to bottom with consistent spacing */}
+      {/* Bottom section */}
       <div className="relative z-20 pb-6 sm:pb-8 md:pb-10 px-4 mt-auto">
         <div className="container-wide max-w-6xl mx-auto space-y-4 sm:space-y-6">
-          {/* Accreditation badges - single row on all screens */}
           <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
             {[
               "2021 – KBUDEK Eksternal Kalite Kontrol Programı",
