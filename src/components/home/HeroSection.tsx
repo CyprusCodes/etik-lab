@@ -2,12 +2,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useAutoScroll } from "@/hooks/useAutoScroll";
 import { getImagePath } from "@/utils/assets";
 
 export function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
-  const marqueeRef = useAutoScroll(0.6);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -16,7 +14,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden flex flex-col">
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -30,25 +28,26 @@ export function HeroSection() {
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
-      {/* Main content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen">
+
+      {/* Main content - centered vertically with flex-1 */}
+      <div className="relative z-10 flex-1 flex items-center justify-center px-4">
         <div className="container-wide text-center max-w-3xl">
-          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 sm:mb-8">
             <span className="block">Bilimin Işığında</span>
             <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               İleri Teknoloji
             </span>
           </h1>
 
-          <p className="text-xl lg:text-2xl text-white/90 mb-12 font-light">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-10 md:mb-12 font-light px-4">
             10+ yıllık deneyim, akredite kalite, modern teknoloji ile sağlığınız
             için en doğru tanı
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4">
             <Button
               size="lg"
-              className="bg-white text-primary font-bold h-14 px-10 rounded-full"
+              className="bg-white text-primary font-bold h-12 sm:h-14 px-8 sm:px-10 rounded-full hover:scale-105 transition-transform"
               asChild
             >
               <Link to="/randevu" className="flex items-center gap-3">
@@ -60,7 +59,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white h-14 px-10 rounded-full bg-white/10"
+              className="border-white text-white h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all"
               asChild
             >
               <a
@@ -74,47 +73,46 @@ export function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="mt-20 pt-12 border-t border-white/20 grid grid-cols-3 gap-8">
+          <div className="mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-10 md:pt-12 border-t border-white/20 grid grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               { value: "10+", label: "Yıllık Deneyim" },
               { value: "100+", label: "Farklı Test" },
               { value: "7/24", label: "Hizmet" },
             ].map((s) => (
               <div key={s.label}>
-                <div className="text-4xl lg:text-5xl font-black text-white">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white">
                   {s.value}
                 </div>
-                <p className="text-white/80">{s.label}</p>
+                <p className="text-xs sm:text-sm md:text-base text-white/80 mt-1">
+                  {s.label}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
-      {/* Accreditation text — CENTERED */}
-      {/* Accreditation text — CENTERED */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pb-8 px-4">
-        <div className="container-wide max-w-5xl mx-auto">
-          {/* Accreditation badges */}
-          <div className="flex justify-center items-center gap-2 lg:gap-3 mb-6">
+
+      {/* Bottom section - fixed to bottom with consistent spacing */}
+      <div className="relative z-20 pb-6 sm:pb-8 md:pb-10 px-4 mt-auto">
+        <div className="container-wide max-w-6xl mx-auto space-y-4 sm:space-y-6">
+          {/* Accreditation badges - single row on all screens */}
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
             {[
               "2021 – KBUDEK Eksternal Kalite Kontrol Programı",
               "2022 – KBUDEK Eksternal Kalite Kontrol Programı",
             ].map((item) => (
               <span
                 key={item}
-                className="px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-[10px] sm:text-xs lg:text-sm whitespace-nowrap"
+                className="px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-[10px] sm:text-xs md:text-sm font-medium whitespace-nowrap"
               >
                 {item}
               </span>
             ))}
           </div>
 
-          {/* Scrolling logos - no background */}
-          <div className="relative w-full overflow-hidden flex justify-center">
-            <div
-              className="flex items-center gap-8 md:gap-12 lg:gap-16"
-              // style={{ animation: "scroll 30s linear infinite" }}
-            >
+          {/* Scrolling logos */}
+          <div className="relative w-full overflow-hidden">
+            <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 flex-wrap">
               {[
                 "/accreditations/kktc.png",
                 "/accreditations/kbudek.png",
@@ -124,7 +122,7 @@ export function HeroSection() {
                 <img
                   key={i}
                   src={getImagePath(src)}
-                  className="h-12 md:h-14 lg:h-16 opacity-90 flex-shrink-0"
+                  className="h-10 sm:h-12 md:h-14 lg:h-16 opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
                   alt="Akreditasyon"
                 />
               ))}
@@ -132,19 +130,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
-      {/* Fade into next section
-      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-white" /> */}
     </section>
   );
 }

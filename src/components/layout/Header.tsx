@@ -51,6 +51,9 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(
+    null
+  );
   const location = useLocation();
 
   useEffect(() => {
@@ -158,47 +161,122 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className={cn(
+              "lg:hidden p-2 rounded-lg transition-colors",
+              isScrolled ? "hover:bg-gray-100" : "hover:bg-white/10"
+            )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X
+                className={cn(
+                  "w-6 h-6",
+                  isScrolled ? "text-foreground" : "text-white"
+                )}
+              />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu
+                className={cn(
+                  "w-6 h-6",
+                  isScrolled ? "text-foreground" : "text-white"
+                )}
+              />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
+        {/* Mobile Menu */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 animate-fade-in-down">
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 space-y-2 max-h-96 overflow-y-auto">
-              {navigationItems.map((item) => (
-                <div key={item.label}>
-                  <Link
-                    to={item.href}
-                    className="block px-4 py-3 text-foreground font-medium hover:bg-primary-light hover:text-primary rounded-lg transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                  {item.children && (
-                    <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-4">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          to={child.href}
-                          className="block px-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+            <div
+              className={cn(
+                "rounded-2xl shadow-2xl p-4 space-y-2 overflow-hidden transition-all duration-500",
+                isScrolled
+                  ? "bg-white/80 backdrop-blur-xl border border-gray-100/50"
+                  : "bg-gradient-to-b from-black/20 to-transparent backdrop-blur-sm border border-white/10"
+              )}
+            >
+              <div
+                className="space-y-2 overflow-y-auto scrollbar-hide"
+                style={{ maxHeight: "calc(100vh - 200px)" }}
+              >
+                {navigationItems.map((item) => (
+                  <div key={item.label}>
+                    {item.children ? (
+                      <div>
+                        <button
+                          onClick={() =>
+                            setMobileOpenDropdown(
+                              mobileOpenDropdown === item.label
+                                ? null
+                                : item.label
+                            )
+                          }
+                          className={cn(
+                            "w-full flex items-center justify-between px-4 py-3 font-medium rounded-xl transition-all",
+                            isScrolled
+                              ? "text-foreground hover:bg-primary/10 hover:text-primary"
+                              : "text-white hover:bg-white/10"
+                          )}
                         >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <div className="pt-4 border-t border-gray-200">
+                          {item.label}
+                          <ChevronDown
+                            className={cn(
+                              "w-4 h-4 transition-transform duration-200",
+                              mobileOpenDropdown === item.label && "rotate-180"
+                            )}
+                          />
+                        </button>
+                        {mobileOpenDropdown === item.label && (
+                          <div className="ml-4 mt-1 space-y-1 border-l-2 border-primary/20 pl-4 animate-fade-in-down">
+                            {item.children.map((child) => (
+                              <Link
+                                key={child.label}
+                                to={child.href}
+                                className={cn(
+                                  "block px-2 py-2 text-sm transition-colors rounded-lg",
+                                  isScrolled
+                                    ? "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                                    : "text-white/70 hover:text-white hover:bg-white/5"
+                                )}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className={cn(
+                          "block px-4 py-3 font-medium rounded-xl transition-all",
+                          isScrolled
+                            ? "text-foreground hover:bg-primary/10 hover:text-primary"
+                            : "text-white hover:bg-white/10"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div
+                className={cn(
+                  "pt-4 border-t",
+                  isScrolled ? "border-gray-200/50" : "border-white/10"
+                )}
+              >
                 <Button
-                  className="w-full bg-primary hover:bg-primary-dark text-white font-bold rounded-full h-10"
+                  className={cn(
+                    "w-full font-bold rounded-full h-11 shadow-lg transition-all duration-300",
+                    isScrolled
+                      ? "bg-primary hover:bg-primary-dark text-white"
+                      : "bg-white text-primary hover:bg-gray-100"
+                  )}
                   asChild
                 >
                   <Link to="/randevu">Randevu Al</Link>

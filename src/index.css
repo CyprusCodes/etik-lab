@@ -278,6 +278,15 @@
   .image-3d:hover {
     transform: scale(1.08) rotateY(2deg) rotateX(-2deg);
   }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   
   .delay-100 { animation-delay: 100ms; }
   .delay-200 { animation-delay: 200ms; }
