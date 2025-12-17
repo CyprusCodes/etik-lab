@@ -122,7 +122,7 @@ export function HeroSection() {
                 <img
                   key={i}
                   src={getImagePath(src)}
-                  className="h-10 sm:h-12 md:h-14 lg:h-16 opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
+                  className=" h-10 sm:h-12 md:h-14 lg:h-16 opacity-90 hover:opacity-100 transition-all  rounded-xl"
                   alt="Akreditasyon"
                 />
               ))}
