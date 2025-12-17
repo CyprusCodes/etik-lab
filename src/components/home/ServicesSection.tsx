@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/useParallax";
+import { getImagePath } from "@/utils/assets";
 
 const services = [
   {
@@ -17,7 +18,7 @@ const services = [
     title: "Ayaktan Hasta Hizmetleri",
     description:
       "Kliniğimizde hızlı, güvenilir ve profesyonel laboratuvar test hizmetleri.",
-    image: "/medical-pictures/image (1).png",
+    image: getImagePath("medical-pictures/image (1).png"),
     href: "/hizmetlerimiz/ayaktan-hasta",
   },
   {
@@ -26,7 +27,7 @@ const services = [
     title: "Evden Numune Alma",
     description:
       "Evden ayrılmadan, uzman ekibimiz tarafından güvenli numune alma hizmeti.",
-    image: "/medical-pictures/image (2).png",
+    image: getImagePath("medical-pictures/image (2).png"),
     href: "/hizmetlerimiz/evden-numune",
   },
   {
@@ -35,7 +36,7 @@ const services = [
     title: "Sağlık Kontrol Paketleri",
     description:
       "Erken teşhis ve düzenli takip için kapsamlı check-up paketleri.",
-    image: "/medical-pictures/image (3).png",
+    image: getImagePath("medical-pictures/image (3).png"),
     href: "/hizmetlerimiz/saglik-kontrol-paketleri",
   },
   {
@@ -44,7 +45,7 @@ const services = [
     title: "Hamilelik Öncesi & Sonrası Genetik Testler",
     description:
       "Anne ve bebek sağlığı için ileri düzey genetik tarama testleri.",
-    image: "/medical-pictures/image (4).png",
+    image: getImagePath("medical-pictures/image (4).png"),
     href: "/hizmetlerimiz/genetik-testler",
   },
   {
@@ -53,7 +54,7 @@ const services = [
     title: "SMA Testi",
     description:
       "Spinal Musküler Atrofi için güvenilir tarama ve tanı testleri.",
-    image: "/medical-pictures/image.png",
+    image: getImagePath("medical-pictures/image.png"),
     href: "/hizmetlerimiz/sma-testi",
   },
   {
@@ -62,7 +63,7 @@ const services = [
     title: "Kurumsal Hizmetler",
     description:
       "Şirketlere özel, akredite ve profesyonel laboratuvar çözümleri.",
-    image: "/medical-pictures/image (1).png",
+    image: getImagePath("medical-pictures/image (1).png"),
     href: "/hizmetlerimiz/kurumsal",
   },
 ];

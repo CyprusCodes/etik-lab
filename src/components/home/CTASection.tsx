@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Calendar, FileText, ArrowRight } from "lucide-react";
+import { getImagePath } from "@/utils/assets";
 
 export function CTASection() {
   return (
@@ -8,7 +9,7 @@ export function CTASection() {
       {/* Background image behind CTA (Hero-style) */}
       <div className="absolute inset-0 -z-20">
         <img
-          src="/medical-pictures/image (3).png"
+          src={getImagePath("medical-pictures/image (3).png")}
           alt=""
           className="w-full h-full object-cover"
         />

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAutoScroll } from "@/hooks/useAutoScroll";
+import { getImagePath } from "@/utils/assets";
 
 export function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -20,7 +21,9 @@ export function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/medical-pictures/image.png')`,
+          backgroundImage: `url('${getImagePath(
+            "medical-pictures/image.png"
+          )}')`,
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
       />
