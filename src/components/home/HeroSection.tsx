@@ -91,17 +91,18 @@ export function HeroSection() {
         </div>
       </div>
       {/* Accreditation text — CENTERED */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pb-8">
-        <div className="container-wide max-w-3xl mx-auto">
-          {/* Accreditation badges - fixed position below stats */}
-          <div className="flex justify-center gap-3 flex-wrap mb-6">
+      {/* Accreditation text — CENTERED */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-8 px-4">
+        <div className="container-wide max-w-5xl mx-auto">
+          {/* Accreditation badges */}
+          <div className="flex justify-center items-center gap-2 lg:gap-3 mb-6">
             {[
               "2021 – KBUDEK Eksternal Kalite Kontrol Programı",
               "2022 – KBUDEK Eksternal Kalite Kontrol Programı",
             ].map((item) => (
               <span
                 key={item}
-                className="px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-sm"
+                className="px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-[10px] sm:text-xs lg:text-sm whitespace-nowrap"
               >
                 {item}
               </span>
@@ -109,12 +110,10 @@ export function HeroSection() {
           </div>
 
           {/* Scrolling logos - no background */}
-          <div className="relative w-full overflow-hidden">
+          <div className="relative w-full overflow-hidden flex justify-center">
             <div
-              className="flex items-center gap-12 md:gap-16"
-              style={{
-                animation: "scroll 30s linear infinite",
-              }}
+              className="flex items-center gap-8 md:gap-12 lg:gap-16"
+              style={{ animation: "scroll 30s linear infinite" }}
             >
               {[
                 "/accreditations/kktc.png",
