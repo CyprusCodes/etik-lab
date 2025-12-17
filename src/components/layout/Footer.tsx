@@ -8,6 +8,7 @@ import {
   Instagram,
   Twitter,
   Linkedin,
+  Youtube,
 } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
 
@@ -136,35 +137,55 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-wide py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white/60 text-sm">
+            <p className="text-white/60 text-sm text-center md:text-left">
               © {new Date().getFullYear()} Etik Laboratuvarı. Tüm hakları
               saklıdır.
+              <br className="md:hidden" />
+              <span className="md:ml-1">
+                Built by{" "}
+                <a
+                  href="https://futurecast.studio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-primary transition-colors underline"
+                >
+                  Futurecast Studio
+                </a>
+              </span>
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://www.facebook.com/etiklaboratuvari"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/etiklaboratuvari"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://twitter.com/etiklab1"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
               >
                 <Twitter className="w-5 h-5" />
               </a>
-              <a
-                href="#"
+              {/* <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
               >
-                <Linkedin className="w-5 h-5" />
-              </a>
+                <Youtube className="w-5 h-5" />
+              </a> */}
             </div>
           </div>
         </div>
