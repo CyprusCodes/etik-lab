@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -6,18 +8,24 @@ const services = [
     description:
       "Özel laboratuvar analitik raporları, kesinlik ve güvenilirlikle hastaların sağlık hikayelerini destekler, sağlık profesyonellerine önemli bilgi sunar.",
     features: ["Detaylı Analiz", "Uzman Yorumlar", "Hızlı Raporlama"],
+    link: "/hizmetlerimiz",
+    linkText: "Hizmetlerimizi Görüntüle",
   },
   {
     title: "Sağlık Paketleri",
     description:
       "Kapsamlı check-up paketleri ile sağlığınızı düzenli olarak kontrol altında tutun.",
     features: ["Genel Check-up", "Özel Paketler", "Yaş Gruplarına Özel"],
+    link: "/check-up",
+    linkText: "Paketleri İncele",
   },
   {
     title: "Uzman Laboratuvar Testleri",
     description:
       "Uzman laboratuvar bilimcilerimiz tarafından yapılan testler için randevu oluşturun.",
     features: ["Uzman Kadro", "Modern Teknoloji", "Güvenilir Sonuçlar"],
+    link: "/test-panelleri",
+    linkText: "Test Panellerini Gör",
   },
 ];
 
@@ -35,13 +43,15 @@ export const AboutServices = () => (
         {services.map((service) => (
           <div
             key={service.title}
-            className="bg-card rounded-2xl p-8 border border-border hover:shadow-lg transition-shadow"
+            className="bg-card rounded-2xl p-8 border border-border hover:shadow-lg hover:border-primary/30 transition-all duration-300 group"
           >
-            <h3 className="heading-4 text-foreground mb-4">{service.title}</h3>
+            <h3 className="heading-4 text-foreground mb-4 group-hover:text-primary transition-colors">
+              {service.title}
+            </h3>
             <p className="body-base text-muted-foreground mb-6">
               {service.description}
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-2 mb-8">
               {service.features.map((feature) => (
                 <li key={feature} className="flex items-center text-sm">
                   <div className="w-2 h-2 bg-primary rounded-full mr-3" />
@@ -49,6 +59,15 @@ export const AboutServices = () => (
                 </li>
               ))}
             </ul>
+            
+            {/* Navigation Link */}
+            <Link
+              to={service.link}
+              className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-primary/80 transition-colors group-hover:gap-3"
+            >
+              {service.linkText}
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         ))}
       </div>

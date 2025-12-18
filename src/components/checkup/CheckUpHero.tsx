@@ -14,11 +14,11 @@ export const CheckUpHero = () => (
     </div>
 
     {/* Decorative elements */}
-    <div className="absolute inset-0 pointer-events-none">
+    {/* <div className="absolute inset-0 pointer-events-none">
       <div className="absolute top-1/4 right-1/4 w-80 h-80 border border-white/20 rounded-full animate-spin-slow" />
       <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-blob" />
       <div className="absolute top-1/2 left-1/3 w-48 h-48 border-2 border-white/30 rounded-full animate-pulse" />
-    </div>
+    </div> */}
 
     {/* Grid pattern */}
     <div className="absolute inset-0 opacity-10">

@@ -14,10 +14,10 @@ export const TimelineHero = () => (
     </div>
 
     {/* Decorative elements */}
-    <div className="absolute inset-0 pointer-events-none">
+    {/* <div className="absolute inset-0 pointer-events-none">
       <div className="absolute top-20 right-20 w-64 h-64 border border-white/20 rounded-full animate-spin-slow" />
       <div className="absolute bottom-20 left-20 w-48 h-48 border-2 border-white/30 rounded-full animate-pulse" />
-    </div>
+    </div> */}
 
     {/* Content */}
     <div className="container-wide relative z-10 text-center text-white">

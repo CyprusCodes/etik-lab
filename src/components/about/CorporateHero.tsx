@@ -14,11 +14,11 @@ export const CorporateHero = () => (
     </div>
 
     {/* Decorative elements */}
-    <div className="absolute inset-0 pointer-events-none">
+    {/* <div className="absolute inset-0 pointer-events-none">
       <div className="absolute top-1/4 right-1/4 w-96 h-96 border border-white/20 rounded-full animate-spin-slow" />
       <div className="absolute bottom-1/4 left-1/4 w-64 h-64 border-2 border-white/30 rounded-full animate-pulse" />
       <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-white/10 rounded-full blur-xl animate-blob" />
-    </div>
+    </div> */}
 
     {/* Content */}
     <div className="container-wide relative z-10 text-center text-white">
@@ -53,12 +53,8 @@ export const CorporateHero = () => (
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Floating background */}
-              <div className="absolute inset-0 bg-white/10 rounded-3xl blur-xl group-hover:bg-white/20 transition-all duration-500" />
 
-              <div className="relative bg-white/15 backdrop-blur-md rounded-3xl p-6 border border-white/30 hover:bg-white/25 transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">
-                  {stat.icon}
-                </div>
+              <div className="relative ">
                 <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2 text-white">
                   {stat.value}
                 </div>
