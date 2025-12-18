@@ -20,10 +20,14 @@ const navigationItems = [
     label: "Hizmetler",
     href: "/hizmetlerimiz",
     children: [
-      { label: "Ayaktan Hasta", href: "/hizmetlerimiz/ayaktan-hasta" },
-      { label: "Evde Numune Alma", href: "/hizmetlerimiz/evde-numune" },
+      {
+        label: "Ayaktan Hasta Hizmetleri",
+        href: "/hizmetlerimiz/ayaktan-hasta",
+      },
+      { label: "Evden Kan Alma", href: "/hizmetlerimiz/evde-kan-alma" },
       { label: "Genetik Testler", href: "/hizmetlerimiz/genetik-testler" },
       { label: "SMA Testi", href: "/hizmetlerimiz/sma-testi" },
+      { label: "COVID Testleri", href: "/hizmetlerimiz/covid-testleri" },
       { label: "Kurumsal Hizmetler", href: "/hizmetlerimiz/kurumsal" },
     ],
   },

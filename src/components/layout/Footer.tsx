@@ -15,7 +15,8 @@ import { getImagePath } from "@/utils/assets";
 const footerLinks = {
   hizmetler: [
     { label: "Ayaktan Hasta Hizmetleri", href: "/hizmetlerimiz/ayaktan-hasta" },
-    { label: "Evde Numune Alma", href: "/hizmetlerimiz/evde-numune" },
+    { label: "Evde Kan Alma Hizmeti", href: "/hizmetlerimiz/evde-kan-alma" },
+    { label: "COVID Testleri", href: "/hizmetlerimiz/covid-testleri" },
     { label: "Genetik Testler", href: "/hizmetlerimiz/genetik-testler" },
     { label: "SMA Testi", href: "/hizmetlerimiz/sma-testi" },
     { label: "Kurumsal Hizmetler", href: "/hizmetlerimiz/kurumsal" },

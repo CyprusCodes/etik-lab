@@ -19,6 +19,12 @@ import GeneticTests from "./pages/services/GeneticTests";
 import SMATest from "./pages/services/SMATest";
 import CorporateServices from "./pages/services/CorporateServices";
 import CovidTests from "./pages/services/CovidTests";
+import CovidTestleri from "./pages/services/CovidTestleri";
+import GenetikTestleri from "./pages/services/GenetikTestleri";
+import SmaTesti from "./pages/services/SmaTesti";
+import AyaktanHasta from "./pages/services/AyaktanHasta";
+import EvdeKanAlma from "./pages/services/EvdeKanAlma";
+import KurumsalHizmetler from "./pages/services/KurumsalHizmetler";
 import TestPanels from "./pages/TestPanels";
 import STDPanel from "./pages/panels/STDPanel";
 import AnemiaPanel from "./pages/panels/AnemiaPanel";
@@ -60,22 +66,25 @@ const App = () => (
           <Route path="/hizmetlerimiz" element={<Services />} />
           <Route
             path="/hizmetlerimiz/ayaktan-hasta"
-            element={<OutpatientServices />}
+            element={<AyaktanHasta />}
           />
           <Route
-            path="/hizmetlerimiz/evde-numune"
-            element={<HomeSampleCollection />}
+            path="/hizmetlerimiz/evde-kan-alma"
+            element={<EvdeKanAlma />}
           />
           <Route
             path="/hizmetlerimiz/genetik-testler"
-            element={<GeneticTests />}
+            element={<GenetikTestleri />}
           />
-          <Route path="/hizmetlerimiz/sma-testi" element={<SMATest />} />
+          <Route path="/hizmetlerimiz/sma-testi" element={<SmaTesti />} />
           <Route
             path="/hizmetlerimiz/kurumsal"
-            element={<CorporateServices />}
+            element={<KurumsalHizmetler />}
           />
-          <Route path="/hizmetlerimiz/covid" element={<CovidTests />} />
+          <Route
+            path="/hizmetlerimiz/covid-testleri"
+            element={<CovidTestleri />}
+          />
 
           {/* Test Panels */}
           <Route path="/test-panelleri" element={<TestPanels />} />

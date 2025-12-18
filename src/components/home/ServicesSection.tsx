@@ -28,7 +28,7 @@ const services = [
     description:
       "Evden ayrılmadan, uzman ekibimiz tarafından güvenli numune alma hizmeti.",
     image: getImagePath("hizmetleri/eka.jpg"),
-    href: "/hizmetlerimiz/evden-numune",
+    href: "/hizmetlerimiz/evde-kan-alma",
   },
   {
     id: 3,
@@ -75,28 +75,28 @@ export function ServicesSection() {
   // Small inner component so we can use hooks per-card
   function ServiceCard({ service, idx }: { service: any; idx: number }) {
     return (
-      <Link to={service.href} className="group">
+      <Link to={service.href} className="group h-full">
         <div
-          className={`rounded-2xl overflow-hidden shadow-lg bg-white transition-all duration-500 ${
+          className={`h-full rounded-2xl overflow-hidden shadow-lg bg-white transition-all duration-500 flex flex-col ${
             gridInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
           style={{ transitionDelay: gridInView ? `${idx * 100}ms` : "0ms" }}
         >
           {/* Image */}
-          <div className="h-44 md:h-48 w-full overflow-hidden bg-gray-100">
+          <div className="h-48 w-full overflow-hidden bg-gray-100 flex-shrink-0">
             <img
               src={service.image}
               alt={service.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
 
           {/* Content */}
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-foreground mb-2">
+          <div className="p-6 flex flex-col flex-1">
+            <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
               {service.title}
             </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
               {service.description}
             </p>
             <div>
@@ -147,7 +147,9 @@ export function ServicesSection() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {services.map((service, index) => (
-            <ServiceCard key={service.id} service={service} idx={index} />
+            <div key={service.id} className="h-full">
+              <ServiceCard service={service} idx={index} />
+            </div>
           ))}
         </div>
 
