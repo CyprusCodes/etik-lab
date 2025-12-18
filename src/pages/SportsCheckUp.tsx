@@ -100,7 +100,7 @@ export default function SportsCheckUp() {
         title="Sporcu Check-Up Paketi"
         description="SAMİ HAMİDİ özel sporcu paketi ile performansınızı maksimuma çıkarın"
         breadcrumbs={[
-          { label: "Check-Up Paketleri", href: "/check-up" },
+          { label: "Check-Up Paketleri", href: "/paketler" },
           { label: "Sporcu Paketi" },
         ]}
         badge="Premium Paket"

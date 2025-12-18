@@ -98,8 +98,8 @@ const App = () => (
           <Route path="/test-panelleri/torch" element={<TORCHPanel />} />
 
           {/* Check-Up */}
-          <Route path="/check-up" element={<CheckUp />} />
-          <Route path="/check-up/sporcu-paketi" element={<SportsCheckUp />} />
+          <Route path="/paketler" element={<CheckUp />} />
+          <Route path="/paketler/sporcu-paketi" element={<SportsCheckUp />} />
 
           {/* Blog */}
           <Route path="/blog" element={<Blog />} />

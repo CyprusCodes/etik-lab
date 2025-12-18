@@ -202,6 +202,16 @@ export function CheckUpSection() {
             />
           ))}
         </div>
+
+        {/* View All Packages Button */}
+        <div className="text-center mt-12">
+          <Button asChild size="lg" className="px-8 py-6 text-lg">
+            <Link to="/paketler" className="inline-flex items-center gap-2">
+              Tüm Paketleri Görüntüle
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <style jsx>{`

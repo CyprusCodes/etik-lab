@@ -42,7 +42,7 @@ const navigationItems = [
       { label: "TORCH Paneli", href: "/test-panelleri/torch" },
     ],
   },
-  { label: "Paketler", href: "/check-up" },
+  { label: "Paketler", href: "/paketler" },
   { label: "Blog", href: "/blog" },
   { label: "İletişim", href: "/iletisim" },
 ];

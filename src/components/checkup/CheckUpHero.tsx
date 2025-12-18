@@ -75,12 +75,9 @@ export const CheckUpHero = () => (
               className="group relative"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="absolute inset-0 bg-white/10 rounded-2xl blur-xl group-hover:bg-white/20 transition-all duration-500" />
+              <div className="absolute" />
 
-              <div className="relative bg-white/15 backdrop-blur-md rounded-2xl p-4 border border-white/30 hover:bg-white/25 transition-all duration-500 hover:scale-105 hover:-translate-y-1">
-                <div className="text-2xl mb-1 group-hover:scale-110 transition-transform">
-                  {stat.icon}
-                </div>
+              <div className="relative">
                 <div className="text-2xl md:text-3xl font-black mb-1">
                   {stat.value}
                 </div>

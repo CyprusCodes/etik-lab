@@ -25,7 +25,7 @@ const footerLinks = {
     { label: "Anemi Paneli", href: "/test-panelleri/anemi" },
     { label: "Diyabet Paneli", href: "/test-panelleri/diyabet" },
     { label: "Tiroid Paneli", href: "/test-panelleri/tiroid" },
-    { label: "Check-Up Paketleri", href: "/check-up" },
+    { label: "Check-Up Paketleri", href: "/paketler" },
   ],
   kurumsal: [
     { label: "Hakkımızda", href: "/hakkimizda" },

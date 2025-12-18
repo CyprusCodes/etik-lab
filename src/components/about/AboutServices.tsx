@@ -16,7 +16,7 @@ const services = [
     description:
       "Kapsamlı check-up paketleri ile sağlığınızı düzenli olarak kontrol altında tutun.",
     features: ["Genel Check-up", "Özel Paketler", "Yaş Gruplarına Özel"],
-    link: "/check-up",
+    link: "/paketler",
     linkText: "Paketleri İncele",
   },
   {
@@ -59,7 +59,7 @@ export const AboutServices = () => (
                 </li>
               ))}
             </ul>
-            
+
             {/* Navigation Link */}
             <Link
               to={service.link}

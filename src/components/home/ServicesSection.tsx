@@ -18,25 +18,25 @@ const services = [
     title: "Ayaktan Hasta Hizmetleri",
     description:
       "Kliniğimizde hızlı, güvenilir ve profesyonel laboratuvar test hizmetleri.",
-    image: getImagePath("medical-pictures/image (1).png"),
+    image: getImagePath("hizmetleri/ahh.jpg"),
     href: "/hizmetlerimiz/ayaktan-hasta",
   },
   {
     id: 2,
     icon: Truck,
-    title: "Evden Numune Alma",
+    title: "Evden Kan Alma",
     description:
       "Evden ayrılmadan, uzman ekibimiz tarafından güvenli numune alma hizmeti.",
-    image: getImagePath("medical-pictures/image (2).png"),
+    image: getImagePath("hizmetleri/eka.jpg"),
     href: "/hizmetlerimiz/evden-numune",
   },
   {
     id: 3,
     icon: Activity,
-    title: "Sağlık Kontrol Paketleri",
+    title: "Koronavirus Hakkında",
     description:
-      "Erken teşhis ve düzenli takip için kapsamlı check-up paketleri.",
-    image: getImagePath("medical-pictures/image (3).png"),
+      "Koronavirus, insanlar soğuk algınlığı ve grip gibi solunum yolu hastalıklarına neden olan bir virüstür.",
+    image: getImagePath("hizmetleri/coronavirus.jpg"),
     href: "/hizmetlerimiz/saglik-kontrol-paketleri",
   },
   {
@@ -45,7 +45,7 @@ const services = [
     title: "Hamilelik Öncesi & Sonrası Genetik Testler",
     description:
       "Anne ve bebek sağlığı için ileri düzey genetik tarama testleri.",
-    image: getImagePath("medical-pictures/image (4).png"),
+    image: getImagePath("hizmetleri/gene.jpg"),
     href: "/hizmetlerimiz/genetik-testler",
   },
   {
@@ -54,7 +54,7 @@ const services = [
     title: "SMA Testi",
     description:
       "Spinal Musküler Atrofi için güvenilir tarama ve tanı testleri.",
-    image: getImagePath("medical-pictures/image.png"),
+    image: getImagePath("hizmetleri/sma.jpg"),
     href: "/hizmetlerimiz/sma-testi",
   },
   {
@@ -63,7 +63,7 @@ const services = [
     title: "Kurumsal Hizmetler",
     description:
       "Şirketlere özel, akredite ve profesyonel laboratuvar çözümleri.",
-    image: getImagePath("medical-pictures/image (1).png"),
+    image: getImagePath("hizmetleri/kurumsal.jpg"),
     href: "/hizmetlerimiz/kurumsal",
   },
 ];
