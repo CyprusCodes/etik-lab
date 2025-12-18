@@ -1,0 +1,261 @@
+// Real check-up packages from business documents
+export const checkupPackages = [
+  {
+    id: "40-alti-erkek",
+    title: "40 Yaş Altı Erkek Check-Up Paketi",
+    description: "40 yaş altı erkekler için temel sağlık taraması",
+    category: "Erkek",
+    ageGroup: "40 Altı",
+    type: "Temel",
+    tests: [
+      "Açlık Kan Şekeri", "Üre", "Kreatinin / GFR", "Ürik Asit", "Kalsiyum", 
+      "Magnezyum", "Total Kolesterol", "HDL Kolesterol", "LDL Kolesterol", 
+      "Trigliserid", "Total Protein", "Albümin", "ALP", "GGT", "AST", "ALT", 
+      "LDH", "TSH", "Demir", "Ferritin", "Vitamin D3", "Tam Kan Sayımı", 
+      "Hemoglobin A1c (HbA1c)", "B12 Vitamini", "Sedimentasyon/ESR", "İdrar Analizi"
+    ]
+  },
+  {
+    id: "40-alti-erkek-genis",
+    title: "40 Yaş Altı Erkek Geniş Check-Up Paketi",
+    description: "Kapsamlı muayene ve görüntüleme dahil",
+    category: "Erkek",
+    ageGroup: "40 Altı",
+    type: "Kapsamlı",
+    tests: [
+      "Açlık Kan Şekeri", "Üre", "Kreatinin / GFR", "Ürik Asit", "Kalsiyum", 
+      "Magnezyum", "Total Kolesterol", "HDL Kolesterol", "LDL Kolesterol", 
+      "Trigliserid", "Total Protein", "Albümin", "ALP", "GGT", "AST", "ALT", 
+      "LDH", "TSH", "Demir", "Ferritin", "Vitamin D3", "Tam Kan Sayımı", 
+      "Hemoglobin A1c (HbA1c)", "B12 Vitamini", "Sedimentasyon/ESR", "İdrar Analizi",
+      "Elektrokardiyogram (EKG)", "Göğüs Röntgeni", "Sıcaklık, Nabız, Kan Basıncı",
+      "Dahiliye Muayenesi"
+    ]
+  },
+  {
+    id: "40-alti-kadin",
+    title: "40 Yaş Altı Kadın Check-Up Paketi",
+    description: "40 yaş altı kadınlar için temel sağlık taraması",
+    category: "Kadın",
+    ageGroup: "40 Altı",
+    type: "Temel",
+    tests: [
+      "Açlık Kan Şekeri", "Üre", "Kreatinin / GFR", "Ürik Asit", "Kalsiyum", 
+      "Magnezyum", "Total Kolesterol", "HDL Kolesterol", "LDL Kolesterol", 
+      "Trigliserid", "Total Protein", "Albümin", "ALP", "GGT", "AST", "ALT", 
+      "LDH", "TSH", "Demir", "Ferritin", "Vitamin D3", "Tam Kan Sayımı", 
+      "Hemoglobin A1c (HbA1c)", "B12 Vitamini", "Sedimentasyon/ESR", "İdrar Analizi"
+    ]
+  },
+  {
+    id: "40-alti-kadin-genis",
+    title: "40 Yaş Altı Kadın Geniş Check-Up Paketi",
+    description: "Kapsamlı muayene ve görüntüleme dahil",
+    category: "Kadın",
+    ageGroup: "40 Altı",
+    type: "Kapsamlı",
+    tests: [
+      "Açlık Kan Şekeri", "Üre", "Kreatinin / GFR", "Ürik Asit", "Kalsiyum", 
+      "Magnezyum", "Total Kolesterol", "HDL Kolesterol", "LDL Kolesterol", 
+      "Trigliserid", "Total Protein", "Albümin", "ALP", "GGT", "AST", "ALT", 
+      "LDH", "TSH", "Demir", "Ferritin", "Vitamin D3", "Tam Kan Sayımı", 
+      "Hemoglobin A1c (HbA1c)", "B12 Vitamini", "Sedimentasyon/ESR", "İdrar Analizi",
+      "Elektrokardiyogram (EKG)", "Göğüs Röntgeni", "Sıcaklık, Nabız, Kan Basıncı",
+      "Dahiliye Doktor Muayenesi"
+    ]
+  },
+  {
+    id: "40-ustu-erkek-mini",
+    title: "40 Yaş Üstü Erkek Mini Check-Up Paketi",
+    description: "Temel tarama ve kanser belirteçleri dahil",
+    category: "Erkek",
+    ageGroup: "40 Üstü",
+    type: "Mini",
+    tests: [
+      "Açlık Kan Şekeri", "Üre", "Kreatinin / GFR", "Ürik Asit", "Kalsiyum", 
+      "Demir", "Magnezyum", "Toplam Kolesterol", "HDL Kolesterol", "LDL Kolesterol", 
+      "Trigliserid", "Total Protein", "Albümin", "ALP", "GGT", "AST", "ALT", 
+      "LDH", "TSH", "Free T4", "Total PSA", "Free PSA", "CEA", "CA 125", 
+      "CA 15-3", "AFP", "CA 19-9", "B12 Vitamini", "Tam Kan Sayımı", 
+      "Hemoglobin A1c (HbA1c)", "Sedimentasyon/ESR", "İdrar Analizi", 
+      "Gaita da Gizli Kan"
+    ]
+  },
+  {
+    id: "40-ustu-erkek-executive",
+    title: "40 Yaş Üstü Erkek Executive Check-Up Paketi",
+    description: "En kapsamlı erkek check-up paketi",
+    category: "Erkek",
+    ageGroup: "40 Üstü",
+    type: "Executive",
+    tests: [
+      "Açlık Kan Şekeri", "Üre", "Kreatinin / GFR", "Ürik Asit", "Kalsiyum", 
+      "Magnezyum", "Toplam Kolesterol", "HDL Kolesterol", "LDL Kolesterol", 
+      "Trigliserid", "Total Protein", "Albümin", "ALP", "GGT", "AST", "ALT", 
+      "LDH", "TSH", "Free T4", "Total PSA", "Free PSA", "CEA", "CA 125", 
+      "CA 15-3", "AFP", "CA 19-9", "B12 Vitamin", "Demir", "Tam Kan Sayımı", 
+      "Hemoglobin A1c (HbA1c)", "Sedimentasyon/ESR", "İdrar Analizi", 
+      "Gaita da Gizli Kan", "Göğüs Röntgeni", "Elektrokardiyografi (EKG)", 
+      "Sıcaklık, Nabız, Kan Basıncı", "Dahiliye Muayenesi"
+    ]
+  },
+  {
+    id: "40-ustu-kadin-mini", 
+    title: "40 Yaş Üstü Kadın Mini Check-Up Paketi",
+    description: "Kadın sağlığına özel temel tarama",
+    category: "Kadın",
+    ageGroup: "40 Üstü",
+    type: "Mini",
+    tests: [
+      "Açlık Kan Şekeri", "Üre", "Kreatinin / GFR", "Toplam Kolesterol", 
+      "HDL Kolesterol", "LDL Kolesterol", "Trigliserid", "AST", "ALT", 
+      "TSH", "Total PSA", "Tam Kan Sayımı", "Sedimentasyon/ESR", 
+      "Dışkı da Gizli Kan Testi"
+    ]
+  },
+  {
+    id: "40-ustu-kadin-executive",
+    title: "40 Yaş Üstü Kadın Executive Check-Up Paketi", 
+    description: "En kapsamlı kadın check-up paketi",
+    category: "Kadın",
+    ageGroup: "40 Üstü",
+    type: "Executive",
+    tests: [
+      "Açlık Kan Şekeri", "Üre", "Kreatinin / GFR", "Ürik Asit", "Kalsiyum", 
+      "Magnezyum", "Toplam Kolesterol", "HDL Kolesterol", "LDL Kolesterol", 
+      "Trigliserid", "Toplam Protein", "Albümin", "ALP", "GGT", "AST", "ALT", 
+      "LDH", "Demir", "TSH", "CEA", "B12 Vitamini", "Free T4", "AFP", 
+      "CA 19-9", "CA 125", "CA 15-3", "Tam Kan Sayımı", "Hemoglobin A1c (HbA1c)", 
+      "Sedimentasyon/ESR", "İdrar Analizi", "Dışkı da Gizli Kan Testi",
+      "Elektrokardiyogram (EKG)", "Göğüs Röntgeni", "Sıcaklık, Nabız, Kan Basıncı",
+      "Dahiliye Doktor Muayenesi"
+    ]
+  },
+  {
+    id: "sami-hamidi-sporcu",
+    title: "SAMİ HAMİDİ SPORCU CHECK-UP PAKETİ",
+    description: "Sporcular için özel olarak hazırlanmış kapsamlı sağlık paketi",
+    category: "Sporcu",
+    ageGroup: "Tüm Yaşlar",
+    type: "Özel",
+    tests: [
+      "ALT", "AST", "GGT", "KREATİN", "ÜRE", "FREE T3", "FREE T4", "TSH", 
+      "ANTI-TPO", "ANTI-TG", "TOTAL TESTOSTERON", "LH", "FSH", "E2", "PROLAKTİN",
+      "TOTAL KOLESTEROL", "HDL KOLESTEROL", "LDL KOLESTEROL", "TRİGLİSERİD", 
+      "DEMİR", "TOTAL DEMİR BAĞLAMA KAPASİTES", "FERRİTİN", "TOTAL IGE", 
+      "MAGNEZYUM", "SODYUM", "POTASYUM", "TOTAL PSA", "VİTAMİN D3", "VİTAMİN B12",
+      "AÇLIK KAN ŞEKERİ", "AÇLIK İNSÜLİN", "HEMOGRAM", "CRP", "TAM İDRAR TAHLİLİ"
+    ]
+  }
+];
+
+// Age-specific and special panels from business documents
+export const specialPanels = [
+  {
+    id: "11-aylik-paneli",
+    title: "11 Aylık Paneli",
+    description: "11 aylık bebek sağlığı için özel panel",
+    category: "Çocuk",
+    ageGroup: "11 Ay",
+    type: "Özel Panel",
+    tests: [
+      "Tam Kan Sayımı", "Ferritin", "B12 Vitamini", "25 OH Vitamin D3",
+      "Çinko", "İdrar Analizi", "Gaita da Parazit"
+    ]
+  },
+  {
+    id: "2-4-yas-paneli", 
+    title: "2-4 Yaş Paneli",
+    description: "2-4 yaş arası çocuklar için sağlık paneli",
+    category: "Çocuk",
+    ageGroup: "2-4 Yaş",
+    type: "Özel Panel",
+    tests: [
+      "Tam Kan Sayımı", "Ferritin", "B12 Vitamini", "25 OH Vitamin D3",
+      "Çinko", "İdrar Analizi", "Gaita da Parazit", "TSH"
+    ]
+  },
+  {
+    id: "5-6-yas-paneli",
+    title: "5-6 Yaş Paneli", 
+    description: "5-6 yaş arası çocuklar için genişletilmiş panel",
+    category: "Çocuk",
+    ageGroup: "5-6 Yaş",
+    type: "Özel Panel",
+    tests: [
+      "Tam Kan Sayımı", "Ferritin", "B12 Vitamini", "25 OH Vitamin D3",
+      "Çinko", "İdrar Analizi", "Gaita da Parazit", "TSH", "Açlık Kan Şekeri",
+      "AST", "ALT"
+    ]
+  },
+  {
+    id: "kanser-tarama-erkek",
+    title: "Kanser Taraması Paketi (Erkek)",
+    description: "Erkeklere özel kanser tarama paketi",
+    category: "Tarama",
+    ageGroup: "Yetişkin",
+    type: "Özel Panel",
+    tests: [
+      "CEA", "AFP", "CA 19-9", "Total PSA", "Free PSA", "CA 125", "CA 15-3"
+    ]
+  },
+  {
+    id: "kanser-tarama-kadin",
+    title: "Kanser Taraması Paketi (Kadın)", 
+    description: "Kadınlara özel kanser tarama paketi",
+    category: "Tarama",
+    ageGroup: "Yetişkin",
+    type: "Özel Panel",
+    tests: [
+      "CEA", "AFP", "CA 19-9", "CA 125", "CA 15-3"
+    ]
+  },
+  {
+    id: "alerji-paneli",
+    title: "Alerji Paneli",
+    description: "Kapsamlı alerji tarama paneli",
+    category: "Alerji",
+    ageGroup: "Tüm Yaşlar",
+    type: "Özel Panel",
+    tests: [
+      "Total IgE", "Yumurta Akı", "Yumurta Sarısı", "İnek Sütü", "Badem", 
+      "Fındık", "Çilek", "Domates", "Buğday", "Soya Fasulyesi", "Fıstık",
+      "Balık Karışımı", "Deniz Ürünleri Karışımı", "Et Karışımı", 
+      "Tahıl Karışımı", "Meyve Karışımı", "Sebze Karışımı", "Baklagiller Karışımı",
+      "Ağaç Poleni", "Ot Poleni", "Ev Tozu Akarı", "Küf Karışımı", 
+      "Hayvan Epiteli Karışımı", "Hamam Böceği"
+    ]
+  },
+  {
+    id: "cinsel-hastalik-paneli",
+    title: "Cinsel Yolla Bulaşan Hastalıklar Paketi",
+    description: "CYBE hastalıkları tarama paketi",
+    category: "Enfeksiyon",
+    ageGroup: "Yetişkin",
+    type: "Özel Panel",
+    tests: [
+      "Syphilis (VDRL)", "Anti-HIV", "HbsAg", "Anti-HCV"
+    ]
+  }
+];
+
+// Get all unique categories for filtering
+export const getCategories = () => {
+  const mainCategories = [...new Set(checkupPackages.map(pkg => pkg.category))];
+  const panelCategories = [...new Set(specialPanels.map(panel => panel.category))];
+  return [...new Set([...mainCategories, ...panelCategories])];
+};
+
+// Get all unique types for filtering
+export const getTypes = () => {
+  const mainTypes = [...new Set(checkupPackages.map(pkg => pkg.type))];
+  const panelTypes = [...new Set(specialPanels.map(panel => panel.type))];
+  return [...new Set([...mainTypes, ...panelTypes])];
+};
+
+// Get all unique age groups for filtering
+export const getAgeGroups = () => {
+  const mainAgeGroups = [...new Set(checkupPackages.map(pkg => pkg.ageGroup))];
+  const panelAgeGroups = [...new Set(specialPanels.map(panel => panel.ageGroup))];
+  return [...new Set([...mainAgeGroups, ...panelAgeGroups])];
+};
