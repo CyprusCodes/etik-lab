@@ -1,5 +1,4 @@
 import { Layout } from "@/components/layout/Layout";
-import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -80,14 +79,49 @@ const services = [
 export default function Services() {
   return (
     <Layout>
-      <PageHeader
-        title="Hizmetlerimiz"
-        description="Modern altyapımız ve uzman kadromuzla geniş yelpazede laboratuvar hizmetleri sunuyoruz."
-        breadcrumbs={[{ label: "Hizmetlerimiz" }]}
-      />
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-32 pb-20">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-20">
+          <img
+            src={getImagePath("hero-bgs/about-us.jpg")}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/70" />
+        </div>
 
-      {/* Clean Services Section */}
-      <section className="relative py-20 lg:py-32 bg-white">
+        {/* Ambient effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-blob" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-blob delay-300" />
+        </div>
+
+        {/* Content */}
+        <div className="container-wide relative z-10">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6">
+              Kapsamlı Laboratuvar
+              <br />
+              <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                Hizmetlerimiz
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
+              Sağlığınız için gereken tüm laboratuvar testlerini modern
+              altyapımız ve uzman kadromuzla sunuyoruz. Her bir hizmetimiz, en
+              yüksek kalite standartlarında ve güvenilir sonuçlar için
+              tasarlanmıştır.
+            </p>
+            <div className="text-base md:text-lg text-white/80">
+              Modern Teknoloji • Uzman Kadro • Güvenilir Sonuçlar
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50">
         <div className="container-wide">
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -103,7 +137,7 @@ export default function Services() {
                     />
 
                     {/* Service Icon Overlay */}
-                    <div className="absolute bottom-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg">
+                    <div className="absolute bottom-4 right-4 w-12 h-12 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg">
                       <service.icon className="w-6 h-6 text-primary" />
                     </div>
                   </div>
@@ -141,38 +175,58 @@ export default function Services() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Contact CTA */}
-          <div className="text-center mt-20">
-            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-12 border border-border/50">
-              <Clock className="w-16 h-16 text-primary mx-auto mb-6" />
-              <h3 className="text-3xl font-bold text-foreground mb-4">
-                Hızlı ve Güvenilir Hizmet
-              </h3>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Tüm hizmetlerimiz için randevu alabilir, sorularınızı iletişim
-                kanallarımızdan sorabilirsiniz.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild>
-                  <Link
-                    to="/randevu"
-                    className="inline-flex items-center gap-2"
-                  >
-                    Randevu Al
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link
-                    to="/iletisim"
-                    className="inline-flex items-center gap-2"
-                  >
-                    İletişim
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </Button>
-              </div>
+      {/* CTA Section */}
+      <section className="relative overflow-hidden py-20 lg:py-32">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={getImagePath("medical-pictures/home_experience_03.jpg")}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80" />
+        </div>
+
+        {/* Ambient effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-blob" />
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-blob delay-700" />
+          <div className="absolute top-1/2 right-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl animate-blob delay-1000" />
+        </div>
+
+        <div className="container-wide relative z-10">
+          <div className="text-center">
+            <Clock className="w-16 h-16 text-white mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">
+              Hızlı ve Güvenilir
+              <br />
+              <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                Laboratuvar Hizmeti
+              </span>
+            </h2>
+            <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+              Tüm hizmetlerimiz için randevu alabilir, sorularınızı iletişim
+              kanallarımızdan sorabilirsiniz. Modern altyapımız ve deneyimli
+              kadromuzla hizmetinizdeyiz.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
+              <Link
+                to="/randevu"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Randevu Al
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+              </Link>
+              <Link
+                to="/iletisim"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-300 border border-white/30 backdrop-blur-sm hover:border-white/50 shadow-lg hover:shadow-xl"
+              >
+                İletişim
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+              </Link>
             </div>
           </div>
         </div>
