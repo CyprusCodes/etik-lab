@@ -2,18 +2,47 @@ import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { Badge } from "@/components/ui/badge";
-import { Search, Filter, ChevronDown, ChevronUp, Calendar, FileText } from "lucide-react";
-import { checkupPackages, specialPanels, getCategories, getTypes, getAgeGroups } from "@/data/checkupPackages";
+import {
+  Search,
+  Filter,
+  ChevronDown,
+  ChevronUp,
+  Calendar,
+  FileText,
+} from "lucide-react";
+import {
+  checkupPackages,
+  specialPanels,
+  getCategories,
+  getTypes,
+  getAgeGroups,
+} from "@/data/checkupPackages";
 
 // Expandable package card component
 const PackageCard = ({ pkg, isSpecialPanel = false }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const allPackages = isSpecialPanel ? specialPanels : checkupPackages;
-  
+
   return (
     <Card className="h-fit border border-border/50 hover:border-primary/30 hover:shadow-md transition-all duration-200">
       <CardHeader className="pb-4">
@@ -30,7 +59,7 @@ const PackageCard = ({ pkg, isSpecialPanel = false }) => {
             {pkg.category}
           </Badge>
         </div>
-        
+
         <div className="flex items-center gap-4 text-sm text-muted-foreground mt-3">
           <span className="flex items-center gap-1">
             <FileText className="w-4 h-4" />
@@ -44,12 +73,12 @@ const PackageCard = ({ pkg, isSpecialPanel = false }) => {
           </Badge>
         </div>
       </CardHeader>
-      
+
       <CardContent className="pt-0">
         <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
           <CollapsibleTrigger asChild>
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               className="w-full justify-between p-0 h-auto text-sm font-medium mb-3 hover:bg-transparent"
             >
               <span>Test Listesi</span>
@@ -60,12 +89,15 @@ const PackageCard = ({ pkg, isSpecialPanel = false }) => {
               )}
             </Button>
           </CollapsibleTrigger>
-          
+
           <CollapsibleContent className="mb-4">
             <div className="bg-muted/30 rounded-lg p-4">
               <div className="grid gap-2">
                 {pkg.tests.map((test, index) => (
-                  <div key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <div
+                    key={index}
+                    className="text-sm text-muted-foreground flex items-start gap-2"
+                  >
                     <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium text-primary mt-0.5 flex-shrink-0">
                       {index + 1}
                     </span>
@@ -76,9 +108,12 @@ const PackageCard = ({ pkg, isSpecialPanel = false }) => {
             </div>
           </CollapsibleContent>
         </Collapsible>
-        
+
         <Button className="w-full" asChild>
-          <Link to="/appointment" className="inline-flex items-center justify-center gap-2">
+          <Link
+            to="/appointment"
+            className="inline-flex items-center justify-center gap-2"
+          >
             <Calendar className="w-4 h-4" />
             Randevu Al
           </Link>
@@ -102,16 +137,21 @@ export const CheckUpPackages = () => {
   // Filter packages based on search and filters
   const filteredPackages = useMemo(() => {
     const allPackages = [...checkupPackages, ...specialPanels];
-    
-    return allPackages.filter(pkg => {
-      const matchesSearch = pkg.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           pkg.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           pkg.tests.some(test => test.toLowerCase().includes(searchTerm.toLowerCase()));
-      
-      const matchesCategory = categoryFilter === "all" || pkg.category === categoryFilter;
+
+    return allPackages.filter((pkg) => {
+      const matchesSearch =
+        pkg.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pkg.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pkg.tests.some((test) =>
+          test.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+      const matchesCategory =
+        categoryFilter === "all" || pkg.category === categoryFilter;
       const matchesType = typeFilter === "all" || pkg.type === typeFilter;
-      const matchesAgeGroup = ageGroupFilter === "all" || pkg.ageGroup === ageGroupFilter;
-      
+      const matchesAgeGroup =
+        ageGroupFilter === "all" || pkg.ageGroup === ageGroupFilter;
+
       return matchesSearch && matchesCategory && matchesType && matchesAgeGroup;
     });
   }, [searchTerm, categoryFilter, typeFilter, ageGroupFilter]);
@@ -124,7 +164,11 @@ export const CheckUpPackages = () => {
     setAgeGroupFilter("all");
   };
 
-  const hasActiveFilters = searchTerm !== "" || categoryFilter !== "all" || typeFilter !== "all" || ageGroupFilter !== "all";
+  const hasActiveFilters =
+    searchTerm !== "" ||
+    categoryFilter !== "all" ||
+    typeFilter !== "all" ||
+    ageGroupFilter !== "all";
 
   return (
     <section className="section-padding">
@@ -145,7 +189,7 @@ export const CheckUpPackages = () => {
             <Filter className="w-5 h-5 text-muted-foreground" />
             <h3 className="font-semibold">Arama ve Filtreleme</h3>
           </div>
-          
+
           <div className="grid gap-4">
             {/* Search */}
             <div className="relative">
@@ -157,7 +201,7 @@ export const CheckUpPackages = () => {
                 className="pl-10"
               />
             </div>
-            
+
             {/* Filters */}
             <div className="grid md:grid-cols-3 gap-4">
               <Select value={categoryFilter} onValueChange={setCategoryFilter}>
@@ -173,7 +217,7 @@ export const CheckUpPackages = () => {
                   ))}
                 </SelectContent>
               </Select>
-              
+
               <Select value={typeFilter} onValueChange={setTypeFilter}>
                 <SelectTrigger>
                   <SelectValue placeholder="Tür seçin" />
@@ -187,7 +231,7 @@ export const CheckUpPackages = () => {
                   ))}
                 </SelectContent>
               </Select>
-              
+
               <Select value={ageGroupFilter} onValueChange={setAgeGroupFilter}>
                 <SelectTrigger>
                   <SelectValue placeholder="Yaş grubu seçin" />
@@ -202,7 +246,7 @@ export const CheckUpPackages = () => {
                 </SelectContent>
               </Select>
             </div>
-            
+
             {/* Clear filters */}
             {hasActiveFilters && (
               <div className="flex justify-end">
@@ -226,11 +270,13 @@ export const CheckUpPackages = () => {
         {filteredPackages.length > 0 ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPackages.map((pkg) => {
-              const isSpecialPanel = specialPanels.some(panel => panel.id === pkg.id);
+              const isSpecialPanel = specialPanels.some(
+                (panel) => panel.id === pkg.id
+              );
               return (
-                <PackageCard 
-                  key={pkg.id} 
-                  pkg={pkg} 
+                <PackageCard
+                  key={pkg.id}
+                  pkg={pkg}
                   isSpecialPanel={isSpecialPanel}
                 />
               );
