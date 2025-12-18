@@ -193,7 +193,7 @@ export const TimelineJourney = () => {
       </div>
 
       {/* Custom Styles */}
-      <style jsx>{`
+      <style>{`
         .animate-slide-in-view {
           animation: slideInView 0.8s ease-out forwards;
         }

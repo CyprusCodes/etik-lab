@@ -2,41 +2,14 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef, useEffect, useState } from "react";
+import { getImagePath } from "@/utils/assets";
 
 const testPanels = [
-  {
-    title: "Cinsel Hastalıklar",
-    description:
-      "HIV, HPV, Herpes, Klamidya ve diğer cinsel yolla bulaşan hastalıkların tanı ve tarama testleri.",
-    image:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop",
-    href: "/test-panelleri/cinsel-hastaliklar",
-    tests: ["HIV", "HPV", "Herpes Simplex", "Klamidya"],
-  },
-  {
-    title: "Anemi Paneli",
-    description:
-      "Demir eksikliği ve kansızlık tanısı için kapsamlı kan analizleri.",
-    image:
-      "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=800&h=600&fit=crop",
-    href: "/test-panelleri/anemi",
-    tests: ["Ferritin", "Demir", "Vitamin B12", "Folat"],
-  },
-  {
-    title: "Diyabet Paneli",
-    description:
-      "Kan şekeri metabolizmasını değerlendiren kapsamlı diyabet tarama testleri.",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
-    href: "/test-panelleri/diyabet",
-    tests: ["Glukoz", "HbA1c", "İnsülin", "HOMA-IR"],
-  },
   {
     title: "Tiroid Paneli",
     description:
       "Tiroid bezinin fonksiyonlarını ve otoimmün durumlarını değerlendiren testler.",
-    image:
-      "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop",
+    image: getImagePath("panell/tp.png"),
     href: "/test-panelleri/tiroid",
     tests: ["TSH", "Serbest T4", "Serbest T3", "Anti-TPO"],
   },
@@ -44,19 +17,57 @@ const testPanels = [
     title: "TORCH Paneli",
     description:
       "Hamilelik öncesi ve sırasında önemli enfeksiyonların taranmasına yönelik testler.",
-    image:
-      "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&h=600&fit=crop",
+    image: getImagePath("panell/torch.png"),
     href: "/test-panelleri/torch",
     tests: ["Toxoplasma", "Rubella", "CMV", "HSV 1/2"],
+  },
+  {
+    title: "Kolon Kanseri Paneli",
+    description:
+      "Kolon kanseri erken tanısı ve taramasına yönelik kapsamlı test paneli.",
+    image: getImagePath("panell/kkp.png"),
+    href: "/test-panelleri/kolon-kanseri",
+    tests: ["CEA", "CA 19-9", "Okült Kan", "Genetik Belirteçler"],
+  },
+  {
+    title: "Anemi Paneli",
+    description:
+      "Demir eksikliği ve kansızlık tanısı için kapsamlı kan analizleri.",
+    image: getImagePath("panell/ap.png"),
+    href: "/test-panelleri/anemi",
+    tests: ["Ferritin", "Demir", "Vitamin B12", "Folat"],
   },
   {
     title: "Çölyak Paneli",
     description:
       "Çölyak hastalığı ve gluten intoleransının değerlendirilmesine yönelik serolojik testler.",
-    image:
-      "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=800&h=600&fit=crop",
+    image: getImagePath("panell/cp.png"),
     href: "/test-panelleri/colyak",
     tests: ["Anti-tTG", "Anti-DGP", "Total IgA"],
+  },
+  {
+    title: "Diyabet Paneli",
+    description:
+      "Kan şekeri metabolizmasını değerlendiren kapsamlı diyabet tarama testleri.",
+    image: getImagePath("panell/dp.png"),
+    href: "/test-panelleri/diyabet",
+    tests: ["Glukoz", "HbA1c", "İnsülin", "HOMA-IR"],
+  },
+  {
+    title: "Romatoloji Paneli",
+    description:
+      "Romatizmal hastalıkların tanısı ve takibi için özel test paneli.",
+    image: getImagePath("panell/rp.png"),
+    href: "/test-panelleri/romatoloji",
+    tests: ["RF", "Anti-CCP", "ANA", "ESR"],
+  },
+  {
+    title: "Cinsel Hastalıklar",
+    description:
+      "HIV, HPV, Herpes, Klamidya ve diğer cinsel yolla bulaşan hastalıkların tanı ve tarama testleri.",
+    image: getImagePath("panell/ch.png"),
+    href: "/test-panelleri/cinsel-hastaliklar",
+    tests: ["HIV", "HPV", "Herpes Simplex", "Klamidya"],
   },
 ];
 

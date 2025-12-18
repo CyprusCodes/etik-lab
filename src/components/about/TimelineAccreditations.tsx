@@ -257,7 +257,7 @@ export const TimelineAccreditations = () => {
       </div>
 
       {/* Custom Styles */}
-      <style jsx>{`
+      <style>{`
         .animate-float-in {
           animation: floatIn 0.8s ease-out forwards;
         }

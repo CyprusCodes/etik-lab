@@ -22,11 +22,14 @@ const footerLinks = {
     { label: "Kurumsal Hizmetler", href: "/hizmetlerimiz/kurumsal" },
   ],
   testler: [
-    { label: "Cinsel Hastalıklar", href: "/test-panelleri/cinsel-hastaliklar" },
-    { label: "Anemi Paneli", href: "/test-panelleri/anemi" },
-    { label: "Diyabet Paneli", href: "/test-panelleri/diyabet" },
     { label: "Tiroid Paneli", href: "/test-panelleri/tiroid" },
-    { label: "Check-Up Paketleri", href: "/paketler" },
+    { label: "TORCH Paneli", href: "/test-panelleri/torch" },
+    { label: "Kolon Kanseri Paneli", href: "/test-panelleri/kolon-kanseri" },
+    { label: "Anemi Paneli", href: "/test-panelleri/anemi" },
+    { label: "Çölyak Paneli", href: "/test-panelleri/colyak" },
+    { label: "Diyabet Paneli", href: "/test-panelleri/diyabet" },
+    { label: "Romatoloji Paneli", href: "/test-panelleri/romatoloji" },
+    { label: "Cinsel Hastalıklar", href: "/test-panelleri/cinsel-hastaliklar" },
   ],
   kurumsal: [
     { label: "Hakkımızda", href: "/hakkimizda" },

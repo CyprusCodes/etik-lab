@@ -13,12 +13,6 @@ import Timeline from "./pages/Timeline";
 import Career from "./pages/Career";
 import Team from "./pages/Team";
 import Services from "./pages/Services";
-import OutpatientServices from "./pages/services/OutpatientServices";
-import HomeSampleCollection from "./pages/services/HomeSampleCollection";
-import GeneticTests from "./pages/services/GeneticTests";
-import SMATest from "./pages/services/SMATest";
-import CorporateServices from "./pages/services/CorporateServices";
-import CovidTests from "./pages/services/CovidTests";
 import CovidTestleri from "./pages/services/CovidTestleri";
 import GenetikTestleri from "./pages/services/GenetikTestleri";
 import SmaTesti from "./pages/services/SmaTesti";
@@ -26,14 +20,14 @@ import AyaktanHasta from "./pages/services/AyaktanHasta";
 import EvdeKanAlma from "./pages/services/EvdeKanAlma";
 import KurumsalHizmetler from "./pages/services/KurumsalHizmetler";
 import TestPanels from "./pages/TestPanels";
-import STDPanel from "./pages/panels/STDPanel";
-import AnemiaPanel from "./pages/panels/AnemiaPanel";
-import CeliacPanel from "./pages/panels/CeliacPanel";
-import DiabetesPanel from "./pages/panels/DiabetesPanel";
-import ColonCancerPanel from "./pages/panels/ColonCancerPanel";
-import RheumatologyPanel from "./pages/panels/RheumatologyPanel";
-import ThyroidPanel from "./pages/panels/ThyroidPanel";
-import TORCHPanel from "./pages/panels/TORCHPanel";
+import TiroidPaneli from "./pages/panels/TiroidPaneli";
+import TorchPaneli from "./pages/panels/TorchPaneli";
+import KolonKanseriPaneli from "./pages/panels/KolonKanseriPaneli";
+import AnemiPaneli from "./pages/panels/AnemiPaneli";
+import ColyakPaneli from "./pages/panels/ColyakPaneli";
+import DiyabetPaneli from "./pages/panels/DiyabetPaneli";
+import RomatolojiPaneli from "./pages/panels/RomatolojiPaneli";
+import CinselHastaliklarPaneli from "./pages/panels/CinselHastaliklarPaneli";
 import CheckUp from "./pages/CheckUp";
 import SportsCheckUp from "./pages/SportsCheckUp";
 import Blog from "./pages/Blog";
@@ -88,23 +82,23 @@ const App = () => (
 
           {/* Test Panels */}
           <Route path="/test-panelleri" element={<TestPanels />} />
-          <Route
-            path="/test-panelleri/cinsel-hastaliklar"
-            element={<STDPanel />}
-          />
-          <Route path="/test-panelleri/anemi" element={<AnemiaPanel />} />
-          <Route path="/test-panelleri/colyak" element={<CeliacPanel />} />
-          <Route path="/test-panelleri/diyabet" element={<DiabetesPanel />} />
+          <Route path="/test-panelleri/tiroid" element={<TiroidPaneli />} />
+          <Route path="/test-panelleri/torch" element={<TorchPaneli />} />
           <Route
             path="/test-panelleri/kolon-kanseri"
-            element={<ColonCancerPanel />}
+            element={<KolonKanseriPaneli />}
           />
+          <Route path="/test-panelleri/anemi" element={<AnemiPaneli />} />
+          <Route path="/test-panelleri/colyak" element={<ColyakPaneli />} />
+          <Route path="/test-panelleri/diyabet" element={<DiyabetPaneli />} />
           <Route
             path="/test-panelleri/romatoloji"
-            element={<RheumatologyPanel />}
+            element={<RomatolojiPaneli />}
           />
-          <Route path="/test-panelleri/tiroid" element={<ThyroidPanel />} />
-          <Route path="/test-panelleri/torch" element={<TORCHPanel />} />
+          <Route
+            path="/test-panelleri/cinsel-hastaliklar"
+            element={<CinselHastaliklarPaneli />}
+          />
 
           {/* Check-Up */}
           <Route path="/paketler" element={<CheckUp />} />
