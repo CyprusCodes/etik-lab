@@ -44,7 +44,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/etik-lab">
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />

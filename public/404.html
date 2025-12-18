@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <title>Etik Laboratuvarı - Sayfa Bulunamadı</title>
     <script>
-      const path = window.location.pathname;
-      window.location.replace("/?redirect=" + path);
+      const path = window.location.pathname.replace("/etik-lab", "");
+      window.location.replace("/etik-lab/?redirect=" + path);
     </script>
   </head>
   <body></body>
