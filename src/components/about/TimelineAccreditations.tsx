@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Award, CheckCircle, Download, ExternalLink } from "lucide-react";
 import "./timeline-animations.css";
+import { getImagePath } from "@/utils/assets";
 
 const accreditations = [
   {
@@ -9,6 +10,7 @@ const accreditations = [
     description:
       "Kalite kontrol konusundaki bağlılığımızı bir adım daha ileriye taşıdık",
     certificate: "/certificates/2021_Katılım Sertifikası.pdf",
+    image: getImagePath("/certificates/2021_Katılım Sertifikası.png"),
   },
   {
     year: 2022,
@@ -16,6 +18,7 @@ const accreditations = [
     description:
       "Her ay düzenli olarak KBUDEK'ten gelen numuneleri çalışıp kalitemizi arttırdık",
     certificate: "/certificates/2022_Katılım Sertifikası.pdf",
+    image: getImagePath("/certificates/2022_Katılım Sertifikası.png"),
   },
   {
     year: 2023,
@@ -23,6 +26,7 @@ const accreditations = [
     description:
       "Kalite standartlarımızı sürekli olarak geliştirmeye devam ettik",
     certificate: "/certificates/2023_Katılım Sertifikası.pdf",
+    image: getImagePath("/certificates/2023_Katılım Sertifikası.png"),
   },
   {
     year: 2024,
@@ -30,6 +34,7 @@ const accreditations = [
     description:
       "En güncel kalite standartları ile hizmet vermeye devam ediyoruz",
     certificate: "/certificates/2024_Katılım Sertifikası.pdf",
+    image: getImagePath("/certificates/2024_Katılım Sertifikası.png"),
   },
 ];
 
@@ -165,75 +170,73 @@ export const TimelineAccreditations = () => {
           </div>
         </div>
 
-        {/* Certificates Section with Stacked Animation */}
+        {/* Certificates Section with Image Display */}
         <div>
           <h3 className="text-3xl font-black text-foreground mb-12 text-center animate-fade-in-up">
             Akreditasyonlarımız
           </h3>
 
-          <div ref={certificatesRef} className="relative max-w-6xl mx-auto">
-            {/* Stack effect container */}
-            <div className="relative h-[600px] md:h-[400px]">
+          <div ref={certificatesRef} className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
               {accreditations.map((accreditation, index) => (
                 <div
                   key={accreditation.year}
                   data-cert-card
-                  className="absolute w-full md:w-80 bg-card rounded-3xl p-8 border-2 border-border shadow-2xl opacity-0 transition-all duration-700 hover:shadow-3xl group cursor-pointer"
-                  style={{
-                    left: `${index * 15}%`,
-                    top: `${index * 20}px`,
-                    transform: `rotate(${
-                      (index % 2 === 0 ? -1 : 1) * (index + 1) * 2
-                    }deg) scale(${1 - index * 0.05})`,
-                    zIndex: accreditations.length - index,
-                  }}
+                  className="opacity-0 group"
                 >
-                  {/* Gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Certificate Image - Clickable */}
+                  <div
+                    className="relative cursor-pointer"
+                    onClick={() => window.open(accreditation.image, "_blank")}
+                  >
+                    <img
+                      src={accreditation.image}
+                      alt={`${accreditation.year} ${accreditation.title}`}
+                      className="w-full h-auto object-contain rounded-2xl border-2 border-border/30 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                      loading="lazy"
+                    />
 
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <Award className="w-8 h-8 text-white" />
-                      </div>
-                      <span className="text-3xl font-black text-primary group-hover:text-accent transition-colors">
+                    {/* Year badge */}
+                    {/* <div className="absolute top-4 right-4 w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-white font-bold text-sm">
                         {accreditation.year}
                       </span>
-                    </div>
+                    </div> */}
 
-                    <h4 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors line-clamp-2">
+                    {/* Hover overlay with click hint */}
+                    <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300 rounded-2xl flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                        <span className="text-sm font-medium text-foreground flex items-center gap-2">
+                          <ExternalLink className="w-4 h-4" />
+                          Büyütmek için tıklayın
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Certificate Title */}
+                  <div className="mt-6 text-center">
+                    <h4 className="text-lg font-bold text-foreground mb-2">
                       {accreditation.title}
                     </h4>
-
-                    <p className="text-sm text-muted-foreground mb-8 leading-relaxed line-clamp-3">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {accreditation.description}
                     </p>
-
-                    <div className="flex gap-3">
-                      <a
-                        href={accreditation.certificate}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground rounded-xl text-sm font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-md"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Download className="w-4 h-4" />
-                        Sertifika PDF
-                      </a>
-                      <a
-                        href={accreditation.certificate}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 border-2 border-border rounded-xl hover:bg-secondary transition-all hover:scale-105"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* Clean completion indicator */}
+            {/* <div className="text-center mt-16">
+              <div className="inline-flex items-center gap-2 text-muted-foreground">
+                <Award className="w-5 h-5" />
+                <span className="text-sm font-medium">
+                  {accreditations.length} akreditasyon sertifikası
+                </span>
+                <CheckCircle className="w-5 h-5 text-green-500" />
+              </div>
+            </div> */}
           </div>
         </div>
 
@@ -285,12 +288,11 @@ export const TimelineAccreditations = () => {
         @keyframes stackReveal {
           from {
             opacity: 0;
-            transform: translateY(100px) rotateZ(0deg) scale(0.8);
+            transform: translateY(50px) rotateZ(0deg) scale(0.9);
           }
           to {
             opacity: 1;
-            transform: translateY(0) rotateZ(var(--rotation))
-              scale(var(--scale));
+            transform: translateY(0) rotateZ(var(--rotation, 0deg)) scale(1);
           }
         }
 
