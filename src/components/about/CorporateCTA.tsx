@@ -86,7 +86,7 @@ export const CorporateCTA = () => (
             asChild
           >
             <a
-              href="https://etiklabsonuc.com"
+              href="http://185.37.185.41:8080/Bireysel.html"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3"

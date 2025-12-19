@@ -65,11 +65,11 @@ export function HeroSection() {
               asChild
             >
               <a
-                href="https://etiklabsonuc.com"
+                href="http://185.37.185.41:8080/Bireysel.html"
                 target="_blank"
                 rel="noreferrer"
               >
-                Sonuçları Kontrol Et
+                Test Sonuçları
               </a>
             </Button>
           </div>
@@ -118,7 +118,6 @@ export function HeroSection() {
                 "/accreditations/kktc.png",
                 "/accreditations/kbudek.png",
                 "/accreditations/etik-hastanesi.png",
-                "/accreditations/turak.png",
               ].map((src, i) => (
                 <img
                   key={i}

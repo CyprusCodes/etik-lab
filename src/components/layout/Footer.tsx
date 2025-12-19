@@ -81,7 +81,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3 text-white/80">
                 <Clock className="w-5 h-5 flex-shrink-0" />
-                <span>Pzt - Cmt: 08:00 - 18:00</span>
+                <span>Pzt - Cmt: 07:00 - 23:00</span>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ export function Footer() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://www.instagram.com/etiklaboratuvari"
+                href="https://www.instagram.com/etik.lab/?igsh=ZGF2azdlYXM1Ynhu#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"

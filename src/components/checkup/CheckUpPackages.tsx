@@ -111,7 +111,7 @@ const PackageCard = ({ pkg, isSpecialPanel = false }) => {
 
         <Button className="w-full" asChild>
           <Link
-            to="/appointment"
+            to="/randevu"
             className="inline-flex items-center justify-center gap-2"
           >
             <Calendar className="w-4 h-4" />

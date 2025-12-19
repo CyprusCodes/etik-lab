@@ -39,7 +39,7 @@ export function FloatingButtons() {
         "
         asChild
       >
-        <a href="tel:+902123456789" aria-label="Bizi arayın">
+        <a href="tel:+905338403273" aria-label="Bizi arayın">
           <PhoneCall className="w-6 h-6" />
         </a>
       </Button> */}

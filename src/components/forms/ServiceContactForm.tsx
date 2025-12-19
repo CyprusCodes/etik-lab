@@ -120,7 +120,7 @@ export function ServiceContactForm({
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4 text-primary" />
-                      <span>Pzt - Cmt: 08:00 - 18:00</span>
+                      <span>Pzt - Cmt: 07:00 - 23:00</span>
                     </div>
                   </div>
                 </div>

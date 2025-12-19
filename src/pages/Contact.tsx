@@ -6,10 +6,25 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const contactInfo = [
-  { icon: Phone, label: "Telefon", value: "+90 212 345 67 89", href: "tel:+902123456789" },
-  { icon: Mail, label: "E-posta", value: "info@etiklab.net", href: "mailto:info@etiklab.net" },
-  { icon: MapPin, label: "Adres", value: "İstanbul, Türkiye", href: "#" },
-  { icon: Clock, label: "Çalışma Saatleri", value: "Pzt-Cmt: 08:00 - 18:00", href: "#" },
+  {
+    icon: Phone,
+    label: "Telefon",
+    value: "+90 533 840 32 73",
+    href: "tel:+905338403273",
+  },
+  {
+    icon: Mail,
+    label: "E-posta",
+    value: "info@etiklab.net",
+    href: "mailto:info@etiklab.net",
+  },
+  { icon: MapPin, label: "Adres", value: "Lefkosa, Kibris", href: "#" },
+  {
+    icon: Clock,
+    label: "Çalışma Saatleri",
+    value: "Pazartesi - Pazar: 07:00 - 23:00",
+    href: "#",
+  },
 ];
 
 export default function Contact() {
@@ -20,33 +35,53 @@ export default function Contact() {
         description="Sorularınız için bize ulaşın. Size yardımcı olmaktan memnuniyet duyarız."
         breadcrumbs={[{ label: "İletişim" }]}
       />
-      
+
       <section className="section-padding">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <h2 className="heading-2 text-foreground mb-6">Bize Ulaşın</h2>
               <p className="body-large mb-8">
-                Sorularınız, önerileriniz veya randevu talepleriniz için aşağıdaki formu doldurabilir veya iletişim bilgilerimizi kullanabilirsiniz.
+                Sorularınız, önerileriniz veya randevu talepleriniz için
+                aşağıdaki formu doldurabilir veya iletişim bilgilerimizi
+                kullanabilirsiniz.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
                 {contactInfo.map((info) => (
-                  <a key={info.label} href={info.href} className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary/30 transition-colors">
+                  <a
+                    key={info.label}
+                    href={info.href}
+                    className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary/30 transition-colors"
+                  >
                     <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center flex-shrink-0">
                       <info.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <div className="font-medium text-foreground">{info.label}</div>
-                      <div className="text-muted-foreground text-sm">{info.value}</div>
+                      <div className="font-medium text-foreground">
+                        {info.label}
+                      </div>
+                      <div className="text-muted-foreground text-sm">
+                        {info.value}
+                      </div>
                     </div>
                   </a>
                 ))}
               </div>
 
-              <Button variant="whatsapp" size="lg" className="w-full sm:w-auto" asChild>
-                <a href="https://wa.me/902123456789" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-5 h-5" /> WhatsApp ile İletişime Geçin
+              <Button
+                variant="whatsapp"
+                size="lg"
+                className="w-full sm:w-auto"
+                asChild
+              >
+                <a
+                  href="https://wa.me/902123456789"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="w-5 h-5" /> WhatsApp ile İletişime
+                  Geçin
                 </a>
               </Button>
             </div>
@@ -56,27 +91,39 @@ export default function Contact() {
               <form className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Ad Soyad</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Ad Soyad
+                    </label>
                     <Input placeholder="Adınız Soyadınız" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Telefon</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Telefon
+                    </label>
                     <Input type="tel" placeholder="+90 5XX XXX XX XX" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">E-posta</label>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    E-posta
+                  </label>
                   <Input type="email" placeholder="ornek@email.com" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Konu</label>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Konu
+                  </label>
                   <Input placeholder="Mesajınızın konusu" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Mesajınız</label>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Mesajınız
+                  </label>
                   <Textarea placeholder="Mesajınızı yazın..." rows={4} />
                 </div>
-                <Button type="submit" size="lg" className="w-full">Gönder</Button>
+                <Button type="submit" size="lg" className="w-full">
+                  Gönder
+                </Button>
               </form>
             </div>
           </div>

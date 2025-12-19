@@ -28,17 +28,23 @@ export default function TestTracking() {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case "completed": return <CheckCircle2 className="w-5 h-5 text-success" />;
-      case "processing": return <Loader2 className="w-5 h-5 text-warning animate-spin" />;
-      default: return <Clock className="w-5 h-5 text-muted-foreground" />;
+      case "completed":
+        return <CheckCircle2 className="w-5 h-5 text-success" />;
+      case "processing":
+        return <Loader2 className="w-5 h-5 text-warning animate-spin" />;
+      default:
+        return <Clock className="w-5 h-5 text-muted-foreground" />;
     }
   };
 
   const getStatusText = (status: string) => {
     switch (status) {
-      case "completed": return "Tamamlandı";
-      case "processing": return "Çalışılıyor";
-      default: return "Beklemede";
+      case "completed":
+        return "Tamamlandı";
+      case "processing":
+        return "Çalışılıyor";
+      default:
+        return "Beklemede";
     }
   };
 
@@ -49,7 +55,7 @@ export default function TestTracking() {
         description="Barkod veya hasta numaranızla testlerinizin durumunu takip edin."
         breadcrumbs={[{ label: "Test Takibi" }]}
       />
-      
+
       <section className="section-padding">
         <div className="container-narrow">
           <div className="bg-card rounded-2xl p-8 border border-border mb-8">
@@ -71,23 +77,44 @@ export default function TestTracking() {
             <div className="bg-card rounded-2xl p-8 border border-border animate-fade-in">
               <div className="flex items-center justify-between mb-6 pb-6 border-b border-border">
                 <div>
-                  <h3 className="heading-4 text-foreground">{mockResult.patientName}</h3>
-                  <p className="text-muted-foreground text-sm">Barkod: {mockResult.barcode}</p>
+                  <h3 className="heading-4 text-foreground">
+                    {mockResult.patientName}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Barkod: {mockResult.barcode}
+                  </p>
                 </div>
                 <div className="text-right">
                   <p className="text-muted-foreground text-sm">Numune Tarihi</p>
-                  <p className="font-medium text-foreground">{mockResult.sampleDate}</p>
+                  <p className="font-medium text-foreground">
+                    {mockResult.sampleDate}
+                  </p>
                 </div>
               </div>
 
-              <h4 className="font-semibold text-foreground mb-4">Test Durumları</h4>
+              <h4 className="font-semibold text-foreground mb-4">
+                Test Durumları
+              </h4>
               <div className="space-y-3 mb-8">
                 {mockResult.tests.map((test) => (
-                  <div key={test.name} className="flex items-center justify-between p-4 bg-secondary rounded-xl">
-                    <span className="font-medium text-foreground">{test.name}</span>
+                  <div
+                    key={test.name}
+                    className="flex items-center justify-between p-4 bg-secondary rounded-xl"
+                  >
+                    <span className="font-medium text-foreground">
+                      {test.name}
+                    </span>
                     <div className="flex items-center gap-2">
                       {getStatusIcon(test.status)}
-                      <span className={`text-sm ${test.status === "completed" ? "text-success" : test.status === "processing" ? "text-warning" : "text-muted-foreground"}`}>
+                      <span
+                        className={`text-sm ${
+                          test.status === "completed"
+                            ? "text-success"
+                            : test.status === "processing"
+                            ? "text-warning"
+                            : "text-muted-foreground"
+                        }`}
+                      >
                         {getStatusText(test.status)}
                       </span>
                     </div>
@@ -97,7 +124,11 @@ export default function TestTracking() {
 
               <div className="flex gap-4">
                 <Button variant="outline" className="flex-1" asChild>
-                  <a href="https://etiklabsonuc.com" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="http://185.37.185.41:8080/Bireysel.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FileText className="w-4 h-4" /> Sonuçları Görüntüle
                   </a>
                 </Button>
@@ -109,8 +140,13 @@ export default function TestTracking() {
           {!showResult && (
             <div className="text-center py-12">
               <Search className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-              <h3 className="heading-4 text-foreground mb-2">Test Durumu Sorgula</h3>
-              <p className="text-muted-foreground">Barkod numaranızı girerek testlerinizin durumunu takip edebilirsiniz.</p>
+              <h3 className="heading-4 text-foreground mb-2">
+                Test Durumu Sorgula
+              </h3>
+              <p className="text-muted-foreground">
+                Barkod numaranızı girerek testlerinizin durumunu takip
+                edebilirsiniz.
+              </p>
             </div>
           )}
         </div>
