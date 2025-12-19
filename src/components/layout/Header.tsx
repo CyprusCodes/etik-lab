@@ -151,8 +151,27 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
+            <Button
+              size="sm"
+              variant="outline"
+              className={cn(
+                "font-bold rounded-full h-10 px-6 transition-all duration-300",
+                isScrolled
+                  ? "border-primary text-primary bg-white hover:bg-primary hover:text-white shadow-md"
+                  : "border-white text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm shadow-lg"
+              )}
+              asChild
+            >
+              <a
+                href="http://185.37.185.41:8080/Bireysel.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Test Sonuçları
+              </a>
+            </Button>
             <Button
               size="sm"
               className={cn(
@@ -274,10 +293,28 @@ export function Header() {
               </div>
               <div
                 className={cn(
-                  "pt-4 border-t",
+                  "pt-4 border-t space-y-3",
                   isScrolled ? "border-gray-200/50" : "border-white/10"
                 )}
               >
+                <Button
+                  variant="outline"
+                  className={cn(
+                    "w-full font-bold rounded-full h-11 shadow-lg transition-all duration-300",
+                    isScrolled
+                      ? "border-primary text-primary bg-white hover:bg-primary hover:text-white"
+                      : "border-white text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm"
+                  )}
+                  asChild
+                >
+                  <a
+                    href="http://185.37.185.41:8080/Bireysel.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Test Sonuçları
+                  </a>
+                </Button>
                 <Button
                   className={cn(
                     "w-full font-bold rounded-full h-11 shadow-lg transition-all duration-300",
