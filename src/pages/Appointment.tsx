@@ -127,7 +127,7 @@ export default function Appointment() {
 
             <form className="space-y-6">
               <h3 className="heading-4 text-foreground mb-4">Randevu Formu</h3>
-              
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">

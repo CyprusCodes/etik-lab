@@ -75,7 +75,13 @@ export default function TestRequest() {
     }
   };
 
-  const TestSection = ({ title, tests }: { title: string; tests: string[] }) => (
+  const TestSection = ({
+    title,
+    tests,
+  }: {
+    title: string;
+    tests: string[];
+  }) => (
     <Card>
       <CardHeader>
         <CardTitle className="text-lg">{title}</CardTitle>
@@ -87,7 +93,9 @@ export default function TestRequest() {
               <Checkbox
                 id={test}
                 checked={selectedTests.includes(test)}
-                onCheckedChange={(checked) => handleTestChange(test, checked as boolean)}
+                onCheckedChange={(checked) =>
+                  handleTestChange(test, checked as boolean)
+                }
               />
               <label
                 htmlFor={test}
@@ -139,7 +147,13 @@ export default function TestRequest() {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Yaşınız *
                     </label>
-                    <Input type="number" placeholder="Yaş" min="0" max="120" required />
+                    <Input
+                      type="number"
+                      placeholder="Yaş"
+                      min="0"
+                      max="120"
+                      required
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">

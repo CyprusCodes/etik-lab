@@ -81,6 +81,23 @@ export function CTASection() {
             >
               <Button
                 size="lg"
+                variant="outline"
+                className="border-2 border-white bg-white/10 text-white hover:bg-white/20 font-bold h-14 px-8 rounded-full backdrop-blur-sm transition-all group"
+                asChild
+              >
+                <a
+                  href="http://185.37.185.41:8080/Bireysel.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3"
+                >
+                  <FileText className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  Bireysel Test Sonuçları
+                </a>
+              </Button>
+
+              <Button
+                size="lg"
                 className="bg-white text-primary hover:bg-gray-50 font-bold h-14 px-8 rounded-full shadow-xl hover:shadow-2xl transition-all group"
                 asChild
               >
@@ -98,28 +115,11 @@ export function CTASection() {
                 asChild
               >
                 <a
-                  href="http://185.37.185.41:8080/Bireysel.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="http://185.37.185.41:8080/Kurumsal.html"
                   className="inline-flex items-center gap-3"
                 >
                   <FileText className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  Test Sonuçları
-                </a>
-              </Button>
-
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white bg-white/10 text-white hover:bg-white/20 font-bold h-14 px-8 rounded-full backdrop-blur-sm transition-all group"
-                asChild
-              >
-                <a
-                  href="tel:+905338712042"
-                  className="inline-flex items-center gap-3"
-                >
-                  <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  Bizi Arayın
+                  Kurumsal Test Sonuçları
                 </a>
               </Button>
             </div>

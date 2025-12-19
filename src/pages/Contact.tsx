@@ -19,18 +19,18 @@ const contactInfo = [
     value: "+90 533 871 20 42",
     href: "tel:+905338712042",
   },
-  { 
-    icon: MapPin, 
-    label: "Konum", 
-    value: "Dr. Remzi Gönenç Sk, Lefkoşa 99010", 
-    href: "#" 
+  {
+    icon: MapPin,
+    label: "Konum",
+    value: "Dr. Remzi Gönenç Sk, Lefkoşa 99010",
+    href: "#",
   },
   {
     icon: Mail,
     label: "Mail Adresimiz",
     value: "bilgi@etiklab.net",
     href: "mailto:bilgi@etiklab.net",
-    secondary: "sonuc@etiklab.net"
+    secondary: "sonuc@etiklab.net",
   },
 ];
 
@@ -67,7 +67,10 @@ export default function Contact() {
                       </div>
                       <div className="text-foreground text-base">
                         {info.href !== "#" ? (
-                          <a href={info.href} className="hover:text-primary transition-colors">
+                          <a
+                            href={info.href}
+                            className="hover:text-primary transition-colors"
+                          >
                             {info.value}
                           </a>
                         ) : (
@@ -76,7 +79,10 @@ export default function Contact() {
                       </div>
                       {info.secondary && (
                         <div className="text-foreground text-base mt-1">
-                          <a href={`mailto:${info.secondary}`} className="hover:text-primary transition-colors">
+                          <a
+                            href={`mailto:${info.secondary}`}
+                            className="hover:text-primary transition-colors"
+                          >
                             {info.secondary}
                           </a>
                         </div>
@@ -128,7 +134,11 @@ export default function Contact() {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Mesajınız *
                   </label>
-                  <Textarea placeholder="Mesajınızı yazın..." rows={6} required />
+                  <Textarea
+                    placeholder="Mesajınızı yazın..."
+                    rows={6}
+                    required
+                  />
                 </div>
                 <Button type="submit" size="lg" className="w-full">
                   Gönder
@@ -139,7 +149,9 @@ export default function Contact() {
 
           {/* Map */}
           <div className="mt-16">
-            <h3 className="heading-4 text-foreground mb-6 text-center">Konumumuz</h3>
+            <h3 className="heading-4 text-foreground mb-6 text-center">
+              Konumumuz
+            </h3>
             <div className="rounded-2xl overflow-hidden h-96 bg-secondary">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.892!2d33.363!3d35.175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDEwJzMwLjAiTiAzM8KwMjEnNDcuMCJF!5e0!3m2!1sen!2s!4v1702000000000!5m2!1sen!2s"
