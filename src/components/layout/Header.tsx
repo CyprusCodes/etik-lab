@@ -49,8 +49,17 @@ const navigationItems = [
     ],
   },
   { label: "Paketler", href: "/paketler" },
+  {
+    label: "İletişim",
+    href: "#",
+    children: [
+      { label: "İletişim Formu", href: "/iletisim" },
+      { label: "Randevu Formu", href: "/randevu" },
+      { label: "Test İstem Formu", href: "/test-istem-formu" },
+      { label: "Test Takibi", href: "http://185.37.185.41:8080/Bireysel.html" },
+    ],
+  },
   { label: "Blog", href: "/blog" },
-  { label: "İletişim", href: "/iletisim" },
 ];
 
 export function Header() {

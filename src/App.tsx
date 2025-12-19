@@ -34,7 +34,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Appointment from "./pages/Appointment";
-import TestTracking from "./pages/TestTracking";
+import TestRequest from "./pages/TestRequest";
 import { ScrollToTop } from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -111,7 +111,7 @@ const App = () => (
           {/* Contact & Forms */}
           <Route path="/iletisim" element={<Contact />} />
           <Route path="/randevu" element={<Appointment />} />
-          <Route path="/test-takibi" element={<TestTracking />} />
+          <Route path="/test-istem-formu" element={<TestRequest />} />
 
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />

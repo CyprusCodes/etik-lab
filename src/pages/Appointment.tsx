@@ -3,30 +3,78 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Calendar, Clock, MapPin, Upload } from "lucide-react";
+import { Calendar, Clock, MapPin, Upload, FileText, X } from "lucide-react";
+import { useState } from "react";
 
-const services = [
-  "Kan Alma (Şubede)",
-  "Evde Numune Alma",
-  "Check-Up Paketi",
-  "Genetik Test Danışmanlığı",
-  "Kurumsal Hizmet",
-  "Diğer",
-];
+function FileUploadArea() {
+  const [files, setFiles] = useState<File[]>([]);
 
-const branches = [
-  "Kadıköy Şubesi",
-  "Şişli Şubesi",
-  "Ataşehir Şubesi",
-  "Bakırköy Şubesi",
-];
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      const newFiles = Array.from(event.target.files);
+      if (files.length + newFiles.length <= 5) {
+        setFiles([...files, ...newFiles]);
+      } else {
+        alert("En fazla 5 dosya yükleyebilirsiniz.");
+      }
+    }
+  };
+
+  const removeFile = (index: number) => {
+    setFiles(files.filter((_, i) => i !== index));
+  };
+
+  return (
+    <div>
+      <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
+        <input
+          type="file"
+          multiple
+          accept=".pdf,.jpg,.jpeg,.png"
+          onChange={handleFileSelect}
+          className="hidden"
+          id="file-upload"
+        />
+        <label htmlFor="file-upload" className="cursor-pointer">
+          <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+          <p className="text-muted-foreground text-sm">
+            Yüklemek için tıklayın veya dosyaları bu alana sürükleyin.
+          </p>
+          <p className="text-muted-foreground text-xs mt-1">
+            En fazla 5 dosya yükleyebilirsiniz.
+          </p>
+        </label>
+      </div>
+      {files.length > 0 && (
+        <div className="mt-4 space-y-2">
+          {files.map((file, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-between p-3 bg-secondary rounded-lg"
+            >
+              <div className="flex items-center gap-3">
+                <FileText className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium">{file.name}</span>
+                <span className="text-xs text-muted-foreground">
+                  ({Math.round(file.size / 1024)} KB)
+                </span>
+              </div>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={() => removeFile(index)}
+                className="text-muted-foreground hover:text-destructive"
+              >
+                <X className="w-4 h-4" />
+              </Button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Appointment() {
   return (
@@ -78,126 +126,52 @@ export default function Appointment() {
             </div>
 
             <form className="space-y-6">
+              <h3 className="heading-4 text-foreground mb-4">Randevu Formu</h3>
+              
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Ad Soyad *
+                    Ad *
                   </label>
-                  <Input placeholder="Adınız Soyadınız" required />
+                  <Input placeholder="Ad" required />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Telefon *
+                    Soyad *
                   </label>
-                  <Input type="tel" placeholder="+90 5XX XXX XX XX" required />
+                  <Input placeholder="Soyad" required />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  E-posta
+                  Telefon *
                 </label>
-                <Input type="email" placeholder="ornek@email.com" />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Hizmet Türü *
-                  </label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Hizmet seçin" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {services.map((service) => (
-                        <SelectItem key={service} value={service}>
-                          {service}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Şube
-                  </label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Şube seçin" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {branches.map((branch) => (
-                        <SelectItem key={branch} value={branch}>
-                          {branch}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Tercih Edilen Tarih *
-                  </label>
-                  <Input type="date" required />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Tercih Edilen Saat
-                  </label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Saat seçin" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="08:00">08:00</SelectItem>
-                      <SelectItem value="09:00">09:00</SelectItem>
-                      <SelectItem value="10:00">10:00</SelectItem>
-                      <SelectItem value="11:00">11:00</SelectItem>
-                      <SelectItem value="14:00">14:00</SelectItem>
-                      <SelectItem value="15:00">15:00</SelectItem>
-                      <SelectItem value="16:00">16:00</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                <Input type="tel" placeholder="0501 234 56 78" required />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Adres (Evde hizmet için)
+                  E-posta *
+                </label>
+                <Input type="email" placeholder="ornek@email.com" required />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Yorum veya Mesaj
                 </label>
                 <Textarea
-                  placeholder="Evde numune alma hizmeti için adresinizi yazın..."
-                  rows={3}
+                  placeholder="Randevunuz hakkında eklemek istediğiniz notlar..."
+                  rows={4}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Belge Yükleme
+                  Dosya Yükleme
                 </label>
-                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
-                  <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-muted-foreground text-sm">
-                    Reçete veya istem belgelerinizi yükleyin
-                  </p>
-                  <p className="text-muted-foreground text-xs mt-1">
-                    PDF, JPG, PNG (Maks. 10MB)
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Notlar
-                </label>
-                <Textarea
-                  placeholder="Eklemek istediğiniz notlar..."
-                  rows={3}
-                />
+                <FileUploadArea />
               </div>
 
               <Button type="submit" size="lg" className="w-full">
