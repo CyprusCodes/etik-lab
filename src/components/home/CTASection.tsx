@@ -115,7 +115,7 @@ export function CTASection() {
                 asChild
               >
                 <a
-                  href="http://185.37.185.41:8080/Kurumsal.html"
+                  href="http://93.182.78.97:8080/Kurumsal.html"
                   className="inline-flex items-center gap-3"
                 >
                   <FileText className="w-5 h-5 group-hover:scale-110 transition-transform" />
