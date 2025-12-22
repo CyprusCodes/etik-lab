@@ -7,118 +7,15 @@ import {
   Calendar,
   Clock,
   MapPin,
-  Upload,
-  FileText,
-  X,
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
 
-function FileUploadArea({
-  onUploadComplete,
-}: {
-  onUploadComplete: (url: string) => void;
-}) {
-  const [files, setFiles] = useState<File[]>([]);
-  const [isUploading, setIsUploading] = useState(false);
-
-  const handleFileSelect = async (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    if (event.target.files) {
-      const newFiles = Array.from(event.target.files);
-      if (files.length + newFiles.length <= 5) {
-        setFiles([...files, ...newFiles]);
-
-        setIsUploading(true);
-        try {
-          await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate upload delay
-          const mockS3Url = `https://etik-lab-uploads.s3.amazonaws.com/appointments/${Date.now()}-${
-            newFiles[0].name
-          }`;
-          onUploadComplete(mockS3Url);
-        } catch (error) {
-          console.error("Upload failed:", error);
-        } finally {
-          setIsUploading(false);
-        }
-      } else {
-        alert("En fazla 5 dosya yükleyebilirsiniz.");
-      }
-    }
-  };
-
-  const removeFile = (index: number) => {
-    setFiles(files.filter((_, i) => i !== index));
-  };
-
-  return (
-    <div>
-      <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
-        <input
-          type="file"
-          multiple
-          accept=".pdf,.jpg,.jpeg,.png"
-          onChange={handleFileSelect}
-          className="hidden"
-          id="file-upload"
-          disabled={isUploading}
-        />
-        <label htmlFor="file-upload" className="cursor-pointer">
-          <Upload
-            className={`w-8 h-8 mx-auto mb-2 ${
-              isUploading
-                ? "text-primary animate-pulse"
-                : "text-muted-foreground"
-            }`}
-          />
-          <p className="text-muted-foreground text-sm">
-            {isUploading
-              ? "Dosyalar yükleniyor..."
-              : "Yüklemek için tıklayın veya dosyaları bu alana sürükleyin."}
-          </p>
-          <p className="text-muted-foreground text-xs mt-1">
-            En fazla 5 dosya yükleyebilirsiniz.
-          </p>
-        </label>
-      </div>
-      {files.length > 0 && (
-        <div className="mt-4 space-y-2">
-          {files.map((file, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-between p-3 bg-secondary rounded-lg"
-            >
-              <div className="flex items-center gap-3">
-                <FileText className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium">{file.name}</span>
-                <span className="text-xs text-muted-foreground">
-                  ({Math.round(file.size / 1024)} KB)
-                </span>
-              </div>
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                onClick={() => removeFile(index)}
-                className="text-muted-foreground hover:text-destructive"
-              >
-                <X className="w-4 h-4" />
-              </Button>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 export default function Appointment() {
   const [formStatus, setFormStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
-  const [uploadedFileUrl, setUploadedFileUrl] = useState<string>("");
 
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbxoYjOpHdeRbN2MNuakwBUTfmB7QYDlKIiu4lcv7feIqJ5GILoPWLNzzirK-oZOUZIF/exec";
@@ -145,7 +42,6 @@ export default function Appointment() {
         if (data.result === "success") {
           setFormStatus("success");
           e.target.reset();
-          setUploadedFileUrl("");
           // Reset status after 7 seconds for appointment (longer than contact)
           setTimeout(() => setFormStatus("idle"), 7000);
         } else {
@@ -297,21 +193,6 @@ export default function Appointment() {
                   placeholder="Randevunuz hakkında eklemek istediğiniz notlar..."
                   rows={4}
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Dosya Yükleme
-                </label>
-
-                {/* This will store a URL, not the file itself */}
-                <input
-                  type="hidden"
-                  name="dosya_yukleme"
-                  value={uploadedFileUrl || ""}
-                />
-
-                <FileUploadArea onUploadComplete={setUploadedFileUrl} />
               </div>
 
               <Button
