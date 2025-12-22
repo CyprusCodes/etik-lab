@@ -1,8 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { CheckCircle, XCircle } from "lucide-react";
+import { useState } from "react";
 import { getImagePath } from "@/utils/assets";
 
 interface ServiceContactFormProps {
@@ -14,6 +16,45 @@ export function ServiceContactForm({
   title,
   buttonText = "Bilgi Talebi Gönder",
 }: ServiceContactFormProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxoYjOpHdeRbN2MNuakwBUTfmB7QYDlKIiu4lcv7feIqJ5GILoPWLNzzirK-oZOUZIF/exec";
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    const formData = new FormData(e.target);
+    const params = new URLSearchParams();
+
+    formData.forEach((value, key) => {
+      params.append(key, value.toString());
+    });
+
+    fetch(`${SCRIPT_URL}?${params.toString()}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result === "success") {
+          setSubmitStatus("success");
+          e.target.reset();
+        } else {
+          setSubmitStatus("error");
+        }
+      })
+      .catch(() => {
+        setSubmitStatus("error");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  }
   return (
     <section className="relative py-20 lg:py-24 overflow-hidden">
       {/* Background Image */}
@@ -33,49 +74,91 @@ export function ServiceContactForm({
               <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
                 {title}
               </h3>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Adınız <span className="text-red-500">*</span>
-                    </label>
-                    <Input
-                      type="text"
-                      placeholder="Adınız"
-                      className="bg-white"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Soyadınız <span className="text-red-500">*</span>
-                    </label>
-                    <Input
-                      type="text"
-                      placeholder="Soyadınız"
-                      className="bg-white"
-                      required
-                    />
+
+              {/* Success Message */}
+              {submitStatus === "success" && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-1">
+                        Mesajınız Gönderildi!
+                      </h4>
+                      <p className="text-green-700 text-sm">
+                        Teşekkürler! Mesajınız başarıyla iletildi. En kısa
+                        sürede size geri dönüş yapacağız.
+                      </p>
+                    </div>
                   </div>
                 </div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === "error" && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <XCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-red-800 mb-1">
+                        Bir Hata Oluştu
+                      </h4>
+                      <p className="text-red-700 text-sm">
+                        Mesajınız gönderilemedi. Lütfen tekrar deneyiniz veya
+                        telefon numaramızdan bize ulaşınız.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Ad Soyad <span className="text-red-500">*</span>
+                  </label>
+                  <Input
+                    name="ad_soyad"
+                    type="text"
+                    placeholder="Adınız Soyadınız"
+                    className="bg-white"
+                    required
+                  />
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     E-posta <span className="text-red-500">*</span>
                   </label>
                   <Input
+                    name="e_posta"
                     type="email"
-                    placeholder="E-posta adresiniz"
+                    placeholder="ornek@email.com"
                     className="bg-white"
                     required
                   />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    İletişim Numaranız <span className="text-red-500">*</span>
+                    Konu <span className="text-red-500">*</span>
                   </label>
                   <Input
-                    type="tel"
-                    placeholder="İletişim numaranız"
+                    name="konu"
+                    type="text"
+                    placeholder="Mesajınızın konusu"
+                    className="bg-white"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Mesajınız <span className="text-red-500">*</span>
+                  </label>
+                  <Textarea
+                    name="mesaj"
+                    placeholder="Mesajınızı yazın..."
+                    rows={4}
                     className="bg-white"
                     required
                   />
@@ -83,7 +166,7 @@ export function ServiceContactForm({
 
                 {/* KVKK Checkbox */}
                 <div className="flex items-start space-x-3">
-                  <Checkbox id="kvkk" className="mt-1" required />
+                  <Checkbox id="kvkk" name="kvkk" className="mt-1" required />
                   <label
                     htmlFor="kvkk"
                     className="text-sm text-muted-foreground leading-relaxed"
@@ -95,8 +178,12 @@ export function ServiceContactForm({
                   </label>
                 </div>
 
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                  {buttonText}
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Gönderiliyor..." : buttonText}
                 </Button>
               </form>
 
@@ -110,7 +197,7 @@ export function ServiceContactForm({
                     </div>
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4 text-primary" />
-                      <span>bilgi@etiklab.net</span>
+                      <span>info@kibrispasteurlab.com</span>
                     </div>
                   </div>
                   <div className="space-y-3">
