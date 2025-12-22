@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
 const mikroBiyolojiTests = [
@@ -66,6 +67,53 @@ const panelTests = [
 
 export default function TestRequest() {
   const [selectedTests, setSelectedTests] = useState<string[]>([]);
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [gender, setGender] = useState<string>("");
+
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxoYjOpHdeRbN2MNuakwBUTfmB7QYDlKIiu4lcv7feIqJ5GILoPWLNzzirK-oZOUZIF/exec";
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormStatus("submitting");
+
+    const formData = new FormData(e.target as HTMLFormElement);
+
+    formData.append("sheet", "test-istem-formu");
+
+    formData.append("tests_selected", selectedTests.join(", "));
+
+    formData.append("cinsiyetiniz", gender);
+
+    const params = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      params.append(key, value as string);
+    }
+
+    fetch(`${SCRIPT_URL}?${params.toString()}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result === "success") {
+          setFormStatus("success");
+          (e.target as HTMLFormElement).reset();
+          setSelectedTests([]);
+          setGender("");
+          // Reset status after 7 seconds
+          setTimeout(() => setFormStatus("idle"), 7000);
+        } else {
+          setFormStatus("error");
+          setTimeout(() => setFormStatus("idle"), 5000);
+        }
+      })
+      .catch(() => {
+        setFormStatus("error");
+        setTimeout(() => setFormStatus("idle"), 5000);
+      });
+  }
 
   const handleTestChange = (testName: string, checked: boolean) => {
     if (checked) {
@@ -121,7 +169,43 @@ export default function TestRequest() {
 
       <section className="section-padding">
         <div className="container-narrow">
-          <form className="space-y-8">
+          <form className="space-y-8" onSubmit={handleSubmit}>
+            {/* Success Message */}
+            {formStatus === "success" && (
+              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-green-800 mb-1">
+                      Test isteğiniz başarıyla gönderildi!
+                    </h4>
+                    <p className="text-green-700 text-sm">
+                      Teşekkür ederiz. Test isteğinizi aldık ve en kısa sürede
+                      işleme alacağız. Detaylar e-posta adresinize
+                      gönderilecektir.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {formStatus === "error" && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-red-800 mb-1">
+                      Test isteği gönderilemedi
+                    </h4>
+                    <p className="text-red-700 text-sm">
+                      Test isteğiniz gönderilemedi. Lütfen daha sonra tekrar
+                      deneyin veya +90 533 871 20 42 numaralı telefonu arayın.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
             {/* Kişisel Bilgiler */}
             <Card>
               <CardHeader>
@@ -133,13 +217,13 @@ export default function TestRequest() {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Ad *
                     </label>
-                    <Input placeholder="Adınız" required />
+                    <Input name="ad" placeholder="Adınız" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Soyad *
                     </label>
-                    <Input placeholder="Soyadınız" required />
+                    <Input name="soyad" placeholder="Soyadınız" required />
                   </div>
                 </div>
                 <div className="grid md:grid-cols-3 gap-4">
@@ -148,6 +232,7 @@ export default function TestRequest() {
                       Yaşınız *
                     </label>
                     <Input
+                      name="yaşınız"
                       type="number"
                       placeholder="Yaş"
                       min="0"
@@ -159,7 +244,7 @@ export default function TestRequest() {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Cinsiyetiniz *
                     </label>
-                    <Select required>
+                    <Select value={gender} onValueChange={setGender} required>
                       <SelectTrigger>
                         <SelectValue placeholder="Cinsiyet seçin" />
                       </SelectTrigger>
@@ -173,7 +258,7 @@ export default function TestRequest() {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Lab.Kayıt Tarihi *
                     </label>
-                    <Input type="date" required />
+                    <Input name="lab_kayıt_tarihi" type="date" required />
                   </div>
                 </div>
               </CardContent>
@@ -187,8 +272,15 @@ export default function TestRequest() {
             <TestSection title="Paneller" tests={panelTests} />
 
             <div className="flex justify-end">
-              <Button type="submit" size="lg" className="w-full md:w-auto">
-                Test İsteği Gönder
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full md:w-auto"
+                disabled={formStatus === "submitting"}
+              >
+                {formStatus === "submitting"
+                  ? "Test İsteği Gönderiliyor..."
+                  : "Test İsteği Gönder"}
               </Button>
             </div>
           </form>
