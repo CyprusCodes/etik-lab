@@ -67,42 +67,6 @@ export default function Appointment() {
       <section className="section-padding">
         <div className="container-narrow">
           <div className="bg-card rounded-2xl p-8 border border-border">
-            <div className="grid md:grid-cols-3 gap-6 mb-8 pb-8 border-b border-border">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center">
-                  <Calendar className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-medium text-foreground">Tarih Seçin</div>
-                  <div className="text-muted-foreground text-sm">
-                    Uygun günü belirleyin
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-medium text-foreground">Saat Seçin</div>
-                  <div className="text-muted-foreground text-sm">
-                    07:00 - 23:00 arası
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-medium text-foreground">Konum Seçin</div>
-                  <div className="text-muted-foreground text-sm">
-                    Şube veya evde hizmet
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <form className="space-y-6" onSubmit={handleSubmit}>
               <h3 className="heading-4 text-foreground mb-4">Randevu Formu</h3>
 

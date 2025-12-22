@@ -235,7 +235,7 @@ export default function Contact() {
                     Mesajınız *
                   </label>
                   <Textarea
-                    name="masaj"
+                    name="mesaj"
                     placeholder="Mesajınızı yazın..."
                     rows={6}
                     required
