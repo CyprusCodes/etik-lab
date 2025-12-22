@@ -3,8 +3,16 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { useState } from "react";
 
 const contactInfo = [
   {
@@ -35,6 +43,45 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxoYjOpHdeRbN2MNuakwBUTfmB7QYDlKIiu4lcv7feIqJ5GILoPWLNzzirK-oZOUZIF/exec";
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setFormStatus("submitting");
+
+    const formData = new FormData(e.target);
+    const params = new URLSearchParams();
+
+    for (const [key, value] of formData.entries()) {
+      params.append(key, value.toString());
+    }
+
+    fetch(`${SCRIPT_URL}?${params.toString()}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result === "success") {
+          setFormStatus("success");
+          e.target.reset();
+          // Reset status after 5 seconds
+          setTimeout(() => setFormStatus("idle"), 5000);
+        } else {
+          setFormStatus("error");
+          setTimeout(() => setFormStatus("idle"), 5000);
+        }
+      })
+      .catch(() => {
+        setFormStatus("error");
+        setTimeout(() => setFormStatus("idle"), 5000);
+      });
+  }
+
   return (
     <Layout>
       <PageHeader
@@ -111,37 +158,97 @@ export default function Contact() {
 
             <div>
               <h3 className="heading-4 text-foreground mb-6">İletişim Formu</h3>
-              <form className="space-y-6">
+
+              {/* Success Message */}
+              {formStatus === "success" && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-1">
+                        Mesajınız başarıyla gönderildi!
+                      </h4>
+                      <p className="text-green-700 text-sm">
+                        Teşekkür ederiz. Mesajınızı aldık ve en kısa sürede size
+                        geri dönüş yapacağız.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {formStatus === "error" && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-red-800 mb-1">
+                        Bir hata oluştu
+                      </h4>
+                      <p className="text-red-700 text-sm">
+                        Mesajınız gönderilemedi. Lütfen daha sonra tekrar
+                        deneyin veya telefon ile iletişime geçin.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Ad Soyad *
                   </label>
-                  <Input placeholder="Adınız Soyadınız" required />
+                  <Input
+                    name="ad_soyad"
+                    placeholder="Adınız Soyadınız"
+                    required
+                  />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     E-posta *
                   </label>
-                  <Input type="email" placeholder="ornek@email.com" required />
+                  <Input
+                    name="e_posta"
+                    type="email"
+                    placeholder="ornek@email.com"
+                    required
+                  />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Konu *
                   </label>
-                  <Input placeholder="Mesajınızın konusu" required />
+                  <Input
+                    name="konu"
+                    placeholder="Mesajınızın konusu"
+                    required
+                  />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Mesajınız *
                   </label>
                   <Textarea
+                    name="masaj"
                     placeholder="Mesajınızı yazın..."
                     rows={6}
                     required
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full">
-                  Gönder
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
+                  disabled={formStatus === "submitting"}
+                >
+                  {formStatus === "submitting" ? "Gönderiliyor..." : "Gönder"}
                 </Button>
               </form>
             </div>
