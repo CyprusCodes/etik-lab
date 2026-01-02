@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getImagePath } from "@/utils/assets";
 
 const blogPosts = [
   {
@@ -8,7 +9,7 @@ const blogPosts = [
     title: "Anemi Nedir? Anemi Belirtileri Nelerdir?",
     excerpt:
       "Anemi, kırmızı kan hücrelerinin veya hemoglobin seviyesinin düşük olmasıyla ortaya çıkan bir durumdur. Belirtileri ve önemi hakkında bilinçlendirici rehber.",
-    image: "https://etiklab.net/wp-content/uploads/2023/09/anemi.png",
+    image: getImagePath("blog/anemi.png"),
     date: "7 Eylül 2023",
     author: "Etiklab",
     category: "Sağlık Rehberi",
@@ -19,7 +20,7 @@ const blogPosts = [
     title: "İnsülin Direnci Nedir ? Önemi Nelerdir ?",
     excerpt:
       "İnsülin direnci nedir, nasıl tespit edilir, testlerin önemi ve sağlığa etkileri hakkında bilgilendirici makale.",
-    image: "https://etiklab.net/wp-content/uploads/2023/09/insulin-direnci.png",
+    image: getImagePath("blog/insulin-direnci.png"),
     date: "7 Eylül 2023",
     author: "Etiklab",
     category: "Sağlık Rehberi",
@@ -30,7 +31,7 @@ const blogPosts = [
     title: "Çölyak Hastalığı Nedir? Belirtileri Nelerdir?",
     excerpt:
       "Çölyak hastalığı, glütene aşırı hassasiyeti olan bireylerde görülen otoimmün hastalıktır. Belirtileri ve tanı yöntemlerini öğrenin.",
-    image: "https://etiklab.net/wp-content/uploads/2023/09/colyak.png",
+    image: getImagePath("blog/colyak.png"),
     date: "7 Eylül 2023",
     author: "Etiklab",
     category: "Sağlık Rehberi",

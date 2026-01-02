@@ -3,53 +3,51 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/useParallax";
 import { useRef, useState, useEffect } from "react";
+import { getImagePath } from "@/utils/assets";
 
 const packages = [
   {
     id: 1,
     title: "Sporcu Check – Up Paketi",
-    image: "https://etiklab.net/wp-content/uploads/2023/09/Sporcu-Paketi.jpg",
+    image: getImagePath("paketleri/Sporcu-Paketi.jpg"),
     href: "/paketler/sporcu-check-up-paketi",
   },
   {
     id: 2,
     title: "Saç Dökülmesi Paketi",
-    image:
-      "https://etiklab.net/wp-content/uploads/2023/09/Sac-Dokulmesi-Paketi.jpg",
+    image: getImagePath("paketleri/Sac-Dokulmesi-Paketi.jpg"),
     href: "/paketler/sac-dokulmesi-paketi",
   },
   {
     id: 3,
     title: "Kardiyak Checkup Paketi",
-    image:
-      "https://etiklab.net/wp-content/uploads/2023/09/Kardiyak-Check-Up-Paketi.jpg",
+    image: getImagePath("paketleri/Kardiyak-Check-Up-Paketi.jpg"),
     href: "/paketler/kardiyak-checkup-paketi",
   },
   {
     id: 4,
     title: "Kansızlık ve Vitamin Eksikliği Kontrolü",
-    image:
-      "https://etiklab.net/wp-content/uploads/2023/09/Kansizlik-ve-Vitamin-Eksikligi-Kontrolu-Paketi.jpg",
+    image: getImagePath(
+      "paketleri/Kansizlik-ve-Vitamin-Eksikligi-Kontrolu-Paketi.jpg"
+    ),
     href: "/paketler/kansizlik-ve-vitamin-eksikligi-kontrolu",
   },
   {
     id: 5,
     title: "Kadın Checkup Paketi",
-    image:
-      "https://etiklab.net/wp-content/uploads/2023/09/Kadin-Check-Up-Paketi.jpg",
+    image: getImagePath("paketleri/Kadin-Check-Up-Paketi.jpg"),
     href: "/paketler/kadin-checkup-paketi",
   },
   {
     id: 6,
     title: "Erkek Checkup Paketi",
-    image: "https://etiklab.net/wp-content/uploads/2023/09/Erkek-Check-Up.jpg",
+    image: getImagePath("paketleri/Erkek-Check-Up.jpg"),
     href: "/paketler/erkek-checkup-paketi",
   },
   {
     id: 7,
     title: "Cinsel Yolla Bulaşan Hastalıklar",
-    image:
-      "https://etiklab.net/wp-content/uploads/2023/09/Cinsel-Yolla-Bulasan.jpg",
+    image: getImagePath("paketleri/Cinsel-Yolla-Bulasan.jpg"),
     href: "/test-panelleri/cinsel-hastaliklar",
   },
 ];

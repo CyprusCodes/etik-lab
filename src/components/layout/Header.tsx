@@ -98,7 +98,9 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img
-              src={getImagePath(isScrolled ? "/logo.png" : "/logo-white.png")}
+              src={getImagePath(
+                isScrolled ? "etik-logo-no-bg.png" : "etik-logo-white.png"
+              )}
               alt="Etik Lab Laboratuvarı"
               className={cn(
                 "transition-all duration-300",

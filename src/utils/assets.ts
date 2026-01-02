@@ -1,5 +1,5 @@
 export const getImagePath = (path: string) => {
-  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
-  const fullPath = `${import.meta.env.BASE_URL}${cleanPath}`;
-  return fullPath;
+  const base = import.meta.env.VITE_S3_BUCKET_ASSET_URL.replace(/\/$/, "");
+  const cleanPath = path.replace(/^\//, "");
+  return `${base}/${cleanPath}`;
 };
