@@ -1,18 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  User,
-  Heart,
-  MessageCircle,
-  Share2,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, Calendar, Heart } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
+import { useLikes } from "@/hooks/useLikes";
 
 export default function ColyakPaneli() {
+  const { likes, hasLiked, toggleLike } = useLikes("colyak-paneli");
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -40,174 +34,217 @@ export default function ColyakPaneli() {
       </section>
 
       {/* Article Content */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-gray-200">
+            <div className="flex flex-wrap items-center gap-6 mb-12 pb-6 border-b border-gray-200">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Calendar className="w-4 h-4" />
                 <span>18 Aralık 2024</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <User className="w-4 h-4" />
-                <span>Dr. Uzman Kadro</span>
-              </div>
               <div className="flex items-center gap-4 ml-auto">
-                <button className="flex items-center gap-1 text-muted-foreground hover:text-red-500 transition-colors">
-                  <Heart className="w-4 h-4" />
-                  <span>36</span>
-                </button>
-                <button className="flex items-center gap-1 text-muted-foreground hover:text-blue-500 transition-colors">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>11</span>
+                <button
+                  onClick={toggleLike}
+                  className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-colors ${
+                    hasLiked
+                      ? "text-red-500 bg-red-50"
+                      : "text-muted-foreground hover:text-red-500"
+                  }`}
+                >
+                  <Heart
+                    className={`w-4 h-4 ${hasLiked ? "fill-current" : ""}`}
+                  />
+                  <span>{likes}</span>
                 </button>
               </div>
             </div>
 
             {/* Article Content */}
-            <div className="prose prose-lg max-w-none">
-              <h2>Çölyak Paneli Nedir?</h2>
-              <p>
-                Çölyak paneli, çölyak hastalığının teşhisinde kullanılan
-                serolojik testlerden oluşur. Bu testler, gluten intoleransını ve
-                otoimmün reaksiyonları değerlendirmek için kullanılır.
-              </p>
+            <div className="prose prose-lg max-w-none space-y-8">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Çölyak Paneli Nedir?
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
+                  Çölyak paneli, çölyak hastalığının teşhisinde kullanılan
+                  serolojik testlerden oluşur. Bu testler, gluten intoleransını
+                  ve otoimmün reaksiyonları değerlendirmek için kullanılır.
+                </p>
+              </div>
 
-              <h3>Panelde Yer Alan Testler</h3>
-              <ul>
-                <li>
-                  <strong>Anti-tTG (Anti-Transglutaminaz):</strong> Çölyak
-                  hastalığının en spesifik göstergesi
-                </li>
-                <li>
-                  <strong>Anti-DGP (Anti-Deamidated Gliadin Peptit):</strong>{" "}
-                  Özellikle çocuklarda duyarlı test
-                </li>
-                <li>
-                  <strong>Total IgA:</strong> IgA eksikliğini değerlendirmek
-                  için
-                </li>
-                <li>
-                  <strong>Anti-Endomysium:</strong> Konfirmasyon testi olarak
-                  kullanılır
-                </li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Panelde Yer Alan Testler
+                </h3>
+                <div className="space-y-3">
+                  <div className="bg-amber-50 p-4 rounded-lg">
+                    <strong className="text-amber-700">
+                      Anti-tTG (Anti-Transglutaminaz):
+                    </strong>{" "}
+                    Çölyak hastalığının en spesifik göstergesi
+                  </div>
+                  <div className="bg-amber-50 p-4 rounded-lg">
+                    <strong className="text-amber-700">
+                      Anti-DGP (Anti-Deamidated Gliadin Peptit):
+                    </strong>{" "}
+                    Özellikle çocuklarda duyarlı test
+                  </div>
+                  <div className="bg-amber-50 p-4 rounded-lg">
+                    <strong className="text-amber-700">Total IgA:</strong> IgA
+                    eksikliğini değerlendirmek için
+                  </div>
+                  <div className="bg-amber-50 p-4 rounded-lg">
+                    <strong className="text-amber-700">Anti-Endomysium:</strong>{" "}
+                    Konfirmasyon testi olarak kullanılır
+                  </div>
+                </div>
+              </div>
 
-              <h3>Çölyak Hastalığı Nedir?</h3>
-              <p>
-                Çölyak hastalığı, gluten içeren gıdaları sindiremeyen kişilerde
-                gelişen otoimmün bir hastalıktır. Genetik yatkınlık gerektirir
-                ve yaşam boyu sürer.
-              </p>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Çölyak Hastalığı Nedir?
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Çölyak hastalığı, gluten içeren gıdaları sindiremeyen
+                  kişilerde gelişen otoimmün bir hastalıktır. Genetik yatkınlık
+                  gerektirir ve yaşam boyu sürer.
+                </p>
+              </div>
 
-              <h3>Belirtiler</h3>
-              <p>Çölyak hastalığının belirtileri şunlardır:</p>
-              <ul>
-                <li>Kronik ishal</li>
-                <li>Karın şişkinliği ve ağrısı</li>
-                <li>Kilo kaybı</li>
-                <li>Yorgunluk</li>
-                <li>Demir eksikliği anemisi</li>
-                <li>Kemik ağrıları</li>
-                <li>Deri döküntüleri</li>
-                <li>Çocuklarda büyüme geriliği</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Belirtiler
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Çölyak hastalığının belirtileri şunlardır:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Kronik ishal
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Karın şişkinliği ve ağrısı
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Kilo kaybı
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Yorgunluk
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Demir eksikliği anemisi
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Kemik ağrıları
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Deri döküntüleri
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Çocuklarda büyüme geriliği
+                  </div>
+                </div>
+              </div>
 
-              <h3>Risk Faktörleri</h3>
-              <ul>
-                <li>Aile öyküsü (birinci derece akrabalarda %10 risk)</li>
-                <li>Tip 1 diyabet</li>
-                <li>Tiroid hastalıkları</li>
-                <li>Down sendromu</li>
-                <li>İrritabl bağırsak sendromu</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Risk Faktörleri
+                </h3>
+                <div className="space-y-3">
+                  <div className="bg-yellow-50 p-4 rounded-lg text-yellow-700">
+                    Aile öyküsü (birinci derece akrabalarda %10 risk)
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg text-yellow-700">
+                    Tip 1 diyabet
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg text-yellow-700">
+                    Tiroid hastalıkları
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg text-yellow-700">
+                    Down sendromu
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg text-yellow-700">
+                    İrritabl bağırsak sendromu
+                  </div>
+                </div>
+              </div>
 
-              <h3>Test Öncesi Hazırlık</h3>
-              <p>
-                Testler gluten içeren diyetle yapılmalıdır. Glutensiz diyete
-                geçmeden önce test yaptırmak önemlidir. Test öncesi en az 6
-                hafta gluten tüketimi gerekir.
-              </p>
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-700 mb-4">
+                  Test Öncesi Hazırlık
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Testler gluten içeren diyetle yapılmalıdır. Glutensiz diyete
+                  geçmeden önce test yaptırmak önemlidir. Test öncesi en az 6
+                  hafta gluten tüketimi gerekir.
+                </p>
+              </div>
 
-              <h3>Tedavi</h3>
-              <p>
-                Çölyak hastalığının tek tedavisi yaşam boyu glutensiz diyet
-                uygulamaktır. Gluten içeren buğday, arpa, çavdar tamamen
-                eliminasyon edilmelidir.
-              </p>
+              <div className="bg-green-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-green-700 mb-4">
+                  Tedavi
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Çölyak hastalığının tek tedavisi yaşam boyu glutensiz diyet
+                  uygulamaktır. Gluten içeren buğday, arpa, çavdar tamamen
+                  eliminasyon edilmelidir.
+                </p>
+              </div>
 
-              <h3>Glutensiz Yaşam</h3>
-              <ul>
-                <li>Etiket okuma alışkanlığı edinin</li>
-                <li>Çapraz kontaminasyondan kaçının</li>
-                <li>Glutensiz ürün markalarını öğrenin</li>
-                <li>Dışarıda yemek yerken dikkatli olun</li>
-                <li>Ailenizi bilgilendirin</li>
-              </ul>
-            </div>
-
-            {/* Social Media Share */}
-            <div className="flex items-center gap-4 mt-12 pt-8 border-t border-gray-200">
-              <span className="text-muted-foreground font-medium">Paylaş:</span>
-              <a
-                href="https://www.facebook.com/sharer/sharer.php?u=window.location.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                Facebook
-              </a>
-              <a
-                href="https://twitter.com/intent/tweet?url=window.location.href&text=Çölyak Paneli - Etik Lab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                Twitter
-              </a>
-              <a
-                href="https://www.linkedin.com/sharing/share-offsite/?url=window.location.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                LinkedIn
-              </a>
+              <div className="bg-primary/10 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-primary mb-4">
+                  Glutensiz Yaşam
+                </h3>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-white p-3 rounded-lg border border-primary/20 text-gray-700">
+                    Etiket okuma alışkanlığı edinin
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-primary/20 text-gray-700">
+                    Çapraz kontaminasyondan kaçının
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-primary/20 text-gray-700">
+                    Glutensiz ürün markalarını öğrenin
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-primary/20 text-gray-700">
+                    Dışarıda yemek yerken dikkatli olun
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-primary/20 text-gray-700 md:col-span-2">
+                    Ailenizi bilgilendirin
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-200">
+            <div className="flex items-center justify-between mt-16 pt-8 border-t border-gray-200">
               <Link
                 to="/test-panelleri/anemi"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <div>
-                  <div className="text-sm">Önceki Panel</div>
+                  <div className="text-sm text-gray-500">Önceki Panel</div>
                   <div className="font-semibold">Anemi Paneli</div>
                 </div>
               </Link>
 
               <Link
                 to="/test-panelleri"
-                className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
               >
                 Tüm Paneller
               </Link>
 
               <Link
                 to="/test-panelleri/diyabet"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-right"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-right group"
               >
                 <div>
-                  <div className="text-sm">Sonraki Panel</div>
+                  <div className="text-sm text-gray-500">Sonraki Panel</div>
                   <div className="font-semibold">Diyabet Paneli</div>
                 </div>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>

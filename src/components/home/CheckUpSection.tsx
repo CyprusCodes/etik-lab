@@ -10,19 +10,19 @@ const packages = [
     id: 1,
     title: "Sporcu Check – Up Paketi",
     image: getImagePath("paketleri/Sporcu-Paketi.jpg"),
-    href: "/paketler/sporcu-check-up-paketi",
+    href: "/paketler",
   },
   {
     id: 2,
     title: "Saç Dökülmesi Paketi",
     image: getImagePath("paketleri/Sac-Dokulmesi-Paketi.jpg"),
-    href: "/paketler/sac-dokulmesi-paketi",
+    href: "/paketler",
   },
   {
     id: 3,
     title: "Kardiyak Checkup Paketi",
     image: getImagePath("paketleri/Kardiyak-Check-Up-Paketi.jpg"),
-    href: "/paketler/kardiyak-checkup-paketi",
+    href: "/paketler",
   },
   {
     id: 4,
@@ -30,25 +30,25 @@ const packages = [
     image: getImagePath(
       "paketleri/Kansizlik-ve-Vitamin-Eksikligi-Kontrolu-Paketi.jpg"
     ),
-    href: "/paketler/kansizlik-ve-vitamin-eksikligi-kontrolu",
+    href: "/paketler",
   },
   {
     id: 5,
     title: "Kadın Checkup Paketi",
     image: getImagePath("paketleri/Kadin-Check-Up-Paketi.jpg"),
-    href: "/paketler/kadin-checkup-paketi",
+    href: "/paketler",
   },
   {
     id: 6,
     title: "Erkek Checkup Paketi",
     image: getImagePath("paketleri/Erkek-Check-Up.jpg"),
-    href: "/paketler/erkek-checkup-paketi",
+    href: "/paketler",
   },
   {
     id: 7,
     title: "Cinsel Yolla Bulaşan Hastalıklar",
     image: getImagePath("paketleri/Cinsel-Yolla-Bulasan.jpg"),
-    href: "/test-panelleri/cinsel-hastaliklar",
+    href: "/paketler",
   },
 ];
 

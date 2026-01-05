@@ -1,18 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  User,
-  Heart,
-  MessageCircle,
-  Share2,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, Calendar, Heart } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
+import { useLikes } from "@/hooks/useLikes";
 
 export default function KolonKanseriPaneli() {
+  const { likes, hasLiked, toggleLike } = useLikes("kolon-kanseri-paneli");
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -40,88 +34,143 @@ export default function KolonKanseriPaneli() {
       </section>
 
       {/* Article Content */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-gray-200">
+            <div className="flex flex-wrap items-center gap-6 mb-12 pb-6 border-b border-gray-200">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Calendar className="w-4 h-4" />
                 <span>18 Aralık 2024</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <User className="w-4 h-4" />
-                <span>Dr. Uzman Kadro</span>
-              </div>
               <div className="flex items-center gap-4 ml-auto">
-                <button className="flex items-center gap-1 text-muted-foreground hover:text-red-500 transition-colors">
-                  <Heart className="w-4 h-4" />
-                  <span>19</span>
-                </button>
-                <button className="flex items-center gap-1 text-muted-foreground hover:text-blue-500 transition-colors">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>6</span>
+                <button
+                  onClick={toggleLike}
+                  className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-colors ${
+                    hasLiked
+                      ? "text-red-500 bg-red-50"
+                      : "text-muted-foreground hover:text-red-500"
+                  }`}
+                >
+                  <Heart
+                    className={`w-4 h-4 ${hasLiked ? "fill-current" : ""}`}
+                  />
+                  <span>{likes}</span>
                 </button>
               </div>
             </div>
 
             {/* Article Content */}
-            <div className="prose prose-lg max-w-none">
-              <h2>Kolon Kanseri Paneli Nedir?</h2>
-              <p>
-                Kolon kanseri paneli, büyük bağırsak (kolon) ve rektum
-                kanserlerinin erken teşhisinde kullanılan özel bir test
-                kombinasyonudur. Bu panel, kanser belirteçleri ve diğer tanı
-                yardımcı testleri içerir.
-              </p>
+            <div className="prose prose-lg max-w-none space-y-8">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Kolon Kanseri Paneli Nedir?
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
+                  Kolon kanseri paneli, büyük bağırsak (kolon) ve rektum
+                  kanserlerinin erken teşhisinde kullanılan özel bir test
+                  kombinasyonudur. Bu panel, kanser belirteçleri ve diğer tanı
+                  yardımcı testleri içerir.
+                </p>
+              </div>
 
-              <h3>Panelde Yer Alan Testler</h3>
-              <ul>
-                <li>
-                  <strong>CEA (Karsinoembriyonik Antijen):</strong> Kolorektal
-                  kanserlerde yükselen tümör belirteci
-                </li>
-                <li>
-                  <strong>CA 19-9:</strong> Gastrointestinal kanserlerde
-                  kullanılan tümör markırı
-                </li>
-                <li>
-                  <strong>Gaitada Gizli Kan (FOBT):</strong> Dışkıda mikroskobik
-                  kan varlığını tespit eder
-                </li>
-                <li>
-                  <strong>Genetik Belirteçler:</strong> Kalıtsal kanser riskini
-                  değerlendiren testler
-                </li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Panelde Yer Alan Testler
+                </h3>
+                <div className="space-y-3">
+                  <div className="bg-teal-50 p-4 rounded-lg">
+                    <strong className="text-teal-700">
+                      CEA (Karsinoembriyonik Antijen):
+                    </strong>{" "}
+                    Kolorektal kanserlerde yükselen tümör belirteci
+                  </div>
+                  <div className="bg-teal-50 p-4 rounded-lg">
+                    <strong className="text-teal-700">CA 19-9:</strong>{" "}
+                    Gastrointestinal kanserlerde kullanılan tümör markırı
+                  </div>
+                  <div className="bg-teal-50 p-4 rounded-lg">
+                    <strong className="text-teal-700">
+                      Gaitada Gizli Kan (FOBT):
+                    </strong>{" "}
+                    Dışkıda mikroskobik kan varlığını tespit eder
+                  </div>
+                  <div className="bg-teal-50 p-4 rounded-lg">
+                    <strong className="text-teal-700">
+                      Genetik Belirteçler:
+                    </strong>{" "}
+                    Kalıtsal kanser riskini değerlendiren testler
+                  </div>
+                </div>
+              </div>
 
-              <h3>Risk Faktörleri</h3>
-              <p>
-                Aşağıdaki durumlarla karşılaşanlarda kolon kanseri riski
-                artmıştır:
-              </p>
-              <ul>
-                <li>50 yaş üzeri olmak</li>
-                <li>Ailede kolorektal kanser öyküsü</li>
-                <li>İnflamatuar bağırsak hastalığı (Crohn, ülseratif kolit)</li>
-                <li>Polip öyküsü</li>
-                <li>Sigara ve alkol kullanımı</li>
-                <li>Sedanter yaşam tarzı</li>
-                <li>Yüksek yağlı, düşük lifli beslenme</li>
-                <li>Obezite</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Risk Faktörleri
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Aşağıdaki durumlarla karşılaşanlarda kolon kanseri riski
+                  artmıştır:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-orange-50 p-3 rounded-lg text-orange-700">
+                    50 yaş üzeri olmak
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg text-orange-700">
+                    Ailede kolorektal kanser öyküsü
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg text-orange-700">
+                    İnflamatuar bağırsak hastalığı
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg text-orange-700">
+                    Polip öyküsü
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg text-orange-700">
+                    Sigara ve alkol kullanımı
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg text-orange-700">
+                    Sedanter yaşam tarzı
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg text-orange-700">
+                    Yüksek yağlı, düşük lifli beslenme
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg text-orange-700">
+                    Obezite
+                  </div>
+                </div>
+              </div>
 
-              <h3>Erken Belirtiler</h3>
-              <p>Kolon kanserinin erken belirtileri şunlardır:</p>
-              <ul>
-                <li>Bağırsak alışkanlıklarında değişiklik</li>
-                <li>Dışkıda kan veya mukus</li>
-                <li>Karın ağrısı ve kramplar</li>
-                <li>Açıklanamayan kilo kaybı</li>
-                <li>Yorgunluk ve halsizlik</li>
-                <li>Demir eksikliği anemisi</li>
-                <li>Rektal kanama</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Erken Belirtiler
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Kolon kanserinin erken belirtileri şunlardır:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Bağırsak alışkanlıklarında değişiklik
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Dışkıda kan veya mukus
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Karın ağrısı ve kramplar
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Açıklanamayan kilo kaybı
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Yorgunluk ve halsizlik
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Demir eksikliği anemisi
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700 md:col-span-2">
+                    Rektal kanama
+                  </div>
+                </div>
+              </div>
 
               <h3>Tarama Önerileri</h3>
               <p>
@@ -150,67 +199,35 @@ export default function KolonKanseriPaneli() {
               </p>
             </div>
 
-            {/* Social Media Share */}
-            <div className="flex items-center gap-4 mt-12 pt-8 border-t border-gray-200">
-              <span className="text-muted-foreground font-medium">Paylaş:</span>
-              <a
-                href="https://www.facebook.com/sharer/sharer.php?u=window.location.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                Facebook
-              </a>
-              <a
-                href="https://twitter.com/intent/tweet?url=window.location.href&text=Kolon Kanseri Paneli - Etik Lab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                Twitter
-              </a>
-              <a
-                href="https://www.linkedin.com/sharing/share-offsite/?url=window.location.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                LinkedIn
-              </a>
-            </div>
-
             {/* Navigation */}
-            <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-200">
+            <div className="flex items-center justify-between mt-16 pt-8 border-t border-gray-200">
               <Link
                 to="/test-panelleri/torch"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <div>
-                  <div className="text-sm">Önceki Panel</div>
+                  <div className="text-sm text-gray-500">Önceki Panel</div>
                   <div className="font-semibold">TORCH Paneli</div>
                 </div>
               </Link>
 
               <Link
                 to="/test-panelleri"
-                className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
               >
                 Tüm Paneller
               </Link>
 
               <Link
                 to="/test-panelleri/anemi"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-right"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-right group"
               >
                 <div>
-                  <div className="text-sm">Sonraki Panel</div>
+                  <div className="text-sm text-gray-500">Sonraki Panel</div>
                   <div className="font-semibold">Anemi Paneli</div>
                 </div>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>

@@ -1,18 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  User,
-  Heart,
-  MessageCircle,
-  Share2,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, Calendar, Heart } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
+import { useLikes } from "@/hooks/useLikes";
 
 export default function AnemiPaneli() {
+  const { likes, hasLiked, toggleLike } = useLikes("anemi-paneli");
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -39,204 +33,263 @@ export default function AnemiPaneli() {
       </section>
 
       {/* Article Content */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-gray-200">
+            <div className="flex flex-wrap items-center gap-6 mb-12 pb-6 border-b border-gray-200">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Calendar className="w-4 h-4" />
                 <span>18 Aralık 2024</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <User className="w-4 h-4" />
-                <span>Dr. Uzman Kadro</span>
-              </div>
               <div className="flex items-center gap-4 ml-auto">
-                <button className="flex items-center gap-1 text-muted-foreground hover:text-red-500 transition-colors">
-                  <Heart className="w-4 h-4" />
-                  <span>42</span>
-                </button>
-                <button className="flex items-center gap-1 text-muted-foreground hover:text-blue-500 transition-colors">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>15</span>
+                <button
+                  onClick={toggleLike}
+                  className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-colors ${
+                    hasLiked
+                      ? "text-red-500 bg-red-50"
+                      : "text-muted-foreground hover:text-red-500"
+                  }`}
+                >
+                  <Heart
+                    className={`w-4 h-4 ${hasLiked ? "fill-current" : ""}`}
+                  />
+                  <span>{likes}</span>
                 </button>
               </div>
             </div>
 
             {/* Article Content */}
-            <div className="prose prose-lg max-w-none">
-              <h2>Anemi Paneli Nedir?</h2>
-              <p>
-                Anemi paneli, kansızlık durumunu değerlendirmek ve nedenini
-                belirlemek için kullanılan kapsamlı bir laboratuvar test
-                grubudur. Bu panel, hemoglobin düzeylerini ve anemi nedenlerini
-                araştırır.
-              </p>
+            <div className="prose prose-lg max-w-none space-y-8">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Anemi Paneli Nedir?
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
+                  Anemi paneli, kansızlık durumunu değerlendirmek ve nedenini
+                  belirlemek için kullanılan kapsamlı bir laboratuvar test
+                  grubudur. Bu panel, hemoglobin düzeylerini ve anemi
+                  nedenlerini araştırır.
+                </p>
+              </div>
 
-              <h3>Panelde Yer Alan Testler</h3>
-              <ul>
-                <li>
-                  <strong>Ferritin:</strong> Vücuttaki demir depolarının
-                  göstergesi
-                </li>
-                <li>
-                  <strong>Serum Demir:</strong> Kandaki demir düzeyini ölçer
-                </li>
-                <li>
-                  <strong>Vitamin B12:</strong> B12 eksikliği anemisini
-                  değerlendirir
-                </li>
-                <li>
-                  <strong>Folat (Folik Asit):</strong> Megaloblastik anemi
-                  tanısında kullanılır
-                </li>
-                <li>
-                  <strong>TIBC (Total Demir Bağlama Kapasitesi):</strong> Demir
-                  metabolizmasını değerlendirir
-                </li>
-                <li>
-                  <strong>Transferrin Saturasyonu:</strong> Demirin taşınma
-                  durumunu gösterir
-                </li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Panelde Yer Alan Testler
+                </h3>
+                <div className="space-y-3">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <strong className="text-primary">Ferritin:</strong>{" "}
+                    Vücuttaki demir depolarının göstergesi
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <strong className="text-primary">Serum Demir:</strong>{" "}
+                    Kandaki demir düzeyini ölçer
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <strong className="text-primary">Vitamin B12:</strong> B12
+                    eksikliği anemisini değerlendirir
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <strong className="text-primary">
+                      Folat (Folik Asit):
+                    </strong>{" "}
+                    Megaloblastik anemi tanısında kullanılır
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <strong className="text-primary">
+                      TIBC (Total Demir Bağlama Kapasitesi):
+                    </strong>{" "}
+                    Demir metabolizmasını değerlendirir
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <strong className="text-primary">
+                      Transferrin Saturasyonu:
+                    </strong>{" "}
+                    Demirin taşınma durumunu gösterir
+                  </div>
+                </div>
+              </div>
 
-              <h3>Anemi Türleri</h3>
-              <p>Anemi paneli ile tespit edilebilen başlıca anemi türleri:</p>
-              <ul>
-                <li>
-                  <strong>Demir Eksikliği Anemisi:</strong> En yaygın anemi türü
-                </li>
-                <li>
-                  <strong>Megaloblastik Anemi:</strong> B12 veya folat eksikliği
-                </li>
-                <li>
-                  <strong>Hemolitik Anemi:</strong> Alyuvar yıkımının artması
-                </li>
-                <li>
-                  <strong>Kronik Hastalık Anemisi:</strong> Uzun süreli
-                  hastalıklarda görülür
-                </li>
-                <li>
-                  <strong>Aplastik Anemi:</strong> Kemik iliği yetersizliği
-                </li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Anemi Türleri
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Anemi paneli ile tespit edilebilen başlıca anemi türleri:
+                </p>
+                <div className="space-y-3">
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">
+                      Demir Eksikliği Anemisi:
+                    </strong>{" "}
+                    En yaygın anemi türü
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">
+                      Megaloblastik Anemi:
+                    </strong>{" "}
+                    B12 veya folat eksikliği
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">Hemolitik Anemi:</strong>{" "}
+                    Alyuvar yıkımının artması
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">
+                      Kronik Hastalık Anemisi:
+                    </strong>{" "}
+                    Uzun süreli hastalıklarda görülür
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">Aplastik Anemi:</strong>{" "}
+                    Kemik iliği yetersizliği
+                  </div>
+                </div>
+              </div>
 
-              <h3>Anemi Belirtileri</h3>
-              <p>Aşağıdaki belirtiler anemi varlığını düşündürür:</p>
-              <ul>
-                <li>Yorgunluk ve halsizlik</li>
-                <li>Nefes darlığı</li>
-                <li>Baş dönmesi</li>
-                <li>Kalp çarpıntısı</li>
-                <li>Saç dökülmesi</li>
-                <li>Tırnak kırılganlığı</li>
-                <li>Soğuk intoleransı</li>
-                <li>Huzursuz bacak sendromu</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Anemi Belirtileri
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Aşağıdaki belirtiler anemi varlığını düşündürür:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Yorgunluk ve halsizlik
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Nefes darlığı
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Baş dönmesi
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Kalp çarpıntısı
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Saç dökülmesi
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Tırnak kırılganlığı
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Soğuk intoleransı
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Huzursuz bacak sendromu
+                  </div>
+                </div>
+              </div>
 
-              <h3>Risk Faktörleri</h3>
-              <p>Anemi riski aşağıdaki durumlarda artar:</p>
-              <ul>
-                <li>Menstrual periyottaki kadınlar</li>
-                <li>Hamilelik ve emzirme dönemi</li>
-                <li>Yetersiz beslenme</li>
-                <li>Gastrointestinal hastalıklar</li>
-                <li>Kronik böbrek hastalığı</li>
-                <li>Kanser tedavisi</li>
-                <li>Düzenli kan bağışı</li>
-                <li>Vegetaryen/vegan beslenme</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Risk Faktörleri
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Anemi riski aşağıdaki durumlarda artar:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Menstrual periyottaki kadınlar
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Hamilelik ve emzirme dönemi
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Yetersiz beslenme
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Gastrointestinal hastalıklar
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Kronik böbrek hastalığı
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Kanser tedavisi
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Düzenli kan bağışı
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Vegetaryen/vegan beslenme
+                  </div>
+                </div>
+              </div>
 
-              <h3>Beslenme Önerileri</h3>
-              <p>Anemi önlenmesi ve tedavisinde beslenme önemlidir:</p>
-              <ul>
-                <li>
-                  <strong>Demir Açısından Zengin Gıdalar:</strong> Kırmızı et,
-                  tavuk, balık, kurubaklagiller
-                </li>
-                <li>
-                  <strong>Vitamin C:</strong> Demir emilimini artırır
-                  (narenciye, domates)
-                </li>
-                <li>
-                  <strong>B12 Kaynakları:</strong> Et, süt ürünleri, yumurta
-                </li>
-                <li>
-                  <strong>Folat Kaynakları:</strong> Yeşil yapraklı sebzeler,
-                  kurubaklagiller
-                </li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Beslenme Önerileri
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Anemi önlenmesi ve tedavisinde beslenme önemlidir:
+                </p>
+                <div className="space-y-3">
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <strong className="text-green-700">
+                      Demir Açısından Zengin Gıdalar:
+                    </strong>{" "}
+                    Kırmızı et, tavuk, balık, kurubaklagiller
+                  </div>
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <strong className="text-green-700">Vitamin C:</strong> Demir
+                    emilimini artırır (narenciye, domates)
+                  </div>
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <strong className="text-green-700">B12 Kaynakları:</strong>{" "}
+                    Et, süt ürünleri, yumurta
+                  </div>
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <strong className="text-green-700">
+                      Folat Kaynakları:
+                    </strong>{" "}
+                    Yeşil yapraklı sebzeler, kurubaklagiller
+                  </div>
+                </div>
+              </div>
 
-              <h3>Test Öncesi Hazırlık</h3>
-              <p>
-                Anemi paneli için özel hazırlık gerekmez. Ancak sabah açlık
-                halinde kan alımı daha doğru sonuçlar verir. Demir preparatları
-                kullanıyorsanız doktorunuzu bilgilendirin.
-              </p>
-            </div>
-
-            {/* Social Media Share */}
-            <div className="flex items-center gap-4 mt-12 pt-8 border-t border-gray-200">
-              <span className="text-muted-foreground font-medium">Paylaş:</span>
-              <a
-                href="https://www.facebook.com/sharer/sharer.php?u=window.location.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                Facebook
-              </a>
-              <a
-                href="https://twitter.com/intent/tweet?url=window.location.href&text=Anemi Paneli - Etik Lab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                Twitter
-              </a>
-              <a
-                href="https://www.linkedin.com/sharing/share-offsite/?url=window.location.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                LinkedIn
-              </a>
+              <div className="bg-primary/10 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-primary mb-4">
+                  Test Öncesi Hazırlık
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Anemi paneli için özel hazırlık gerekmez. Ancak sabah açlık
+                  halinde kan alımı daha doğru sonuçlar verir. Demir
+                  preparatları kullanıyorsanız doktorunuzu bilgilendirin.
+                </p>
+              </div>
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-200">
+            <div className="flex items-center justify-between mt-16 pt-8 border-t border-gray-200">
               <Link
                 to="/test-panelleri/kolon-kanseri"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <div>
-                  <div className="text-sm">Önceki Panel</div>
+                  <div className="text-sm text-gray-500">Önceki Panel</div>
                   <div className="font-semibold">Kolon Kanseri Paneli</div>
                 </div>
               </Link>
 
               <Link
                 to="/test-panelleri"
-                className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
               >
                 Tüm Paneller
               </Link>
 
               <Link
                 to="/test-panelleri/colyak"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-right"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-right group"
               >
                 <div>
-                  <div className="text-sm">Sonraki Panel</div>
+                  <div className="text-sm text-gray-500">Sonraki Panel</div>
                   <div className="font-semibold">Çölyak Paneli</div>
                 </div>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>

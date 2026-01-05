@@ -1,18 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  User,
-  Heart,
-  MessageCircle,
-  Share2,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, Calendar, Heart } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
+import { useLikes } from "@/hooks/useLikes";
 
 export default function DiyabetPaneli() {
+  const { likes, hasLiked, toggleLike } = useLikes("diyabet-paneli");
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -40,210 +34,288 @@ export default function DiyabetPaneli() {
       </section>
 
       {/* Article Content */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-gray-200">
+            <div className="flex flex-wrap items-center gap-6 mb-12 pb-6 border-b border-gray-200">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Calendar className="w-4 h-4" />
                 <span>18 Aralık 2024</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <User className="w-4 h-4" />
-                <span>Dr. Uzman Kadro</span>
-              </div>
               <div className="flex items-center gap-4 ml-auto">
-                <button className="flex items-center gap-1 text-muted-foreground hover:text-red-500 transition-colors">
-                  <Heart className="w-4 h-4" />
-                  <span>28</span>
-                </button>
-                <button className="flex items-center gap-1 text-muted-foreground hover:text-blue-500 transition-colors">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>9</span>
+                <button
+                  onClick={toggleLike}
+                  className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-colors ${
+                    hasLiked
+                      ? "text-red-500 bg-red-50"
+                      : "text-muted-foreground hover:text-red-500"
+                  }`}
+                >
+                  <Heart
+                    className={`w-4 h-4 ${hasLiked ? "fill-current" : ""}`}
+                  />
+                  <span>{likes}</span>
                 </button>
               </div>
             </div>
 
             {/* Article Content */}
-            <div className="prose prose-lg max-w-none">
-              <h2>Diyabet Paneli Nedir?</h2>
-              <p>
-                Diyabet paneli, kan şekeri metabolizmasını kapsamlı olarak
-                değerlendiren test grubudur. Bu testler, diyabet tanısı,
-                prediabet durumu ve kan şekeri kontrolünü değerlendirmek için
-                kullanılır.
-              </p>
+            <div className="prose prose-lg max-w-none space-y-8">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Diyabet Paneli Nedir?
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
+                  Diyabet paneli, kan şekeri metabolizmasını kapsamlı olarak
+                  değerlendiren test grubudur. Bu testler, diyabet tanısı,
+                  prediabet durumu ve kan şekeri kontrolünü değerlendirmek için
+                  kullanılır.
+                </p>
+              </div>
 
-              <h3>Panelde Yer Alan Testler</h3>
-              <ul>
-                <li>
-                  <strong>Açlık Kan Şekeri (Glukoz):</strong> 8-12 saat açlık
-                  sonrası ölçülen kan şekeri
-                </li>
-                <li>
-                  <strong>HbA1c (Glikozillenmiş Hemoglobin):</strong> Son 2-3
-                  aylık ortalama kan şekeri
-                </li>
-                <li>
-                  <strong>İnsülin:</strong> Pankreas tarafından üretilen hormon
-                  düzeyi
-                </li>
-                <li>
-                  <strong>HOMA-IR:</strong> İnsülin direncini değerlendiren
-                  indeks
-                </li>
-                <li>
-                  <strong>C-Peptit:</strong> İnsülin üretim kapasitesini
-                  gösterir
-                </li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Panelde Yer Alan Testler
+                </h3>
+                <div className="space-y-3">
+                  <div className="bg-emerald-50 p-4 rounded-lg">
+                    <strong className="text-emerald-700">
+                      Açlık Kan Şekeri (Glukoz):
+                    </strong>{" "}
+                    8-12 saat açlık sonrası ölçülen kan şekeri
+                  </div>
+                  <div className="bg-emerald-50 p-4 rounded-lg">
+                    <strong className="text-emerald-700">
+                      HbA1c (Glikozillenmiş Hemoglobin):
+                    </strong>{" "}
+                    Son 2-3 aylık ortalama kan şekeri
+                  </div>
+                  <div className="bg-emerald-50 p-4 rounded-lg">
+                    <strong className="text-emerald-700">İnsülin:</strong>{" "}
+                    Pankreas tarafından üretilen hormon düzeyi
+                  </div>
+                  <div className="bg-emerald-50 p-4 rounded-lg">
+                    <strong className="text-emerald-700">HOMA-IR:</strong>{" "}
+                    İnsülin direncini değerlendiren indeks
+                  </div>
+                  <div className="bg-emerald-50 p-4 rounded-lg">
+                    <strong className="text-emerald-700">C-Peptit:</strong>{" "}
+                    İnsülin üretim kapasitesini gösterir
+                  </div>
+                </div>
+              </div>
 
-              <h3>Diyabet Türleri</h3>
-              <ul>
-                <li>
-                  <strong>Tip 1 Diyabet:</strong> Otoimmün, insülin üretimi
-                  durur
-                </li>
-                <li>
-                  <strong>Tip 2 Diyabet:</strong> İnsülin direnci ve
-                  yetersizliği
-                </li>
-                <li>
-                  <strong>Gestasyonel Diyabet:</strong> Hamilelik diyabeti
-                </li>
-                <li>
-                  <strong>MODY:</strong> Genetik kaynaklı diyabet
-                </li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Diyabet Türleri
+                </h3>
+                <div className="space-y-3">
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">Tip 1 Diyabet:</strong>{" "}
+                    Otoimmün, insülin üretimi durur
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">Tip 2 Diyabet:</strong>{" "}
+                    İnsülin direnci ve yetersizliği
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">
+                      Gestasyonel Diyabet:
+                    </strong>{" "}
+                    Hamilelik diyabeti
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <strong className="text-blue-700">MODY:</strong> Genetik
+                    kaynaklı diyabet
+                  </div>
+                </div>
+              </div>
 
-              <h3>Risk Faktörleri</h3>
-              <p>Diyabet riski aşağıdaki durumlarda artar:</p>
-              <ul>
-                <li>45 yaş üzeri olmak</li>
-                <li>Aile öyküsü</li>
-                <li>Obezite (BKİ &gt 30)</li>
-                <li>Sedanter yaşam</li>
-                <li>Yüksek tansiyon</li>
-                <li>Gestasyonel diyabet öyküsü</li>
-                <li>Polikistik over sendromu</li>
-                <li>Metabolik sendrom</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Risk Faktörleri
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Diyabet riski aşağıdaki durumlarda artar:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    45 yaş üzeri olmak
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Aile öyküsü
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Obezite (BKİ &gt; 30)
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Sedanter yaşam
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Yüksek tansiyon
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Gestasyonel diyabet öyküsü
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Polikistik over sendromu
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg text-yellow-700">
+                    Metabolik sendrom
+                  </div>
+                </div>
+              </div>
 
-              <h3>Erken Belirtiler</h3>
-              <p>Diyabetin erken belirtileri:</p>
-              <ul>
-                <li>Aşırı susama</li>
-                <li>Sık idrara çıkma</li>
-                <li>Yorgunluk</li>
-                <li>Bulanık görme</li>
-                <li>Yavaş iyileşen yaralar</li>
-                <li>Sık enfeksiyonlar</li>
-                <li>Açıklanamayan kilo kaybı (Tip 1)</li>
-                <li>Karıncalanma hissi</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Erken Belirtiler
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Diyabetin erken belirtileri:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Aşırı susama
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Sık idrara çıkma
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Yorgunluk
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Bulanık görme
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Yavaş iyileşen yaralar
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Sık enfeksiyonlar
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Açıklanamayan kilo kaybı (Tip 1)
+                  </div>
+                  <div className="bg-red-50 p-3 rounded-lg text-red-700">
+                    Karıncalanma hissi
+                  </div>
+                </div>
+              </div>
 
-              <h3>Tanı Kriterleri</h3>
-              <p>Diyabet tanısı için kullanılan değerler:</p>
-              <ul>
-                <li>
-                  <strong>Açlık Glukoz:</strong> ≥126 mg/dL (diyabet), 100-125
-                  mg/dL (prediabet)
-                </li>
-                <li>
-                  <strong>HbA1c:</strong> ≥6.5% (diyabet), 5.7-6.4% (prediabet)
-                </li>
-                <li>
-                  <strong>OGTT (2. saat):</strong> ≥200 mg/dL (diyabet), 140-199
-                  mg/dL (prediabet)
-                </li>
-              </ul>
+              <div className="bg-orange-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-orange-700 mb-4">
+                  Tanı Kriterleri
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Diyabet tanısı için kullanılan değerler:
+                </p>
+                <div className="space-y-3">
+                  <div className="bg-white p-3 rounded-lg border border-orange-200">
+                    <strong className="text-orange-700">Açlık Glukoz:</strong>{" "}
+                    ≥126 mg/dL (diyabet), 100-125 mg/dL (prediabet)
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-orange-200">
+                    <strong className="text-orange-700">HbA1c:</strong> ≥6.5%
+                    (diyabet), 5.7-6.4% (prediabet)
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-orange-200">
+                    <strong className="text-orange-700">OGTT (2. saat):</strong>{" "}
+                    ≥200 mg/dL (diyabet), 140-199 mg/dL (prediabet)
+                  </div>
+                </div>
+              </div>
 
-              <h3>Komplikasyonlar</h3>
-              <p>Kontrol edilmeyen diyabetin komplikasyonları:</p>
-              <ul>
-                <li>Kardiyovasküler hastalıklar</li>
-                <li>Nefropati (böbrek hasarı)</li>
-                <li>Retinopati (göz hasarı)</li>
-                <li>Nöropati (sinir hasarı)</li>
-                <li>Diyabetik ayak</li>
-                <li>Enfeksiyon riski artışı</li>
-              </ul>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Komplikasyonlar
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Kontrol edilmeyen diyabetin komplikasyonları:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-rose-50 p-3 rounded-lg text-rose-700">
+                    Kardiyovasküler hastalıklar
+                  </div>
+                  <div className="bg-rose-50 p-3 rounded-lg text-rose-700">
+                    Nefropati (böbrek hasarı)
+                  </div>
+                  <div className="bg-rose-50 p-3 rounded-lg text-rose-700">
+                    Retinopati (göz hasarı)
+                  </div>
+                  <div className="bg-rose-50 p-3 rounded-lg text-rose-700">
+                    Nöropati (sinir hasarı)
+                  </div>
+                  <div className="bg-rose-50 p-3 rounded-lg text-rose-700">
+                    Diyabetik ayak
+                  </div>
+                  <div className="bg-rose-50 p-3 rounded-lg text-rose-700">
+                    Enfeksiyon riski artışı
+                  </div>
+                </div>
+              </div>
 
-              <h3>Yaşam Tarzı Önerileri</h3>
-              <p>Diyabeti önlemek ve kontrol etmek için:</p>
-              <ul>
-                <li>Düzenli egzersiz (haftada 150 dakika)</li>
-                <li>Sağlıklı beslenme</li>
-                <li>Kilo kontrolü</li>
-                <li>Stres yönetimi</li>
-                <li>Düzenli uyku</li>
-                <li>Sigara ve alkol bırakma</li>
-                <li>Düzenli kontroller</li>
-              </ul>
-            </div>
-
-            {/* Social Media Share */}
-            <div className="flex items-center gap-4 mt-12 pt-8 border-t border-gray-200">
-              <span className="text-muted-foreground font-medium">Paylaş:</span>
-              <a
-                href="https://www.facebook.com/sharer/sharer.php?u=window.location.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                Facebook
-              </a>
-              <a
-                href="https://twitter.com/intent/tweet?url=window.location.href&text=Diyabet Paneli - Etik Lab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                Twitter
-              </a>
-              <a
-                href="https://www.linkedin.com/sharing/share-offsite/?url=window.location.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                LinkedIn
-              </a>
+              <div className="bg-green-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-green-700 mb-4">
+                  Yaşam Tarzı Önerileri
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Diyabeti önlemek ve kontrol etmek için:
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-white p-3 rounded-lg border border-green-200 text-green-700">
+                    Düzenli egzersiz (haftada 150 dakika)
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-green-200 text-green-700">
+                    Sağlıklı beslenme
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-green-200 text-green-700">
+                    Kilo kontrolü
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-green-200 text-green-700">
+                    Stres yönetimi
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-green-200 text-green-700">
+                    Düzenli uyku
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-green-200 text-green-700">
+                    Sigara ve alkol bırakma
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-green-200 text-green-700 md:col-span-2">
+                    Düzenli kontroller
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-200">
+            <div className="flex items-center justify-between mt-16 pt-8 border-t border-gray-200">
               <Link
                 to="/test-panelleri/colyak"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <div>
-                  <div className="text-sm">Önceki Panel</div>
+                  <div className="text-sm text-gray-500">Önceki Panel</div>
                   <div className="font-semibold">Çölyak Paneli</div>
                 </div>
               </Link>
 
               <Link
                 to="/test-panelleri"
-                className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
               >
                 Tüm Paneller
               </Link>
 
               <Link
                 to="/test-panelleri/romatoloji"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-right"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-right group"
               >
                 <div>
-                  <div className="text-sm">Sonraki Panel</div>
+                  <div className="text-sm text-gray-500">Sonraki Panel</div>
                   <div className="font-semibold">Romatoloji Paneli</div>
                 </div>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
