@@ -22,7 +22,7 @@ export function ServiceContactForm({
   >("idle");
 
   const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxoYjOpHdeRbN2MNuakwBUTfmB7QYDlKIiu4lcv7feIqJ5GILoPWLNzzirK-oZOUZIF/exec";
+    "https://script.google.com/macros/s/AKfycbxkBzH_ijiWMBAj9hJt-iJP_Y_fl3Tzyhp73GGAldEpEe2xFZKVSQe7Sly9UnZaMke3/exec";
 
   function handleSubmit(e) {
     e.preventDefault();
