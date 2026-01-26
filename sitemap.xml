@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url><loc>https://etiklab.net/</loc></url>
+
+  <!-- About -->
+  <url><loc>https://etiklab.net/hakkimizda</loc></url>
+  <url><loc>https://etiklab.net/hakkimizda/kurumsal</loc></url>
+  <url><loc>https://etiklab.net/hakkimizda/zaman-tuneli</loc></url>
+  <url><loc>https://etiklab.net/hakkimizda/ekibimiz</loc></url>
+  <url><loc>https://etiklab.net/kariyer</loc></url>
+
+  <!-- Services -->
+  <url><loc>https://etiklab.net/hizmetlerimiz</loc></url>
+  <url><loc>https://etiklab.net/hizmetlerimiz/ayaktan-hasta</loc></url>
+  <url><loc>https://etiklab.net/hizmetlerimiz/evde-kan-alma</loc></url>
+  <url><loc>https://etiklab.net/hizmetlerimiz/genetik-testler</loc></url>
+  <url><loc>https://etiklab.net/hizmetlerimiz/sma-testi</loc></url>
+  <url><loc>https://etiklab.net/hizmetlerimiz/kurumsal</loc></url>
+  <url><loc>https://etiklab.net/hizmetlerimiz/covid-testleri</loc></url>
+
+  <!-- Test Panels -->
+  <url><loc>https://etiklab.net/test-panelleri</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/tiroid</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/torch</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/kolon-kanseri</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/anemi</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/colyak</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/diyabet</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/romatoloji</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/cinsel-hastaliklar</loc></url>
+
+  <!-- Check-up -->
+  <url><loc>https://etiklab.net/paketler</loc></url>
+  <url><loc>https://etiklab.net/paketler/sporcu-paketi</loc></url>
+
+  <!-- Blog (listing only, posts are dynamic) -->
+  <url><loc>https://etiklab.net/blog</loc></url>
+
+  <!-- Contact & Forms -->
+  <url><loc>https://etiklab.net/iletisim</loc></url>
+  <url><loc>https://etiklab.net/randevu</loc></url>
+  <url><loc>https://etiklab.net/test-istem-formu</loc></url>
+
+</urlset>
