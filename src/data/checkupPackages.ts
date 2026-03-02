@@ -485,6 +485,35 @@ export const specialPanels = [
     type: "Özel Panel",
     tests: ["Syphilis (VDRL)", "Anti-HIV", "HbsAg", "Anti-HCV"],
   },
+  {
+    id: "sibo-nefes-testi",
+    title: "SIBO Nefes Testi",
+    description: "İnce bağırsakta aşırı bakteri üremesi (SIBO) tanısı için nefes testi",
+    category: "Gastroenteroloji",
+    ageGroup: "Yetişkin",
+    type: "Özel Panel",
+    tests: [
+      "Nefes Testi (Glukoz/Laktüloz)",
+      "Hidrojen Gazı Ölçümü", 
+      "Metan Gazı Ölçümü",
+      "Fermentasyon Değerlendirmesi",
+    ],
+  },
+  {
+    id: "gastropanel",
+    title: "Gastropanel Testi", 
+    description: "Mide fonksiyonu değerlendirmesi ve H. pylori tanısı için non-invaziv kan testi",
+    category: "Gastroenteroloji",
+    ageGroup: "Yetişkin",
+    type: "Özel Panel",
+    tests: [
+      "Pepsinojen I (PGI)",
+      "Pepsinojen II (PGII)", 
+      "PGI/PGII Oranı",
+      "Gastrin-17 (G-17)",
+      "Helicobacter pylori IgG Antikorları",
+    ],
+  },
 ];
 
 // Get all unique categories for filtering
