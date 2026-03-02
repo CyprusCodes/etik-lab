@@ -488,27 +488,29 @@ export const specialPanels = [
   {
     id: "sibo-nefes-testi",
     title: "SIBO Nefes Testi",
-    description: "İnce bağırsakta aşırı bakteri üremesi (SIBO) tanısı için nefes testi",
+    description:
+      "İnce bağırsakta aşırı bakteri üremesi (SIBO) tanısı için nefes testi",
     category: "Gastroenteroloji",
     ageGroup: "Yetişkin",
     type: "Özel Panel",
     tests: [
       "Nefes Testi (Glukoz/Laktüloz)",
-      "Hidrojen Gazı Ölçümü", 
+      "Hidrojen Gazı Ölçümü",
       "Metan Gazı Ölçümü",
       "Fermentasyon Değerlendirmesi",
     ],
   },
   {
     id: "gastropanel",
-    title: "Gastropanel Testi", 
-    description: "Mide fonksiyonu değerlendirmesi ve H. pylori tanısı için non-invaziv kan testi",
+    title: "Gastropanel Testi",
+    description:
+      "Mide fonksiyonu değerlendirmesi ve H. pylori tanısı için non-invaziv kan testi",
     category: "Gastroenteroloji",
     ageGroup: "Yetişkin",
     type: "Özel Panel",
     tests: [
       "Pepsinojen I (PGI)",
-      "Pepsinojen II (PGII)", 
+      "Pepsinojen II (PGII)",
       "PGI/PGII Oranı",
       "Gastrin-17 (G-17)",
       "Helicobacter pylori IgG Antikorları",
