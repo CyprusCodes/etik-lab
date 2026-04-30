@@ -193,7 +193,7 @@ export function ServiceContactForm({
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4 text-primary" />
-                      <span>+90 533 871 20 42</span>
+                      <span>+90 533 840 32 73</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4 text-primary" />

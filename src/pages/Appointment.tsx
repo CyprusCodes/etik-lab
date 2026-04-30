@@ -100,7 +100,7 @@ export default function Appointment() {
                       </h4>
                       <p className="text-red-700 text-sm">
                         Randevu talebiniz gönderilemedi. Lütfen daha sonra
-                        tekrar deneyin veya +90 533 871 20 42 numaralı telefonu
+                        tekrar deneyin veya +90 533 840 32 73 numaralı telefonu
                         arayarak randevu alın.
                       </p>
                     </div>

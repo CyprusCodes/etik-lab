@@ -19,7 +19,7 @@ export function FloatingButtons() {
         asChild
       >
         <a
-          href="https://wa.me/905338712042"
+          href="https://wa.me/905338403273"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp ile iletişime geçin"

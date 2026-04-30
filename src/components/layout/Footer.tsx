@@ -66,7 +66,7 @@ export function Footer() {
                 className="flex items-center gap-3 text-white/80 hover:text-primary transition-colors"
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <span>+90 533 871 20 42</span>
+                <span>+90 533 840 32 73</span>
               </a>
               <a
                 href="mailto:bilgi@etiklab.net"
