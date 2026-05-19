@@ -124,13 +124,13 @@ export function CheckUpSection() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+          <p className="text-sm font-semibold text-teal-800 uppercase tracking-wider mb-4">
             SAĞLIK PAKETLERİ
           </p>
           <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground">
-            Size Özel <span className="text-primary">Check-Up Paketleri</span>
+            Size Özel <span className="text-teal-800">Check-Up Paketleri</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed">
             Farklı ihtiyaçlara yönelik hazırlanmış sağlık kontrol paketleri.
           </p>
         </div>
@@ -169,7 +169,7 @@ export function CheckUpSection() {
                         {pkg.title}
                       </h3>
 
-                      <div className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                      <div className="inline-flex items-center gap-2 text-teal-800 font-semibold group-hover:gap-3 transition-all">
                         <span>Detayları İncele</span>
                         <ArrowRight className="w-4 h-4" />
                       </div>
@@ -189,15 +189,21 @@ export function CheckUpSection() {
         <div className="flex justify-center gap-2 mt-8">
           {packages.map((_, index) => (
             <button
-              key={index}
-              onClick={() => scrollToIndex(index)}
-              className={`transition-all duration-300 rounded-full ${
-                index === activeIndex
-                  ? "w-8 h-2 bg-primary"
-                  : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-              }`}
-              aria-label={`Go to package ${index + 1}`}
-            />
+  key={index}
+  type="button"
+  onClick={() => scrollToIndex(index)}
+  aria-label={`Pakete git ${index + 1}`}
+  aria-current={index === activeIndex ? "true" : undefined}
+  className="w-11 h-11 flex items-center justify-center rounded-full transition-all duration-300"
+>
+  <span
+    className={`rounded-full transition-all duration-300 ${
+      index === activeIndex
+        ? "w-8 h-2 bg-primary"
+        : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
+    }`}
+  />
+</button>
           ))}
         </div>
 

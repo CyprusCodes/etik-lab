@@ -123,13 +123,13 @@ export function TestPanelsSection() {
         <div className="container-wide">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+            <p className="text-sm font-semibold text-teal-800 uppercase tracking-wider mb-4">
               TEST PANELLERİ
             </p>
             <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground">
-              Kapsamlı <span className="text-primary">Test Panellerimiz</span>
+              Kapsamlı <span className="text-teal-800">Test Panellerimiz</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed">
               Hastalık gruplarına göre hazırlanmış özel test paketlerimizle
               doğru tanı için doğru testler.
             </p>
@@ -192,7 +192,7 @@ export function TestPanelsSection() {
                           {panel.title}
                         </h3>
 
-                        <p className="text-muted-foreground mb-6 leading-relaxed">
+                        <p className="text-gray-700 mb-6 leading-relaxed">
                           {panel.description}
                         </p>
 
@@ -209,7 +209,7 @@ export function TestPanelsSection() {
                         </div>
 
                         {/* CTA */}
-                        <div className="flex items-center gap-2 text-primary font-semibold group">
+                        <div className="flex items-center gap-2 text-teal-800 font-semibold group">
                           <span>Paneli İncele</span>
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>

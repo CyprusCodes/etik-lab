@@ -34,7 +34,7 @@ export const AboutServices = () => (
     <div className="container-wide">
       <div className="text-center mb-16">
         <h2 className="heading-2 text-foreground mb-4">Servisler</h2>
-        <p className="body-large text-muted-foreground max-w-3xl mx-auto">
+        <p className="body-large text-gray-700 max-w-3xl mx-auto">
           Güvenilir çözümler ve ileri teknolojiyle güvenli teşhisler sunuyoruz.
         </p>
       </div>
@@ -48,7 +48,7 @@ export const AboutServices = () => (
             <h3 className="heading-4 text-foreground mb-4 group-hover:text-primary transition-colors">
               {service.title}
             </h3>
-            <p className="body-base text-muted-foreground mb-6">
+            <p className="body-base text-gray-700 mb-6">
               {service.description}
             </p>
             <ul className="space-y-2 mb-8">
@@ -63,7 +63,7 @@ export const AboutServices = () => (
             {/* Navigation Link */}
             <Link
               to={service.link}
-              className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-primary/80 transition-colors group-hover:gap-3"
+              className="inline-flex items-center gap-2 text-teal-800 font-medium text-sm hover:text-teal-800 transition-colors group-hover:gap-3"
             >
               {service.linkText}
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

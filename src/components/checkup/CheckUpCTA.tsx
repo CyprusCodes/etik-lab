@@ -55,7 +55,7 @@ export const CheckUpCTA = () => (
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
           <Button
             size="lg"
-            className="bg-white text-primary hover:bg-gray-50 font-bold h-16 px-10 rounded-2xl shadow-2xl hover:shadow-3xl transition-all group text-lg"
+            className="bg-white text-teal-800 hover:bg-gray-50 font-bold h-16 px-10 rounded-2xl shadow-2xl hover:shadow-3xl transition-all group text-lg"
             asChild
           >
             <Link to="/randevu" className="inline-flex items-center gap-3">

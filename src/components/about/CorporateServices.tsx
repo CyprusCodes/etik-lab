@@ -83,7 +83,7 @@ export const CorporateServices = () => (
             Servislerimiz
           </span>
         </h2>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
           Güvenilir çözümler ve ileri teknolojiyle sağlığınız için en iyi
           hizmeti sunuyoruz.
         </p>
@@ -112,7 +112,7 @@ export const CorporateServices = () => (
                 </div>
               </div>
 
-              <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
+              <p className="text-gray-700 mb-8 leading-relaxed text-lg">
                 {service.description}
               </p>
 
@@ -120,7 +120,7 @@ export const CorporateServices = () => (
                 {service.stats.map((stat, idx) => (
                   <span
                     key={stat}
-                    className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold hover:bg-primary/20 transition-colors"
+                    className="px-4 py-2 bg-primary/10 text-teal-800 rounded-full text-sm font-semibold hover:bg-primary/20 transition-colors"
                     style={{ animationDelay: `${idx * 0.1}s` }}
                   >
                     {stat}
@@ -137,7 +137,7 @@ export const CorporateServices = () => (
         <h3 className="text-3xl font-black text-foreground mb-4">
           Neden Bizi Seçmelisiniz?
         </h3>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-gray-700 max-w-2xl mx-auto">
           Kalite, güvenilirlik ve müşteri memnuniyeti odaklı yaklaşımımızla fark
           yaratıyoruz.
         </p>
@@ -159,10 +159,10 @@ export const CorporateServices = () => (
               </div>
 
               <div className="mb-4">
-                <div className="text-3xl font-black text-primary mb-1">
+                <div className="text-3xl font-black text-teal-800 mb-1">
                   {achievement.metric}
                 </div>
-                <div className="text-sm text-muted-foreground font-medium">
+                <div className="text-sm text-gray-700 font-medium">
                   {achievement.metricLabel}
                 </div>
               </div>
@@ -171,7 +171,7 @@ export const CorporateServices = () => (
                 {achievement.title}
               </h4>
 
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed">
                 {achievement.description}
               </p>
             </div>

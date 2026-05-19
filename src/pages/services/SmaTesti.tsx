@@ -22,7 +22,7 @@ export default function SmaTesti() {
           <div className="max-w-4xl mx-auto">
             <article className="prose prose-lg prose-blue max-w-none">
               <div className="mb-12">
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Hoş geldiniz, Etik Laboratuvarı olarak sizin ve ailenizin
                   sağlığını önemsiyoruz. SMA (Spinal Musküler Atrofi) testi,
                   genetik bir hastalık olan SMA'yı belirlemek ve riski
@@ -40,7 +40,7 @@ export default function SmaTesti() {
                     SMA (Spinal Musküler Atrofi) Testi Nedir?
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   SMA, kasların zayıflamasına ve hareket yeteneğinin kaybına yol
                   açabilen genetik bir bozukluktur. SMA testi, kişinin genetik
                   profilini inceleyerek, hastalığın varlığını veya
@@ -57,7 +57,7 @@ export default function SmaTesti() {
                     Etik Laboratuvarı'nda SMA Testi
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Etik Laboratuvarı olarak, SMA testini etik değerlere uygun bir
                   şekilde yapma taahhüdünde bulunuyoruz. Test sonuçlarının
                   doğruluğunu ve güvenilirliğini sağlamak için sıkı kalite
@@ -74,7 +74,7 @@ export default function SmaTesti() {
                     SMA Testi ile Aile Planlaması
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   SMA testi, aile planlamasında da önemli bir rol oynar.
                   Ebeveynler, SMA taşıyıcılığı riskini anladıklarında, çocuk
                   sahibi olmadan önce daha bilinçli kararlar alabilirler. Bu,
@@ -118,12 +118,12 @@ export default function SmaTesti() {
                 <h3 className="text-2xl font-bold text-foreground mb-6">
                   SMA Testi İçin Bize Ulaşın
                 </h3>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   SMA testi hakkında daha fazla bilgi almak veya randevu almak
                   için bize ulaşmaktan çekinmeyin. Sağlığınızı ve aile
                   planlamasını ciddiye alıyoruz ve sizin için buradayız.
                 </p>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Etik Laboratuvarı olarak, sağlığınızı ve ailenizin sağlığını
                   korumak için etik, güvenilir ve saygılı bir hizmet sunmaktan
                   gurur duyuyoruz. Sizi sağlıklı bir geleceğe taşımaktan

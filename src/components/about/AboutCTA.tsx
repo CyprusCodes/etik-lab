@@ -50,7 +50,7 @@ export const AboutCTA = () => (
           <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap animate-fade-in-up">
             <Button
               size="lg"
-              className="bg-white text-primary hover:bg-gray-50 font-bold h-14 px-8 rounded-full shadow-xl hover:shadow-2xl transition-all group"
+              className="bg-white text-teal-800 hover:bg-gray-50 font-bold h-14 px-8 rounded-full shadow-xl hover:shadow-2xl transition-all group"
               asChild
             >
               <Link to="/randevu" className="inline-flex items-center gap-3">

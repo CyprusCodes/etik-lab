@@ -62,14 +62,14 @@ export function WhyUsSection() {
       <div className="container-wide relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+          <p className="text-sm font-semibold text-teal-800 uppercase tracking-wider mb-4">
             NEDEN BİZ?
           </p>
           <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6">
             Etik Laboratuvarı'nı{" "}
-            <span className="text-primary">Tercih Edin</span>
+            <span className="text-teal-800">Tercih Edin</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed">
             25 yılı aşkın deneyimimiz ve modern altyapımızla sağlığınız için en
             doğru sonuçları sunuyoruz.
           </p>
@@ -103,7 +103,7 @@ export function WhyUsSection() {
                 <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                <p className="text-gray-700 leading-relaxed group-hover:text-foreground transition-colors duration-300">
                   {feature.description}
                 </p>
 

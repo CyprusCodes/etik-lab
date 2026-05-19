@@ -112,7 +112,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7">
             {navigationItems.map((item) => (
               <div
                 key={item.label}
@@ -163,12 +163,12 @@ export function Header() {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 ml-6">
             <Button
               size="sm"
               variant="outline"
               className={cn(
-                "font-bold rounded-full h-10 px-6 transition-all duration-300",
+                "font-semibold rounded-full h-10 px-6 transition-all duration-300",
                 isScrolled
                   ? "border-primary text-primary bg-white hover:bg-primary hover:text-white shadow-md"
                   : "border-white text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm shadow-lg"
@@ -186,7 +186,7 @@ export function Header() {
             <Button
               size="sm"
               className={cn(
-                "font-bold rounded-full h-10 px-6 transition-all duration-300",
+                "font-semibold rounded-full h-10 px-6 transition-all duration-300",
                 isScrolled
                   ? "bg-primary hover:bg-primary-dark text-white shadow-md"
                   : "bg-white text-primary hover:bg-gray-100 shadow-lg"
@@ -199,14 +199,19 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className={cn(
-              "lg:hidden p-2 rounded-lg transition-colors",
-              isScrolled ? "hover:bg-gray-100" : "hover:bg-white/10"
-            )}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
+  type="button"
+  aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
+  aria-expanded={isMobileMenuOpen}
+  aria-controls="mobile-menu"
+  className={cn(
+    "lg:hidden p-2 rounded-lg transition-colors",
+    isScrolled ? "hover:bg-gray-100" : "hover:bg-white/10"
+  )}
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+>
             {isMobileMenuOpen ? (
               <X
+
                 className={cn(
                   "w-6 h-6",
                   isScrolled ? "text-foreground" : "text-white"
@@ -227,7 +232,9 @@ export function Header() {
         {/* Mobile Menu */}
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 animate-fade-in-down">
+          <div
+          id="mobile-menu"
+          className="lg:hidden mt-4 pb-4 animate-fade-in-down">
             <div
               className={cn(
                 "rounded-2xl shadow-2xl p-4 space-y-2 overflow-hidden transition-all duration-500",
@@ -311,7 +318,7 @@ export function Header() {
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-full font-bold rounded-full h-11 shadow-lg transition-all duration-300",
+                    "w-full font-semibold rounded-full h-11 shadow-lg transition-all duration-300",
                     isScrolled
                       ? "border-primary text-primary bg-white hover:bg-primary hover:text-white"
                       : "border-white text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm"
@@ -328,7 +335,7 @@ export function Header() {
                 </Button>
                 <Button
                   className={cn(
-                    "w-full font-bold rounded-full h-11 shadow-lg transition-all duration-300",
+                    "w-full font-semibold rounded-full h-11 shadow-lg transition-all duration-300",
                     isScrolled
                       ? "bg-primary hover:bg-primary-dark text-white"
                       : "bg-white text-primary hover:bg-gray-100"

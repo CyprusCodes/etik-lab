@@ -45,7 +45,7 @@ export const AboutAccreditations = () => (
             href={item.cert}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary underline text-sm"
+            className="text-teal-800 underline text-sm"
           >
             PDF Sertifika
           </a>

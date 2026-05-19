@@ -25,7 +25,7 @@ export default function GenetikTestleri() {
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
                   Sağlıklı Bir Başlangıç
                 </h2>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Etik Laboratuvarı, hamilelik sürecinizin sağlıklı ve güvenli
                   geçmesine yardımcı olmak için geniş bir hizmet yelpazesi
                   sunar. Hamilelik öncesi ve sonrası genetik testler, sağlıklı
@@ -43,7 +43,7 @@ export default function GenetikTestleri() {
                     Hamilelik Öncesi Genetik Testler
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                <p className="text-lg leading-relaxed text-gray-700 mb-6">
                   Hamilelik öncesi genetik testler, anne ve baba adaylarının
                   taşıyıcı olabileceği genetik hastalıkları belirlemelerine
                   yardımcı olur. Bu testler, ailelerin sağlıklı bir bebek
@@ -84,7 +84,7 @@ export default function GenetikTestleri() {
                     Hamilelik Sonrası Genetik Testler
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                <p className="text-lg leading-relaxed text-gray-700 mb-6">
                   Bebek dünyaya geldikten sonra da genetik testler önemlidir.
                   Yenidoğan tarama testleri, bebeğin sağlığını değerlendirmek
                   için yapılır. Bu testler, erken teşhis ve tedavi için hayati
@@ -108,7 +108,7 @@ export default function GenetikTestleri() {
                     </div>
                   </li>
                 </ul>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Etik Laboratuvarı, sağlıklı bir hamilelik süreci ve sağlıklı
                   bir başlangıç için gereken genetik testleri sunar. Size ve
                   ailenize uygun olan testleri seçmek ve sonuçları anlamak
@@ -121,7 +121,7 @@ export default function GenetikTestleri() {
                 <h3 className="text-2xl font-bold text-foreground mb-6">
                   Bize Ulaşın
                 </h3>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Daha fazla bilgi almak veya genetik testler hakkında
                   danışmanlık için Etik Laboratuvarı'na başvurun. Sağlıklı bir
                   geleceğe doğru ilk adımı atın. Sağlığınız bizim

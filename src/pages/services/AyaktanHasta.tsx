@@ -22,7 +22,7 @@ export default function AyaktanHasta() {
           <div className="max-w-4xl mx-auto">
             <article className="prose prose-lg prose-blue max-w-none">
               <div className="mb-12">
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Mesai saatleri içerisinde laboratuvarımıza hastalarımız
                   gelerek testleriyle ilgili örnekleri verebilir ve sonuçlarını
                   mail, posta ve web sitemiz üzerinden bireysel test sonucu
@@ -38,7 +38,7 @@ export default function AyaktanHasta() {
                     Misafir Karşılama
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Birim laboratuvarımıza gelen misafirlerimizi hasta kabul
                   yetkililerimiz karşılayarak, test verme aşamasına kadar
                   sizlere eşlik ederler. Bu süreçte tüm sorularınız yanıtlanır
@@ -54,7 +54,7 @@ export default function AyaktanHasta() {
                     Profesyonel Numune Alma
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Numune alma aşamasında sizi bebek ve yetişkinlerde son derece
                   tecrübeli flebotomist ve laboratuvar teknikerlerimiz karşılar
                   ve sorunsuz bir kan alma deneyimi ile işlemlerinizi
@@ -70,7 +70,7 @@ export default function AyaktanHasta() {
                     Sonuçlarınızı Nasıl Alabilirsiniz?
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                <p className="text-lg leading-relaxed text-gray-700 mb-6">
                   Test sonuçlarınızı aşağıdaki yöntemlerle kolayca
                   alabilirsiniz:
                 </p>
@@ -109,7 +109,7 @@ export default function AyaktanHasta() {
                     <Clock className="w-6 h-6 text-primary" />
                     <h4 className="text-lg font-semibold">Mesai Saatleri</h4>
                   </div>
-                  <p className="text-muted-foreground">
+                  <p className="text-gray-700">
                     Pazartesi - Pazar: 07:00 - 23:00
                     <br />
                     Pazar: Kapalı

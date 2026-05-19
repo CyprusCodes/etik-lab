@@ -49,7 +49,7 @@ export const AboutNavigation = () => (
         <h2 className="heading-2 text-foreground mb-4">
           Daha Fazla Bilgi Edinin
         </h2>
-        <p className="body-large text-muted-foreground max-w-2xl mx-auto">
+        <p className="body-large text-gray-700 max-w-2xl mx-auto">
           Şirketimiz ve hizmetlerimiz hakkında detaylı bilgi için aşağıdaki
           bölümleri keşfedin
         </p>
@@ -97,11 +97,11 @@ export const AboutNavigation = () => (
                 {section.title}
               </h3>
 
-              <p className="body-base text-muted-foreground mb-6 line-clamp-3">
+              <p className="body-base text-gray-700 mb-6 line-clamp-3">
                 {section.description}
               </p>
 
-              <div className="flex items-center text-primary font-semibold group-hover:gap-4 transition-all">
+              <div className="flex items-center text-teal-800 font-semibold group-hover:gap-4 transition-all">
                 Keşfet
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
               </div>

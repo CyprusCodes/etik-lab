@@ -124,7 +124,7 @@ export default function SportsCheckUp() {
                 Sporcu Check-Up
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                 Profesyonel ve amatör sporcular için özel olarak tasarlanmış
                 kapsamlı sağlık ve performans değerlendirme paketi. Spor doktoru
                 danışmanlığı ile kişiye özel öneriler.
@@ -135,7 +135,7 @@ export default function SportsCheckUp() {
                   <div className="text-3xl font-black text-foreground mb-1">
                     ₺2.500
                   </div>
-                  <div className="text-sm text-muted-foreground line-through">
+                  <div className="text-sm text-gray-700 line-through">
                     ₺3.200
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export default function SportsCheckUp() {
                   <div className="text-lg font-bold text-green-600 mb-1">
                     %22 İndirim
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-gray-700">
                     Sınırlı Süre
                   </div>
                 </div>
@@ -195,7 +195,7 @@ export default function SportsCheckUp() {
             <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
               Kapsamlı Test Kategorileri
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Her sporcunun ihtiyacına göre tasarlanmış 4 ana kategoride 50+
               test içeriği
             </p>
@@ -224,7 +224,7 @@ export default function SportsCheckUp() {
                     {category.tests.map((test) => (
                       <li key={test} className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{test}</span>
+                        <span className="text-gray-700">{test}</span>
                       </li>
                     ))}
                   </ul>
@@ -242,7 +242,7 @@ export default function SportsCheckUp() {
             <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
               Neden Sporcu Check-Up?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Sadece sağlık kontrolü değil, performansınızı artıracak kapsamlı
               analiz ve öneriler
             </p>
@@ -261,7 +261,7 @@ export default function SportsCheckUp() {
                 <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                   {benefit.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
@@ -309,7 +309,7 @@ export default function SportsCheckUp() {
                 <h3 className="text-lg font-bold text-foreground mb-2">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
+                <p className="text-gray-700 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>

@@ -29,7 +29,7 @@ export const AboutTechnologies = () => (
     <div className="container-wide">
       <div className="text-center mb-16">
         <h2 className="heading-2 text-foreground mb-4">Farklı Teknolojiler</h2>
-        <p className="body-large text-muted-foreground max-w-3xl mx-auto">
+        <p className="body-large text-gray-700 max-w-3xl mx-auto">
           +10 yıllık tecrübe ile modern teknoloji ve uzman kadromuzla size en
           iyi hizmeti sunuyoruz.
         </p>
@@ -48,7 +48,7 @@ export const AboutTechnologies = () => (
             />
             <div className="p-6">
               <h3 className="heading-4 text-foreground mb-2">{tech.title}</h3>
-              <p className="body-base text-muted-foreground">
+              <p className="body-base text-gray-700">
                 {tech.description}
               </p>
             </div>

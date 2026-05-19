@@ -96,11 +96,11 @@ export function ServicesSection() {
             <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
               {service.title}
             </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+            <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
               {service.description}
             </p>
             <div>
-              <span className="inline-flex items-center gap-2 text-primary font-semibold">
+              <span className="inline-flex items-center gap-2 text-teal-800 font-semibold">
                 Detaylar
                 <ArrowRight className="w-4 h-4" />
               </span>
@@ -129,13 +129,13 @@ export function ServicesSection() {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+          <p className="text-sm font-semibold text-teal-800 uppercase tracking-wider mb-4">
             HİZMETLERİMİZ
           </p>
           <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground">
-            Kapsamlı <span className="text-primary">Sağlık Hizmetleri</span>
+            Kapsamlı <span className="text-teal-800">Sağlık Hizmetleri</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed">
             Modern altyapımız ve uzman kadromuzla geniş yelpazede laboratuvar
             hizmetleri sunuyoruz.
           </p>

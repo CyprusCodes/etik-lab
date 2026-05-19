@@ -141,7 +141,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-wide py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white/60 text-sm text-center md:text-left">
+            <p className="text-white/90 text-sm text-center md:text-left">
               © {new Date().getFullYear()} Etik Laboratuvarı. Tüm hakları
               saklıdır.
               <br className="md:hidden" />
@@ -158,39 +158,36 @@ export function Footer() {
               </span>
             </p>
             <div className="flex items-center gap-4">
-              <a
-                href="https://www.facebook.com/etiklaboratuvari"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/etik.lab/?igsh=ZGF2azdlYXM1Ynhu#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com/etiklab1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              {/* <a
-                href="https://www.youtube.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
-              >
-                <Youtube className="w-5 h-5" />
-              </a> */}
-            </div>
+  <a
+    href="https://www.facebook.com/etiklaboratuvari"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook sayfasını aç"
+    className="text-white/90 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
+  >
+    <Facebook className="w-5 h-5" />
+  </a>
+
+  <a
+    href="https://www.instagram.com/etik.lab/?igsh=ZGF2azdlYXM1Ynhu#"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram sayfasını aç"
+    className="text-white/90 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
+  >
+    <Instagram className="w-5 h-5" />
+  </a>
+
+  <a
+    href="https://twitter.com/etiklab1"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Twitter sayfasını aç"
+    className="text-white/90 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
+  >
+    <Twitter className="w-5 h-5" />
+  </a>
+</div>
           </div>
         </div>
       </div>

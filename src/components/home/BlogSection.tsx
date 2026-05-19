@@ -75,17 +75,17 @@ export function BlogSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 lg:mb-20">
           <div className="animate-fade-in-up">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+            <p className="text-sm font-semibold text-teal-800 uppercase tracking-wider mb-4">
               BLOG
             </p>
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4">
-              Sağlık <span className="text-primary">Rehberi</span>
+              Sağlık <span className="text-teal-800">Rehberi</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-lg text-gray-700 max-w-xl leading-relaxed">
               Uzmanlarımızdan güncel sağlık bilgileri ve öneriler.
             </p>
           </div>
-          <Button variant="default" size="lg" asChild>
+          <Button className="bg-primary hover:bg-teal-700 text-white font-semibold" variant="default" size="lg" asChild>
             <Link to="/blog" className="inline-flex items-center gap-2">
               Tüm Yazılar
               <ArrowRight className="w-5 h-5" />
@@ -122,7 +122,7 @@ export function BlogSection() {
                 {/* Content */}
                 <div className="p-6 lg:p-7">
                   {/* Metadata */}
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground mb-5 group-hover:text-primary transition-colors duration-300">
+                  <div className="flex items-center gap-3 text-xs text-gray-700 mb-5 group-hover:text-primary transition-colors duration-300">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
                       {post.date}
@@ -140,12 +140,12 @@ export function BlogSection() {
                   </h3>
 
                   {/* Excerpt */}
-                  <p className="text-sm text-muted-foreground line-clamp-2 mb-6 leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                  <p className="text-sm text-gray-700 line-clamp-2 mb-6 leading-relaxed group-hover:text-foreground transition-colors duration-300">
                     {post.excerpt}
                   </p>
 
                   {/* CTA */}
-                  <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all duration-300">
+                  <div className="flex items-center gap-2 text-teal-800 font-semibold group-hover:gap-3 transition-all duration-300">
                     <span>Devamını Oku</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>

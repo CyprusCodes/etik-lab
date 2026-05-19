@@ -148,7 +148,7 @@ export default function Services() {
                       {service.title}
                     </h3>
 
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+                    <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
                       {service.description}
                     </p>
 
@@ -157,7 +157,7 @@ export default function Services() {
                       {service.features.map((feature, idx) => (
                         <div
                           key={idx}
-                          className="inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
+                          className="inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-teal-800 text-xs font-medium rounded-full"
                         >
                           <CheckCircle className="w-3 h-3" />
                           {feature}
@@ -166,7 +166,7 @@ export default function Services() {
                     </div>
 
                     {/* CTA Link */}
-                    <div className="flex items-center gap-2 text-primary font-medium text-sm mt-auto">
+                    <div className="flex items-center gap-2 text-teal-800 font-medium text-sm mt-auto">
                       <span>Detaylı Bilgi</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -215,7 +215,7 @@ export default function Services() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
               <Link
                 to="/randevu"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-white text-teal-800 rounded-lg font-semibold hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Randevu Al
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />

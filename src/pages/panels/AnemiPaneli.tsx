@@ -38,7 +38,7 @@ export default function AnemiPaneli() {
           <div className="max-w-4xl mx-auto">
             {/* Article Meta */}
             <div className="flex flex-wrap items-center gap-6 mb-12 pb-6 border-b border-gray-200">
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2 text-gray-700">
                 <Calendar className="w-4 h-4" />
                 <span>18 Aralık 2024</span>
               </div>
@@ -48,7 +48,7 @@ export default function AnemiPaneli() {
                   className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-colors ${
                     hasLiked
                       ? "text-red-500 bg-red-50"
-                      : "text-muted-foreground hover:text-red-500"
+                      : "text-gray-700 hover:text-red-500"
                   }`}
                 >
                   <Heart
@@ -79,31 +79,31 @@ export default function AnemiPaneli() {
                 </h3>
                 <div className="space-y-3">
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <strong className="text-primary">Ferritin:</strong>{" "}
+                    <strong className="text-teal-800">Ferritin:</strong>{" "}
                     Vücuttaki demir depolarının göstergesi
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <strong className="text-primary">Serum Demir:</strong>{" "}
+                    <strong className="text-teal-800">Serum Demir:</strong>{" "}
                     Kandaki demir düzeyini ölçer
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <strong className="text-primary">Vitamin B12:</strong> B12
+                    <strong className="text-teal-800">Vitamin B12:</strong> B12
                     eksikliği anemisini değerlendirir
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <strong className="text-primary">
+                    <strong className="text-teal-800">
                       Folat (Folik Asit):
                     </strong>{" "}
                     Megaloblastik anemi tanısında kullanılır
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <strong className="text-primary">
+                    <strong className="text-teal-800">
                       TIBC (Total Demir Bağlama Kapasitesi):
                     </strong>{" "}
                     Demir metabolizmasını değerlendirir
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <strong className="text-primary">
+                    <strong className="text-teal-800">
                       Transferrin Saturasyonu:
                     </strong>{" "}
                     Demirin taşınma durumunu gösterir
@@ -250,7 +250,7 @@ export default function AnemiPaneli() {
               </div>
 
               <div className="bg-primary/10 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-primary mb-4">
+                <h3 className="text-xl font-semibold text-teal-800 mb-4">
                   Test Öncesi Hazırlık
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -265,11 +265,11 @@ export default function AnemiPaneli() {
             <div className="flex items-center justify-between mt-16 pt-8 border-t border-gray-200">
               <Link
                 to="/test-panelleri/kolon-kanseri"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
+                className="flex items-center gap-3 text-gray-700 hover:text-teal-800 transition-colors group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <div>
-                  <div className="text-sm text-gray-500">Önceki Panel</div>
+                  <div className="text-sm text-gray-700">Önceki Panel</div>
                   <div className="font-semibold">Kolon Kanseri Paneli</div>
                 </div>
               </Link>
@@ -283,10 +283,10 @@ export default function AnemiPaneli() {
 
               <Link
                 to="/test-panelleri/colyak"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-right group"
+                className="flex items-center gap-3 text-gray-700 hover:text-teal-800 transition-colors text-right group"
               >
                 <div>
-                  <div className="text-sm text-gray-500">Sonraki Panel</div>
+                  <div className="text-sm text-gray-700">Sonraki Panel</div>
                   <div className="font-semibold">Çölyak Paneli</div>
                 </div>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -21,7 +21,7 @@ export default function KurumsalHizmetler() {
           <div className="max-w-4xl mx-auto">
             <article className="prose prose-lg prose-blue max-w-none">
               <div className="mb-12">
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Birim Laboratuvarı, Türkiye'nin her yerinden birçok kurumsal
                   firmaya hizmet vermektedir. Kurumsal firmaların iş yeri
                   hekimleri tarafından talep edilen periyodik tetkiklerini,
@@ -71,7 +71,7 @@ export default function KurumsalHizmetler() {
                     İş Güvenliği Hizmetleri (OSGB)
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                <p className="text-lg leading-relaxed text-gray-700 mb-6">
                   Birim Laboratuvarı, ayrıca iş güvenliği hizmeti veren
                   OSGB'lerin hizmet verdiği kurumların periyodik taramaları için
                   alınan kan ve idrar numuneleri ve portör taramaları için
@@ -110,7 +110,7 @@ export default function KurumsalHizmetler() {
                     Online Sonuç Sistemi
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Sonuçlar online olarak web sitemizden bireysel ve kurumsal
                   sonuç sayfalarından kolayca alınabilmektedir. Bu sistem
                   sayesinde:
@@ -149,12 +149,12 @@ export default function KurumsalHizmetler() {
                   </h3>
                 </div>
                 <div className="bg-blue-50 p-6 rounded-lg mb-8">
-                  <p className="text-lg leading-relaxed text-muted-foreground mb-4">
+                  <p className="text-lg leading-relaxed text-gray-700 mb-4">
                     Bizimle çalışmak isteyen kurumlar, laboratuvarımızla
                     irtibata geçerek alacakları kullanıcı adı ve şifreyle test
                     istemi başvurusu yapabilirler.
                   </p>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+                  <p className="text-lg leading-relaxed text-gray-700">
                     Sonuç raporlarına kullanıcı adı ve şifreleriyle
                     ulaşabileceklerdir.
                   </p>

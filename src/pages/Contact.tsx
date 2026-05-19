@@ -116,7 +116,7 @@ export default function Contact() {
                         {info.href !== "#" ? (
                           <a
                             href={info.href}
-                            className="hover:text-primary transition-colors"
+                            className="hover:text-teal-800 transition-colors"
                           >
                             {info.value}
                           </a>
@@ -128,7 +128,7 @@ export default function Contact() {
                         <div className="text-foreground text-base mt-1">
                           <a
                             href={`mailto:${info.secondary}`}
-                            className="hover:text-primary transition-colors"
+                            className="hover:text-teal-800 transition-colors"
                           >
                             {info.secondary}
                           </a>

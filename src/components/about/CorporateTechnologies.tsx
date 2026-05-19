@@ -43,7 +43,7 @@ export const CorporateTechnologies = () => (
             İleri Teknoloji
           </span>
         </h2>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
           +10 yıllık tecrübe ile modern teknoloji ve uzman kadromuzla size en
           iyi hizmeti sunuyoruz.
         </p>
@@ -86,7 +86,7 @@ export const CorporateTechnologies = () => (
                 <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                   {tech.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   {tech.description}
                 </p>
               </div>

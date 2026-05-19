@@ -150,7 +150,7 @@ export default function Blog() {
         <div className="container-wide">
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-700" />
               <Input
                 placeholder="Yazı ara..."
                 className="pl-10"
@@ -192,7 +192,7 @@ export default function Blog() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                  <div className="flex items-center gap-4 text-sm text-gray-700 mb-3">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       {post.date}
@@ -206,7 +206,7 @@ export default function Blog() {
                     {post.title}
                   </h3>
                   <p className="body-base line-clamp-2 mb-4">{post.excerpt}</p>
-                  <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                  <div className="flex items-center gap-2 text-teal-800 font-medium text-sm">
                     <span>Devamını Oku</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>

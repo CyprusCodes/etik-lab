@@ -121,7 +121,7 @@ export const TimelineAccreditations = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-8 py-4 bg-primary/10 backdrop-blur-sm rounded-full mb-8 animate-fade-in-up shadow-lg">
             <Award className="w-6 h-6 text-primary mr-3" />
-            <span className="text-primary font-bold text-lg">
+            <span className="text-teal-800 font-bold text-lg">
               ACCREDITED QUALITY
             </span>
           </div>
@@ -136,7 +136,7 @@ export const TimelineAccreditations = () => {
           </h2>
 
           <p
-            className="text-xl text-muted-foreground mb-16 max-w-3xl mx-auto animate-fade-in-up"
+            className="text-xl text-gray-700 mb-16 max-w-3xl mx-auto animate-fade-in-up"
             style={{ animationDelay: "0.4s" }}
           >
             Etiklab: Güvenilir Teşhisler, Yüksek Kalite
@@ -162,7 +162,7 @@ export const TimelineAccreditations = () => {
                 <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {achievement.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   {achievement.subtitle}
                 </p>
               </div>
@@ -219,7 +219,7 @@ export const TimelineAccreditations = () => {
                     <h4 className="text-lg font-bold text-foreground mb-2">
                       {accreditation.title}
                     </h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-gray-700 leading-relaxed">
                       {accreditation.description}
                     </p>
                   </div>
@@ -229,7 +229,7 @@ export const TimelineAccreditations = () => {
 
             {/* Clean completion indicator */}
             {/* <div className="text-center mt-16">
-              <div className="inline-flex items-center gap-2 text-muted-foreground">
+              <div className="inline-flex items-center gap-2 text-gray-700">
                 <Award className="w-5 h-5" />
                 <span className="text-sm font-medium">
                   {accreditations.length} akreditasyon sertifikası
@@ -249,7 +249,7 @@ export const TimelineAccreditations = () => {
             Etik Laboratuvarı olarak, 2013 yılından bu yana bize güvenen
             hastalarımıza teşekkür ediyoruz.
           </p>
-          <p className="text-base text-muted-foreground leading-relaxed">
+          <p className="text-base text-gray-700 leading-relaxed">
             Sizlerin sağlığı için çalışmaya devam edeceğiz ve gelecekte de en
             iyi tahlil hizmetini sunmayı sürdüreceğiz.
           </p>

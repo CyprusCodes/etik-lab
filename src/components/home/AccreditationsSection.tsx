@@ -28,7 +28,7 @@ export function AccreditationsSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
             Uluslararası Akreditasyonlar
           </h2>
-          <p className="text-muted-foreground text-lg">Dünya standartlarında hizmet kalitesi</p>
+          <p className="text-gray-700 text-lg">Dünya standartlarında hizmet kalitesi</p>
         </div>
 
         {/* Auto-scrolling marquee */}
@@ -49,7 +49,7 @@ export function AccreditationsSection() {
                 <span className="text-3xl">{acc.icon}</span>
                 <div>
                   <p className="font-semibold text-foreground text-sm md:text-base">{acc.name}</p>
-                  <p className="text-xs text-muted-foreground hidden sm:block">Sertifikalı</p>
+                  <p className="text-xs text-gray-700 hidden sm:block">Sertifikalı</p>
                 </div>
               </div>
             ))}

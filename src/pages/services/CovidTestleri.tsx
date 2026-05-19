@@ -60,7 +60,7 @@ export default function CovidTestleri() {
           <div className="max-w-4xl mx-auto">
             <article className="prose prose-lg prose-blue max-w-none">
               <div className="mb-12">
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Koronavirüs hayvanlarda veya insanlarda bulgusuz, hafif soğuk
                   algınlığından ağır hastalığa (SARS) ve akut solunum yolu
                   yetmezliği sendromu kadar farklı belirtilere neden olabilen
@@ -72,14 +72,14 @@ export default function CovidTestleri() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   Koronavirüs Nedir?
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed mb-6">
                   İnsanlarda, birkaç koronavirüsün soğuk algınlığından Orta Doğu
                   Solunum Sendromu (MERS) ve Şiddetli Akut Solunum Sendromu
                   (SARS) gibi daha şiddetli hastalıklara kadar solunum yolu
                   enfeksiyonlarına neden olduğu bilinmektedir. Yeni Koronavirüs
                   Hastalığına (COVID-19) SARS-CoV-2 virüsü neden olur.
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   Koronavirüsler ülkemizde de insanlarda dolaşımda olan
                   HCoV-229E, HCoV-OC43, HCoV-NL63 ve HKU1-CoV alt tipleri ile
                   çoğunlukla soğuk algınlığına sebep olan virüslerdir.
@@ -91,7 +91,7 @@ export default function CovidTestleri() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   Belirtiler
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed mb-6">
                   Belirtisiz olgular olabileceği bildirilmekle birlikte,
                   bunların oranı bilinmemektedir. En çok karşılaşılan belirtiler
                   şunlardır:
@@ -107,7 +107,7 @@ export default function CovidTestleri() {
                     </div>
                   ))}
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   Daha şiddetli olgularda zatürre, ağır solunum yetmezliği,
                   böbrek yetmezliği ve ölüm gelişebilmektedir.
                 </p>
@@ -118,7 +118,7 @@ export default function CovidTestleri() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   Bulaşma
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed mb-6">
                   Hasta bireylerin öksürük aksırıkları ile ortama saçılan
                   damlacıkların solunması ile bulaşır. Hastaların solunum
                   parçacıkları ile kirlenmiş yüzeylere dokunulduktan sonra
@@ -141,7 +141,7 @@ export default function CovidTestleri() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   Korunma Yöntemleri
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed mb-6">
                   Akut solunum yolu enfeksiyonlarının genel bulaşma riskini
                   azaltmak için önerilen temel ilkeler:
                 </p>
@@ -165,7 +165,7 @@ export default function CovidTestleri() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   COVID-19 Tanı Testleri
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed mb-6">
                   Erken tanı tedavi için çok önemlidir. Şüpheli temas sonrası
                   5-7. günlerde test yapılması önerilmektedir.
                 </p>
@@ -179,7 +179,7 @@ export default function CovidTestleri() {
                       <h4 className="font-semibold text-foreground mb-2">
                         {test.name}
                       </h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-gray-700">
                         {test.description}
                       </p>
                     </div>
@@ -189,7 +189,7 @@ export default function CovidTestleri() {
                 <h3 className="text-2xl font-semibold text-foreground mb-4">
                   Takip Testleri
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-gray-700 mb-4">
                   COVID-19 geçiren hastalarda durumu takip etmek için bakılan
                   testler:
                 </p>
@@ -199,7 +199,7 @@ export default function CovidTestleri() {
                       <h4 className="font-semibold text-foreground mb-2">
                         {test.name}
                       </h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-gray-700">
                         {test.description}
                       </p>
                     </div>
@@ -212,7 +212,7 @@ export default function CovidTestleri() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   Tedavi ve Aşılama
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed mb-6">
                   COVID-19 tedavisi için ilaç ve aşı çalışmaları devam ediyor.
                   Hastalığın farklı aşamalarında farklı ilaçlar kullanılıyor.
                 </p>

@@ -21,7 +21,7 @@ export default function EvdeKanAlma() {
           <div className="max-w-4xl mx-auto">
             <article className="prose prose-lg prose-blue max-w-none">
               <div className="mb-12">
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Evde kan alma hizmeti özellikle metropollerde büyük ihtiyaç
                   haline gelmiş bir hizmettir. Trafik keşmekeşinin yaşandığı
                   İstanbul gibi büyük şehirlerde hem zaman kazanmak hem de stres
@@ -88,7 +88,7 @@ export default function EvdeKanAlma() {
                     </div>
                   </li>
                 </ul>
-                <p className="text-lg leading-relaxed text-muted-foreground">
+                <p className="text-lg leading-relaxed text-gray-700">
                   <strong>Bir telefon kadar size yakınız!</strong>
                 </p>
               </div>
@@ -101,7 +101,7 @@ export default function EvdeKanAlma() {
                     Hizmet Sürecimiz
                   </h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                <p className="text-lg leading-relaxed text-gray-700 mb-6">
                   Evde kan alma işlemi için tecrübeli sağlık personellerini
                   kullanılacak steril malzemelerle adresinize gönderiyoruz.
                   Tahlilleriniz için gerekli örneklerin alımı tamamlandıktan
@@ -109,7 +109,7 @@ export default function EvdeKanAlma() {
                   örnekleri barkodlayıp soğutuculu taşıma çantaları ile ilgili
                   laboratuvara götürüyoruz.
                 </p>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   İstanbul'un güvenilir laboratuvarlarında sonuçlandırılan
                   tahlilleriniz size vaat edilen zamanda hazır olduğunda
                   isterseniz e-mail, WhatsApp gibi mobil imkanlarla, isterseniz
@@ -119,7 +119,7 @@ export default function EvdeKanAlma() {
                     Ve bu hizmetler için ekstra bir ücret talep etmiyoruz.
                   </strong>
                 </p>
-                <p className="text-lg font-semibold text-primary mb-8">
+                <p className="text-lg font-semibold text-teal-800 mb-8">
                   Size doğru sonuçları en kısa sürede ulaştırmak birinci
                   önceliğimizdir.
                 </p>
@@ -142,7 +142,7 @@ export default function EvdeKanAlma() {
                       <h4 className="font-semibold mb-2">
                         Tahlil İsteği Gönderimi
                       </h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-gray-700">
                         Yaptırmak istediğiniz tahlilleriniz varsa laboratuvar
                         istek kağıdının fotoğrafını çekerek mail veya WhatsApp
                         iletişim hattıyla bize gönderiyorsunuz.
@@ -157,7 +157,7 @@ export default function EvdeKanAlma() {
                       <h4 className="font-semibold mb-2">
                         İnceleme ve Bilgilendirme
                       </h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-gray-700">
                         Tarafımızdan inceleme tamamlandıktan sonra sizi arayıp
                         testlerin aç karnına olup olmayacağı veya belirli bir
                         saatte alınması gibi önemli bilgilerle birlikte test
@@ -171,7 +171,7 @@ export default function EvdeKanAlma() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2">Personel Gönderimi</h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-gray-700">
                         Size önerilen fiyatlandırmayı kabul ettiğiniz takdirde
                         bize ileteceğiniz lokasyona yetkili kan alma personelini
                         gerekli ekipmanla birlikte gönderiyoruz.
@@ -186,7 +186,7 @@ export default function EvdeKanAlma() {
                       <h4 className="font-semibold mb-2">
                         Numune Alma ve Taşıma
                       </h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-gray-700">
                         Tecrübeli kan alma personeline örneklerinizi aldırarak
                         adresinize en yakın güvenilir ve hızlı sonuç veren
                         laboratuvara kan taşıma çantalarıyla ulaştırmasını
@@ -200,7 +200,7 @@ export default function EvdeKanAlma() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2">Sonuç Teslimatı</h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-gray-700">
                         Gizlilik içerisinde sonuçlandırılan testlerinizi sizden
                         aldığımız mail adresine gönderdiğimiz gibi talep
                         ettiğiniz takdirde adresinize postalıyoruz.
@@ -212,7 +212,7 @@ export default function EvdeKanAlma() {
 
               {/* CTA */}
               <div className="mb-12">
-                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                <p className="text-lg leading-relaxed text-gray-700 mb-8">
                   Evde kan alma hizmetiyle ilgili detaylı bilgi almak için
                   bizimle iletişime geçebilirsiniz.
                 </p>

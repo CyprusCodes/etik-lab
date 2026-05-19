@@ -122,7 +122,7 @@ export default function TestPanels() {
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                     {panel.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">
                     {panel.description}
                   </p>
 
@@ -131,7 +131,7 @@ export default function TestPanels() {
                     {panel.tests.slice(0, 2).map((test) => (
                       <span
                         key={test}
-                        className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
+                        className="px-2 py-1 bg-primary/10 text-teal-800 text-xs font-medium rounded-full"
                       >
                         {test}
                       </span>
@@ -143,7 +143,7 @@ export default function TestPanels() {
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+                  <div className="flex items-center gap-2 text-teal-800 font-semibold text-sm">
                     <span>Paneli İncele</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>

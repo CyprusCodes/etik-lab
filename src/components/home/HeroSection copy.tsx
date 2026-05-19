@@ -82,7 +82,7 @@ export function HeroSection() {
             >
               <Button
                 size="lg"
-                className="bg-white text-primary hover:bg-gray-100 font-bold h-14 px-10 rounded-full group shadow-2xl"
+                className="bg-white text-teal-800 hover:bg-gray-100 font-bold h-14 px-10 rounded-full group shadow-2xl"
                 asChild
               >
                 <Link to="/randevu" className="inline-flex items-center gap-3">

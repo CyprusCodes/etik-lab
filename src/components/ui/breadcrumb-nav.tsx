@@ -13,14 +13,14 @@ interface BreadcrumbNavProps {
 export function BreadcrumbNav({ items }: BreadcrumbNavProps) {
   return (
     <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-      <Link to="/" className="hover:text-primary transition-colors">
+      <Link to="/" className="hover:text-teal-800 transition-colors">
         <Home className="w-4 h-4" />
       </Link>
       {items.map((item, index) => (
         <div key={item.label} className="flex items-center gap-2">
           <ChevronRight className="w-4 h-4" />
           {item.href ? (
-            <Link to={item.href} className="hover:text-primary transition-colors">
+            <Link to={item.href} className="hover:text-teal-800 transition-colors">
               {item.label}
             </Link>
           ) : (

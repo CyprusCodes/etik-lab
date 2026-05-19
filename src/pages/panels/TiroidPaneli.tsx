@@ -39,7 +39,7 @@ export default function TiroidPaneli() {
           <div className="max-w-4xl mx-auto">
             {/* Article Meta */}
             <div className="flex flex-wrap items-center gap-6 mb-12 pb-6 border-b border-gray-200">
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2 text-gray-700">
                 <Calendar className="w-4 h-4" />
                 <span>18 Aralık 2024</span>
               </div>
@@ -49,7 +49,7 @@ export default function TiroidPaneli() {
                   className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-colors ${
                     hasLiked
                       ? "text-red-500 bg-red-50"
-                      : "text-muted-foreground hover:text-red-500"
+                      : "text-gray-700 hover:text-red-500"
                   }`}
                 >
                   <Heart
@@ -153,7 +153,7 @@ export default function TiroidPaneli() {
               </div>
 
               <div className="bg-primary/10 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-primary mb-4">
+                <h3 className="text-xl font-semibold text-teal-800 mb-4">
                   Sonuçların Değerlendirilmesi
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -169,11 +169,11 @@ export default function TiroidPaneli() {
             <div className="flex items-center justify-between mt-16 pt-8 border-t border-gray-200">
               <Link
                 to="/test-panelleri/cinsel-hastaliklar"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
+                className="flex items-center gap-3 text-gray-700 hover:text-teal-800 transition-colors group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <div>
-                  <div className="text-sm text-gray-500">Önceki Panel</div>
+                  <div className="text-sm text-gray-700">Önceki Panel</div>
                   <div className="font-semibold">Cinsel Hastalıklar</div>
                 </div>
               </Link>
@@ -187,10 +187,10 @@ export default function TiroidPaneli() {
 
               <Link
                 to="/test-panelleri/torch"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-right group"
+                className="flex items-center gap-3 text-gray-700 hover:text-teal-800 transition-colors text-right group"
               >
                 <div>
-                  <div className="text-sm text-gray-500">Sonraki Panel</div>
+                  <div className="text-sm text-gray-700">Sonraki Panel</div>
                   <div className="font-semibold">TORCH Paneli</div>
                 </div>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

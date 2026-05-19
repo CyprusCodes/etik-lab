@@ -34,7 +34,7 @@ export default function Career() {
                 <h3 className="font-semibold text-foreground mb-2">
                   Kariyer Gelişimi
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-gray-700">
                   Sürekli eğitim ve gelişim fırsatları
                 </p>
               </div>
@@ -42,7 +42,7 @@ export default function Career() {
                 <h3 className="font-semibold text-foreground mb-2">
                   Rekabetçi Maaş
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-gray-700">
                   Sektörün üzerinde maaş ve yan haklar
                 </p>
               </div>
@@ -50,7 +50,7 @@ export default function Career() {
                 <h3 className="font-semibold text-foreground mb-2">
                   Modern Çalışma Ortamı
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-gray-700">
                   Son teknoloji ekipmanlarla çalışma imkanı
                 </p>
               </div>
@@ -69,7 +69,7 @@ export default function Career() {
                     <h3 className="heading-4 text-foreground mb-2">
                       {position.title}
                     </h3>
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-700">
                       <span className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" /> {position.location}
                       </span>
@@ -92,7 +92,7 @@ export default function Career() {
               <h3 className="heading-4 text-foreground mb-4">
                 Şu Anda Açık Pozisyon Bulunmuyor
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-gray-700 mb-6">
                 Henüz aktif bir iş ilanımız bulunmamaktadır.
               </p>
             </div>
