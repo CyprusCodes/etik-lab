@@ -65,7 +65,7 @@ export function HeroSection() {
               asChild
             >
               <a
-                href="http://93.182.78.97:8080/Bireysel.html"
+                href="http://78.135.60.128:8080/Bireysel.html"
                 target="_blank"
                 rel="noreferrer"
               >

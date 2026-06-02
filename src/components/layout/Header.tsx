@@ -56,7 +56,7 @@ const navigationItems = [
       { label: "İletişim Formu", href: "/iletisim" },
       { label: "Randevu Formu", href: "/randevu" },
       { label: "Test İstem Formu", href: "/test-istem-formu" },
-      { label: "Test Takibi", href: "http://93.182.78.97:8080/Bireysel.html" },
+      { label: "Test Takibi", href: "http://78.135.60.128:8080/Bireysel.html" },
     ],
   },
   { label: "Blog", href: "/blog" },
@@ -176,7 +176,7 @@ export function Header() {
               asChild
             >
               <a
-                href="http://93.182.78.97:8080/Bireysel.html"
+                href="http://78.135.60.128:8080/Bireysel.html"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -326,7 +326,7 @@ export function Header() {
                   asChild
                 >
                   <a
-                    href="http://93.182.78.97:8080/Bireysel.html"
+                    href="http://78.135.60.128:8080/Bireysel.html"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
