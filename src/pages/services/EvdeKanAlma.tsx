@@ -22,10 +22,7 @@ export default function EvdeKanAlma() {
             <article className="prose prose-lg prose-blue max-w-none">
               <div className="mb-12">
                 <p className="text-lg leading-relaxed text-gray-700 mb-8">
-                  Evde kan alma hizmeti özellikle metropollerde büyük ihtiyaç
-                  haline gelmiş bir hizmettir. Trafik keşmekeşinin yaşandığı
-                  İstanbul gibi büyük şehirlerde hem zaman kazanmak hem de stres
-                  yaşamamak için arayın evinize, iş yerinize gelelim.
+                  Evde kan alma hizmeti, yoğun yaşam temposu nedeniyle giderek daha fazla tercih edilen bir sağlık hizmetidir. Zamandan tasarruf etmek ve laboratuvara gitme zorunluluğu olmadan testlerinizi yaptırabilmek için sizi evinizde veya iş yerinizde ziyaret ediyoruz.
                 </p>
               </div>
 
