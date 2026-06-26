@@ -10,7 +10,7 @@ const panels = [
       "Tiroid bezinin fonksiyonlarını ve otoimmün durumlarını değerlendiren testler.",
     href: "/test-panelleri/tiroid",
     image: getImagePath("panell/tp.png"),
-    tests: ["TSH", "Serbest T4", "Serbest T3", "Anti-TPO"],
+    tests: ["TSH", "Serbest T4", "Serbest T3", "Anti-TPO","TRAb", "Kalsitonin" ],
   },
   {
     title: "TORCH Paneli",
@@ -26,7 +26,7 @@ const panels = [
       "Kolon kanseri erken tanısı ve taramasına yönelik kapsamlı test paneli.",
     href: "/test-panelleri/kolon-kanseri",
     image: getImagePath("panell/kkp.png"),
-    tests: ["CEA", "CA 19-9", "Okült Kan", "Genetik Belirteçler"],
+    tests: ["CEA", "CA 19-9", "Okült Kan", "CA 72-4" ,"Genetik Belirteçler"],
   },
   {
     title: "Anemi Paneli",
@@ -68,6 +68,14 @@ const panels = [
     image: getImagePath("panell/ch.png"),
     tests: ["HIV", "HPV", "Herpes Simplex", "Klamidya"],
   },
+  {
+  title: "Kardiyovasküler Panel",
+  description:
+    "Kalp-damar hastalıkları riskini, damar sağlığını ve kalp kası hasarını değerlendiren kapsamlı test paneli.",
+  href: "/test-panelleri/kardiyovaskuler",
+  image: "/panell/kardiyovaskulerpanel.webp",
+  tests: ["Apo A", "Apo B", "Troponin I", "Troponin T" , "Lp(a)", "Homosistein", "hs-CRP", "CK-MB","BNP"],
+},
 ];
 
 export default function TestPanels() {

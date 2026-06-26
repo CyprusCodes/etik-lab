@@ -105,6 +105,19 @@ export default function TiroidPaneli() {
                     Tiroid otoimmün hastalıklarının tanısında kullanılan
                     antikordur.
                   </div>
+                  <div className="bg-indigo-50 p-4 rounded-lg">
+  <strong className="text-indigo-700">
+    TSH Reseptör Antikoru (TRAb):
+  </strong>{" "}
+  Graves hastalığı ve hipertiroidi nedenlerinin değerlendirilmesinde kullanılan
+  özel bir antikor testidir.
+</div>
+
+<div className="bg-indigo-50 p-4 rounded-lg">
+  <strong className="text-indigo-700">Kalsitonin:</strong>{" "}
+  Tiroid bezinden salgılanan bir hormondur. Tiroid nodülü ve medüller tiroid
+  kanseri şüphesinde değerlendirmeye yardımcı olur.
+</div>
                 </div>
               </div>
 
