@@ -28,6 +28,7 @@ import ColyakPaneli from "./pages/panels/ColyakPaneli";
 import DiyabetPaneli from "./pages/panels/DiyabetPaneli";
 import RomatolojiPaneli from "./pages/panels/RomatolojiPaneli";
 import CinselHastaliklarPaneli from "./pages/panels/CinselHastaliklarPaneli";
+import KardiyovaskulerPaneli from "./pages/panels/KardiyovaskulerPaneli";
 import CheckUp from "./pages/CheckUp";
 import SportsCheckUp from "./pages/SportsCheckUp";
 import Blog from "./pages/Blog";
@@ -98,6 +99,10 @@ const App = () => (
           <Route
             path="/test-panelleri/cinsel-hastaliklar"
             element={<CinselHastaliklarPaneli />}
+          />
+          <Route
+            path="/test-panelleri/kardiyovaskuler"
+            element={<KardiyovaskulerPaneli />}
           />
 
           {/* Check-Up */}

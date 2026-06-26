@@ -96,6 +96,11 @@ export default function KolonKanseriPaneli() {
                     Dışkıda mikroskobik kan varlığını tespit eder
                   </div>
                   <div className="bg-teal-50 p-4 rounded-lg">
+  <strong className="text-teal-700">CA 72-4:</strong>{" "}
+  Mide ve pankreas başta olmak üzere bazı kanser türlerinin tanı ve takibinde
+  yardımcı olan tümör belirtecidir.
+</div>
+                  <div className="bg-teal-50 p-4 rounded-lg">
                     <strong className="text-teal-700">
                       Genetik Belirteçler:
                     </strong>{" "}

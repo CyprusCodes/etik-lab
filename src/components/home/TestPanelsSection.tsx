@@ -11,7 +11,7 @@ const testPanels = [
       "Tiroid bezinin fonksiyonlarını ve otoimmün durumlarını değerlendiren testler.",
     image: getImagePath("panell/tp.png"),
     href: "/test-panelleri/tiroid",
-    tests: ["TSH", "Serbest T4", "Serbest T3", "Anti-TPO"],
+    tests: ["TSH", "Serbest T4", "Serbest T3", "Anti-TPO","TRAb", "Kalsitonin"],
   },
   {
     title: "TORCH Paneli",
@@ -27,7 +27,7 @@ const testPanels = [
       "Kolon kanseri erken tanısı ve taramasına yönelik kapsamlı test paneli.",
     image: getImagePath("panell/kkp.png"),
     href: "/test-panelleri/kolon-kanseri",
-    tests: ["CEA", "CA 19-9", "Okült Kan", "Genetik Belirteçler"],
+    tests: ["CEA", "CA 19-9","CA 72-4", "Okült Kan", "Genetik Belirteçler"],
   },
   {
     title: "Anemi Paneli",
@@ -69,6 +69,14 @@ const testPanels = [
     href: "/test-panelleri/cinsel-hastaliklar",
     tests: ["HIV", "HPV", "Herpes Simplex", "Klamidya"],
   },
+  {
+  title: "Kardiyovasküler Panel",
+  description:
+    "Kalp-damar hastalıkları riskini, damar sağlığını ve kalp kası hasarını değerlendiren kapsamlı test paneli.",
+  image: "/panell/kardiyovaskulerpanel.webp",
+  href: "/test-panelleri/kardiyovaskuler",
+  tests: ["Apo A", "Apo B", "Troponin I", "Lp(a)", "BNP"],
+},
 ];
 
 export function TestPanelsSection() {
@@ -161,7 +169,7 @@ export function TestPanelsSection() {
                     zIndex: testPanels.length - index + (isActive ? 10 : 0),
                     opacity: isPast ? 0 : 1,
                     transform: `
-                      translateY(${isPast ? -100 : stackOffset}px) 
+                      translateY(${isPast ? -100 : stackOffset}px)
                       scale(${isPast ? 0.9 : stackScale})
                       ${isPast ? "rotateX(10deg)" : ""}
                     `,

@@ -46,6 +46,10 @@ const navigationItems = [
         label: "Cinsel Hastalıklar",
         href: "/test-panelleri/cinsel-hastaliklar",
       },
+      {
+        label: "Kardiyovasküler Panel",
+        href: "/test-panelleri/kardiyovaskuler",
+      },
     ],
   },
   { label: "Paketler", href: "/paketler" },
