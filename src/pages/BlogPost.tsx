@@ -1,65 +1,253 @@
 import { Layout } from "@/components/layout/Layout";
 import { PageHeader } from "@/components/ui/page-header";
 import { Link, useParams } from "react-router-dom";
-import { Calendar, User, ArrowLeft, Share2 } from "lucide-react";
+import { Calendar, User, ArrowLeft, Share2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { blogPosts } from "@/data/blogPosts";
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const post = blogPosts.find((item) => item.slug === slug);
+
+  if (!post) {
+    return (
+      <Layout>
+        <PageHeader
+          title="Yazı Bulunamadı"
+          breadcrumbs={[
+            { label: "Blog", href: "/blog" },
+            { label: "Yazı Bulunamadı" },
+          ]}
+        />
+
+        <section className="section-padding">
+          <div className="container-narrow">
+            <p className="body-base mb-6">Aradığınız blog yazısı bulunamadı.</p>
+            <Button variant="outline" asChild>
+              <Link to="/blog">
+                <ArrowLeft className="w-4 h-4" /> Tüm Yazılar
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <PageHeader
-        title="Tiroid Hastalıkları Hakkında Bilmeniz Gerekenler"
-        breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: "Tiroid Hastalıkları" }]}
+        title={post.title}
+        breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: post.title }]}
       />
-      
-      <article className="section-padding">
+
+      <article className="section-padding bg-gradient-to-b from-white via-blue-50/20 to-white">
         <div className="container-narrow">
-          <div className="flex items-center gap-4 text-sm text-gray-700 mb-8">
-            <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> 15 Aralık 2024</span>
-            <span className="flex items-center gap-1"><User className="w-4 h-4" /> Dr. Ayşe Yılmaz</span>
-            <span className="px-3 py-1 bg-primary-light text-teal-800 rounded-full text-xs font-medium">Tiroid</span>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-700 mb-8">
+            <span className="flex items-center gap-1">
+              <Calendar className="w-4 h-4" /> {post.date}
+            </span>
+
+            <span className="flex items-center gap-1">
+              <User className="w-4 h-4" /> {post.author}
+            </span>
+
+            <span className="px-3 py-1 bg-primary text-white rounded-full text-xs font-semibold shadow-sm">
+              {post.category}
+            </span>
           </div>
 
-          <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&h=600&fit=crop" alt="Tiroid" className="w-full h-80 object-cover rounded-2xl mb-8" />
+          <div className="relative overflow-hidden rounded-3xl mb-10 shadow-xl border border-gray-100">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-[410px] md:h-[510px] object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <p className="text-sm font-semibold uppercase tracking-wider mb-2 opacity-90">
+                {post.category}
+              </p>
+              <h1 className="text-2xl md:text-4xl font-black leading-tight">
+                {post.title}
+              </h1>
+            </div>
+          </div>
 
-          <div className="prose prose-lg max-w-none">
-            <p className="lead text-xl text-gray-700 mb-6">
-              Tiroid bezi, boynun ön kısmında bulunan ve vücudun metabolizmasını düzenleyen önemli bir bezdir. Bu yazıda tiroid hastalıkları, belirtileri ve tanı yöntemlerini ele alacağız.
-            </p>
-            
-            <h2 className="heading-3 text-foreground mt-8 mb-4">Tiroid Nedir?</h2>
-            <p className="body-base mb-4">
-              Tiroid bezi, kelebek şeklinde bir bez olup, tiroid hormonları (T3 ve T4) üretir. Bu hormonlar vücudun enerji kullanımını, sıcaklık düzenlemesini ve metabolizmayı kontrol eder.
-            </p>
-            
-            <h2 className="heading-3 text-foreground mt-8 mb-4">Tiroid Hastalıkları</h2>
-            <p className="body-base mb-4">
-              En yaygın tiroid hastalıkları şunlardır:
-            </p>
-            <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
-              <li><strong className="text-foreground">Hipotiroidizm:</strong> Tiroid bezinin yeterli hormon üretememesi</li>
-              <li><strong className="text-foreground">Hipertiroidizm:</strong> Tiroid bezinin aşırı hormon üretmesi</li>
-              <li><strong className="text-foreground">Hashimoto:</strong> Otoimmün tiroid iltihabı</li>
-              <li><strong className="text-foreground">Graves:</strong> Otoimmün hipertiroidizm</li>
-            </ul>
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8 mb-10">
+            <p className="text-xl text-gray-700 leading-relaxed">{post.lead}</p>
+          </div>
 
-            <h2 className="heading-3 text-foreground mt-8 mb-4">Belirtiler</h2>
-            <p className="body-base mb-4">
-              Hipotiroidizm belirtileri: yorgunluk, kilo alımı, üşüme, kabızlık, depresyon. Hipertiroidizm belirtileri: huzursuzluk, kilo kaybı, terleme, çarpıntı, el titremesi.
+          <div className="space-y-10">
+            {post.sections.map((section, index) => (
+              <section
+                key={section.heading}
+                className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8"
+              >
+                <div className="flex items-start gap-4 mb-5">
+                  <div className="shrink-0 w-10 h-10 rounded-2xl bg-primary/10 text-teal-800 flex items-center justify-center font-black">
+                    {index + 1}
+                  </div>
+
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-black text-foreground">
+                      {section.heading}
+                    </h2>
+                  </div>
+                </div>
+
+                {section.body && (
+                  <p className="text-gray-700 leading-relaxed text-lg whitespace-pre-line mb-5">
+                    {section.body}
+                  </p>
+                )}
+
+               {section.image && section.bullets ? (
+
+<div className="grid lg:grid-cols-[420px_1fr] gap-8 my-8">
+
+    <div className="rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-sm p-4">
+
+        <img
+            src={section.image.src}
+            alt={section.image.alt}
+            className="w-full object-contain"
+        />
+
+        {section.image.caption && (
+
+            <p className="text-center text-sm text-gray-600 mt-4">
+
+                {section.image.caption}
+
             </p>
 
-            <h2 className="heading-3 text-foreground mt-8 mb-4">Tanı</h2>
-            <p className="body-base mb-4">
-              Tiroid hastalıklarının tanısı, TSH, serbest T4 ve T3 testleri ile konulur. Gerektiğinde tiroid antikorları ve ultrasonografi de istenebilir.
-            </p>
+        )}
+
+    </div>
+
+    <div className="space-y-4">
+
+        {section.bullets.map((item) => (
+
+            <div
+                key={item}
+                className="bg-gradient-to-br from-blue-50 to-teal-50/50 border border-blue-100 rounded-2xl p-5 flex gap-3 items-start shadow-sm"
+            >
+
+                <CheckCircle2
+                    className="w-5 h-5 text-teal-700 shrink-0 mt-1"
+                />
+
+                <span className="text-gray-700 leading-relaxed">
+
+                    {item}
+
+                </span>
+
+            </div>
+
+        ))}
+
+    </div>
+
+</div>
+
+) : (
+<>
+{section.image && (
+
+<figure className="my-6 overflow-hidden rounded-3xl border border-gray-100 shadow-md bg-white">
+
+<img
+src={section.image.src}
+alt={section.image.alt}
+className="w-full h-72 md:h-96 object-cover"
+/>
+
+{section.image.caption && (
+
+<figcaption className="px-5 py-3 text-sm text-gray-600 bg-gray-50">
+
+{section.image.caption}
+
+</figcaption>
+
+)}
+
+</figure>
+
+)}
+
+{section.bullets && (
+
+<div className="grid md:grid-cols-2 gap-3 mt-5">
+
+{section.bullets.map((item) => (
+
+<div
+key={item}
+className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue-100 rounded-2xl p-4 flex items-start gap-3 hover:shadow-md transition-all duration-300"
+>
+
+<CheckCircle2 className="w-5 h-5 text-teal-700 mt-0.5 shrink-0" />
+
+<span className="text-gray-700 leading-relaxed">
+
+{item}
+
+</span>
+
+</div>
+
+))}
+
+</div>
+
+)}
+
+</>
+
+)}
+                {section.tableRows && (
+                  <div className="overflow-hidden rounded-2xl border border-gray-200 mt-6 shadow-sm">
+                    {section.tableRows.map((row, rowIndex) => (
+                      <div
+                        key={row.label}
+                        className={`grid md:grid-cols-3 gap-4 p-5 border-b last:border-b-0 ${
+                          rowIndex % 2 === 0 ? "bg-blue-50/50" : "bg-white"
+                        }`}
+                      >
+                        <div className="font-bold text-teal-800">
+                          {row.label}
+                        </div>
+                        <div className="md:col-span-2 text-gray-700 leading-relaxed">
+                          {row.value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {section.note && (
+                  <div className="mt-6 rounded-3xl bg-gradient-to-r from-primary/10 to-teal-50 border border-primary/20 p-6">
+                    <p className="text-gray-700 leading-relaxed">
+                      <strong className="text-teal-800">Kısaca: </strong>
+                      {section.note}
+                    </p>
+                  </div>
+                )}
+              </section>
+            ))}
           </div>
 
           <div className="flex items-center justify-between mt-12 pt-8 border-t border-border">
             <Button variant="outline" asChild>
-              <Link to="/blog"><ArrowLeft className="w-4 h-4" /> Tüm Yazılar</Link>
+              <Link to="/blog">
+                <ArrowLeft className="w-4 h-4" /> Tüm Yazılar
+              </Link>
             </Button>
+
             <Button variant="outline">
               <Share2 className="w-4 h-4" /> Paylaş
             </Button>
