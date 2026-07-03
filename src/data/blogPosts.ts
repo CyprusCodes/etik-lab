@@ -26,11 +26,14 @@ export type BlogPostItem = {
   category: string;
   lead: string;
   sections: BlogSection[];
+  document?: {
+    title: string;
+    file: string;
+    description: string;
+  };
 };
 
 export const blogPosts: BlogPostItem[] = [
-
-
 
   {
   slug: "sibo-testi",
@@ -38,7 +41,7 @@ export const blogPosts: BlogPostItem[] = [
   excerpt:
     "SIBO testi, ince bağırsakta aşırı bakteri üremesinin değerlendirilmesine yardımcı olan nefes testidir.",
   image: "/blog/sibotesti.webp",
-  date: "18 Aralık 2024",
+  date: "1 Temmuz 2026",
   author: "Etiklab",
   category: "Sindirim Sistemi",
   lead:
@@ -107,7 +110,14 @@ export const blogPosts: BlogPostItem[] = [
       note:
         "Doğru sonuç için test öncesi hazırlık kurallarına uyulması önemlidir.",
     },
+
   ],
+  document: {
+    title: "SIBO Hasta Onam ve Bilgilendirme Formu",
+    file: "/forms/sibo-hasta-onam-ve-bilgilendirme-formu.pdf",
+    description:
+      "SIBO testi öncesi dikkat edilmesi gerekenler, örnek verme süreci, hazırlık bilgileri ve hasta bilgilendirme formuna buradan ulaşabilirsiniz.",
+  },
 },
 {
   slug: "gastropanel-testi",
@@ -115,7 +125,7 @@ export const blogPosts: BlogPostItem[] = [
   excerpt:
     "Gastropanel testi, mide fonksiyonlarını değerlendiren ve H. pylori enfeksiyonunu saptamaya yardımcı olan kan testidir.",
   image: "/blog/gastropaneltesti.webp",
-  date: "18 Aralık 2024",
+  date: "1 Temmuz 2026",
   author: "Etiklab",
   category: "Sindirim Sistemi",
   lead:
@@ -210,7 +220,7 @@ export const blogPosts: BlogPostItem[] = [
   excerpt:
     "C-13 üre nefes testi, Helicobacter pylori bakterisinin tespitinde kullanılan güvenilir ve non-invaziv bir testtir.",
   image: "/blog/urenefestesti.webp",
-  date: "18 Aralık 2024",
+  date: "1 Temmuz 2026",
   author: "Etiklab",
   category: "Sindirim Sistemi",
   lead:
@@ -269,7 +279,7 @@ export const blogPosts: BlogPostItem[] = [
   excerpt:
     "İdrar yolu enfeksiyonu, idrar yollarında bakteri kaynaklı gelişebilen yaygın bir enfeksiyondur.",
   image: "/blog/idraryoluenfeksiyonu.webp",
-  date: "18 Aralık 2024",
+  date: "1 Temmuz 2026",
   author: "Etiklab",
   category: "Enfeksiyon",
   lead:
@@ -280,22 +290,11 @@ export const blogPosts: BlogPostItem[] = [
       body:
         "Böbrekler ile oluşan idrarın vücut dışına atılmasını sağlayan sistem üriner sistem olarak adlandırılır. Üriner sistem böbrekler, üreterler, mesane ve üretradan oluşur. İdrar yolu enfeksiyonu, dışkı bakterilerinin idrar yoluna karışması ve yukarı üriner sisteme ilerleyip burada çoğalması sonucu meydana gelebilir. Normal idrar bakteri, mantar veya virüs içermez; steril kabul edilir.",
     },
-    {
-      heading: "Risk Faktörleri Nelerdir?",
-      body:
-        "İdrar yolu enfeksiyonlarına kadınlarda erkeklere göre daha sık rastlanır. Bunun en önemli nedenlerinden biri kadınlarda idrar yolunun daha kısa olmasıdır.",
-      bullets: [
-        "Tuvalet sonrası temizliğin arkadan öne yapılması",
-        "Cinsel ilişki esnasında oluşan küçük travmalar",
-        "Gebelik ve menopoz dönemindeki hormonal değişiklikler",
-        "Şeker hastalığı",
-        "Böbrek taşı",
-        "Cerrahi girişimler",
-        "İdrarın böbreğe geri kaçması",
-        "Doğuştan yapısal veya işlevsel bozukluklar",
-        "Kabızlık",
-      ],
-    },
+{
+  heading: "İdrar Yolu Enfeksiyonlarında Risk Faktörleri Nelerdir?",
+  body:
+    "İdrar yolu enfeksiyonlarına kadınlarda erkeklere göre 25 kat fazla rastlanır. Bunun en önemli nedeni kadınlarda idrar yolunun erkeklerinkine göre çok daha kısa olmasıdır. Tuvalet sonrası temizliğin arkadan öne doğru yapılması da anüs çevresindeki mikroorganizmaların vajinaya taşınmasına neden olabilir.\n\nCinsel ilişki esnasında meydana gelen küçük travmalar, doğum kontrolünde kullanılan bazı bariyer yöntemler, gebelik esnasında ve menopozda meydana gelen hormonal değişimler, şeker hastalığı, böbrek taşı, normal doğum, cerrahi girişimler, idrarın böbreğe geri kaçması, doğuştan işlevsel veya yapısal bozukluklar, kabızlık ve sünnetsiz olma enfeksiyona zemin hazırlayan sebepler olabilir. Özellikle gebelikte tedavi edilmeyen idrar yolu enfeksiyonları erken doğuma yol açabilir. Bu nedenle kontrollerde gebenin herhangi bir yakınması olmasa dahi idrar analizi yapılmalıdır.\n\nÇocuklarda ilk beş yıl içinde böbrekte enfeksiyon olması kalıcı ve ilerleyen zedelenmelere neden olabilir. Bu nedenle erkek çocuklar ilk, kız çocuklar ikinci kez idrar yolu enfeksiyonu olduğunda idrar yollarında anomali araştırması yapılmalıdır.",
+},
     {
       heading: "İdrar Yolu Enfeksiyonu Belirtileri Nelerdir?",
       bullets: [

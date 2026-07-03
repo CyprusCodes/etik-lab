@@ -1,7 +1,16 @@
 import { Layout } from "@/components/layout/Layout";
 import { PageHeader } from "@/components/ui/page-header";
 import { Link, useParams } from "react-router-dom";
-import { Calendar, User, ArrowLeft, Share2, CheckCircle2 } from "lucide-react";
+import {
+  Calendar,
+  User,
+  ArrowLeft,
+  Share2,
+  CheckCircle2,
+  FileText,
+  Download,
+  ExternalLink,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -240,7 +249,51 @@ className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue
               </section>
             ))}
           </div>
+{post.document && (
+  <div className="mt-10 rounded-2xl border border-teal-100 bg-white shadow-sm p-5">
+    <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <FileText className="w-6 h-6 text-primary" />
+        </div>
 
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-wide text-teal-700">
+            PDF FORMU
+          </span>
+
+          <h3 className="text-xl font-bold mt-1">
+            {post.document.title}
+          </h3>
+
+          <p className="text-sm text-gray-600 mt-1">
+            {post.document.description}
+          </p>
+        </div>
+      </div>
+
+      <div className="flex gap-2 shrink-0">
+        <Button asChild size="sm">
+          <a
+            href={post.document.file}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ExternalLink className="w-4 h-4 mr-2" />
+            Görüntüle
+          </a>
+        </Button>
+
+        <Button variant="outline" asChild size="sm">
+          <a href={post.document.file} download>
+            <Download className="w-4 h-4 mr-2" />
+            İndir
+          </a>
+        </Button>
+      </div>
+    </div>
+  </div>
+)}
           <div className="flex items-center justify-between mt-12 pt-8 border-t border-border">
             <Button variant="outline" asChild>
               <Link to="/blog">
