@@ -3,10 +3,27 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Building, Users, Globe, Key } from "lucide-react";
 import { ServiceContactForm } from "@/components/forms/ServiceContactForm";
 import { getImagePath } from "@/utils/assets";
+import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function KurumsalHizmetler() {
   return (
     <Layout>
+      <SEO
+        title="Kurumsal Hizmetler"
+        description="Etik Laboratuvar’ın kurumlara yönelik laboratuvar ve sağlık hizmetlerini inceleyin."
+        path="/hizmetlerimiz/kurumsal"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Hizmetler", path: "/hizmetlerimiz" },
+          {
+            name: "Kurumsal Hizmetler",
+            path: "/hizmetlerimiz/kurumsal",
+          },
+        ]}
+      />
       <PageHeader
         title="Kurumsal Hizmetler"
         description="Türkiye'nin Her Yerinden Kurumsal Firmalar İçin Profesyonel Hizmet"

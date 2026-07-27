@@ -3,10 +3,27 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Users, FileText, Globe, Clock } from "lucide-react";
 import { ServiceContactForm } from "@/components/forms/ServiceContactForm";
 import { getImagePath } from "@/utils/assets";
+import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function AyaktanHasta() {
   return (
     <Layout>
+      <SEO
+        title="Ayaktan Hasta Hizmetleri"
+        description="Etik Laboratuvar’ın ayaktan hasta hizmetleri ve laboratuvar süreçleri hakkında bilgi alın."
+        path="/hizmetlerimiz/ayaktan-hasta"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Hizmetler", path: "/hizmetlerimiz" },
+          {
+            name: "Ayaktan Hasta Hizmetleri",
+            path: "/hizmetlerimiz/ayaktan-hasta",
+          },
+        ]}
+      />
       <PageHeader
         title="Ayaktan Hasta Hizmetleri"
         description="Laboratuvarımıza Gelerek Hızlı ve Güvenilir Test Hizmeti Alın"

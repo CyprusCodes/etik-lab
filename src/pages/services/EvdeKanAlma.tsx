@@ -3,10 +3,27 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Home, Shield, CheckCircle } from "lucide-react";
 import { ServiceContactForm } from "@/components/forms/ServiceContactForm";
 import { getImagePath } from "@/utils/assets";
+import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function EvdeKanAlma() {
   return (
     <Layout>
+      <SEO
+        title="Evden Kan Alma"
+        description="Etik Laboratuvar’ın evden kan alma hizmeti ve başvuru süreci hakkında bilgi alın."
+        path="/hizmetlerimiz/evde-kan-alma"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Hizmetler", path: "/hizmetlerimiz" },
+          {
+            name: "Evde Kan Alma Hizmeti",
+            path: "/hizmetlerimiz/evde-kan-alma",
+          },
+        ]}
+      />
       <PageHeader
         title="Evde Kan Alma Hizmeti"
         description="Evinizin Konforunda Güvenilir Test Hizmeti"

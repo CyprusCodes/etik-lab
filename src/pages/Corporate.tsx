@@ -3,6 +3,7 @@ import { CorporateHero } from "@/components/about/CorporateHero";
 import { CorporateTechnologies } from "@/components/about/CorporateTechnologies";
 import { CorporateServices } from "@/components/about/CorporateServices";
 import { CorporateCTA } from "@/components/about/CorporateCTA";
+import { SEO } from "@/components/SEO";
 
 const certifications = [
   { name: "ISO 15189", description: "Tıbbi Laboratuvar Akreditasyonu" },
@@ -21,6 +22,11 @@ const stats = [
 export default function Corporate() {
   return (
     <Layout>
+      <SEO
+        title="Kurumsal"
+        description="Etik Laboratuvar’ın kurumsal yapısı, hizmet anlayışı ve kalite yaklaşımı hakkında bilgi alın."
+        path="/hakkimizda/kurumsal"
+      />
       <CorporateHero />
       <CorporateTechnologies />
       <CorporateServices />

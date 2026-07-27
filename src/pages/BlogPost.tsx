@@ -13,6 +13,68 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
+import { SEO } from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+
+const SITE_URL = "https://etiklab.net";
+
+const turkishMonths: Record<string, string> = {
+  Ocak: "01",
+  Şubat: "02",
+  Mart: "03",
+  Nisan: "04",
+  Mayıs: "05",
+  Haziran: "06",
+  Temmuz: "07",
+  Ağustos: "08",
+  Eylül: "09",
+  Ekim: "10",
+  Kasım: "11",
+  Aralık: "12",
+};
+
+function toIsoDate(date: string) {
+  const match = date.match(/^(\d{1,2})\s+(\S+)\s+(\d{4})$/);
+
+  if (!match) return undefined;
+
+  const [, day, monthName, year] = match;
+  const month = turkishMonths[monthName];
+
+  if (!month) return undefined;
+
+  return `${year}-${month}-${day.padStart(2, "0")}`;
+}
+
+function toAbsolutePublicUrl(url: string) {
+  try {
+    const absoluteUrl = new URL(url, SITE_URL);
+
+    return ["http:", "https:"].includes(absoluteUrl.protocol)
+      ? absoluteUrl.toString()
+      : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+const blogSeoTitles: Record<string, string> = {
+  "sibo-testi": "SIBO Testi",
+  "gastropanel-testi": "Gastropanel Testi",
+  "ure-nefes-testi": "C-13 Üre Nefes Testi",
+  "idrar-yolu-enfeksiyonu": "İdrar Yolu Enfeksiyonu",
+  "laboratuvar-testlerinin-onemi": "Laboratuvar Testlerinin Önemi",
+  "kolon-kanseri": "Kolon Kanseri",
+  "insulin-direnci": "İnsülin Direnci",
+  "colyak-hastaligi": "Çölyak Hastalığı",
+  anemi: "Anemi",
+  "check-up": "Check-Up",
+  diyabet: "Diyabet",
+  "beta-hcg": "Beta HCG",
+  "tiroid-hastaliklari": "Tiroid Hastalıkları",
+  hpv: "HPV",
+};
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -43,8 +105,48 @@ export default function BlogPost() {
     );
   }
 
+  const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
+  const datePublished = toIsoDate(post.date);
+  const imageUrl = toAbsolutePublicUrl(post.image);
+  const blogPosting = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    ...(imageUrl && { image: imageUrl }),
+    ...(datePublished && { datePublished }),
+    author: post.author,
+    publisher: {
+      "@type": "Organization",
+      name: "Etik Laboratuvarı",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+  };
+
   return (
     <Layout>
+      <SEO
+        title={blogSeoTitles[post.slug] ?? post.title}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        ogType="article"
+        image={post.image}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(blogPosting).replace(/</g, "\\u003c")}
+        </script>
+      </Helmet>
       <PageHeader
         title={post.title}
         breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: post.title }]}

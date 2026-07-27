@@ -11,6 +11,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
+import { SEO } from "@/components/SEO";
 
 export default function Appointment() {
   const [formStatus, setFormStatus] = useState<
@@ -57,6 +58,11 @@ export default function Appointment() {
 
   return (
     <Layout>
+      <SEO
+        title="Randevu Formu"
+        description="Etik Laboratuvar hizmetleri için randevu talebinizi kolayca oluşturun."
+        path="/randevu"
+      />
       <PageHeader
         title="Randevu Al"
         description="Online randevu oluşturun veya evde numune alma hizmeti talep edin."

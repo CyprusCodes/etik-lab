@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
+import { SEO } from "@/components/SEO";
 
 const contactInfo = [
   {
@@ -84,6 +85,11 @@ export default function Contact() {
 
   return (
     <Layout>
+      <SEO
+        title="İletişim Formu"
+        description="Etik Laboratuvar ile iletişime geçmek için iletişim formunu kullanın."
+        path="/iletisim"
+      />
       <PageHeader
         title="İletişim"
         description="Sorularınız için bize ulaşın. Size yardımcı olmaktan memnuniyet duyarız."

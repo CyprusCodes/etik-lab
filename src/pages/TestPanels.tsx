@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
+import { SEO } from "@/components/SEO";
 
 const panels = [
   {
@@ -81,6 +82,11 @@ const panels = [
 export default function TestPanels() {
   return (
     <Layout>
+      <SEO
+        title="Test Panelleri"
+        description="Etik Laboratuvar test panellerini inceleyerek ihtiyacınıza uygun testler hakkında bilgi alın."
+        path="/test-panelleri"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20">
         {/* Background */}

@@ -29,13 +29,28 @@
   <url><loc>https://etiklab.net/test-panelleri/diyabet</loc></url>
   <url><loc>https://etiklab.net/test-panelleri/romatoloji</loc></url>
   <url><loc>https://etiklab.net/test-panelleri/cinsel-hastaliklar</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/kardiyovaskuler</loc></url>
 
   <!-- Check-up -->
   <url><loc>https://etiklab.net/paketler</loc></url>
   <url><loc>https://etiklab.net/paketler/sporcu-paketi</loc></url>
 
-  <!-- Blog (listing only, posts are dynamic) -->
+  <!-- Blog -->
   <url><loc>https://etiklab.net/blog</loc></url>
+  <url><loc>https://etiklab.net/blog/sibo-testi</loc></url>
+  <url><loc>https://etiklab.net/blog/gastropanel-testi</loc></url>
+  <url><loc>https://etiklab.net/blog/ure-nefes-testi</loc></url>
+  <url><loc>https://etiklab.net/blog/idrar-yolu-enfeksiyonu</loc></url>
+  <url><loc>https://etiklab.net/blog/laboratuvar-testlerinin-onemi</loc></url>
+  <url><loc>https://etiklab.net/blog/kolon-kanseri</loc></url>
+  <url><loc>https://etiklab.net/blog/insulin-direnci</loc></url>
+  <url><loc>https://etiklab.net/blog/colyak-hastaligi</loc></url>
+  <url><loc>https://etiklab.net/blog/anemi</loc></url>
+  <url><loc>https://etiklab.net/blog/check-up</loc></url>
+  <url><loc>https://etiklab.net/blog/diyabet</loc></url>
+  <url><loc>https://etiklab.net/blog/beta-hcg</loc></url>
+  <url><loc>https://etiklab.net/blog/tiroid-hastaliklari</loc></url>
+  <url><loc>https://etiklab.net/blog/hpv</loc></url>
 
   <!-- Contact & Forms -->
   <url><loc>https://etiklab.net/iletisim</loc></url>

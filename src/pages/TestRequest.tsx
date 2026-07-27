@@ -13,6 +13,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
+import { SEO } from "@/components/SEO";
 
 const mikroBiyolojiTests = [
   "Nature Lovers",
@@ -160,6 +161,11 @@ export default function TestRequest() {
 
   return (
     <Layout>
+      <SEO
+        title="Test İstem Formu"
+        description="Etik Laboratuvar test istem formuna ulaşın ve gerekli bilgileri iletin."
+        path="/test-istem-formu"
+      />
       <PageHeader
         title="Test İstem Formu"
         description="Laboratuvar test talebinizi oluşturun."

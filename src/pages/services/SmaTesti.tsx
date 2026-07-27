@@ -3,10 +3,24 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Shield, Heart, Users } from "lucide-react";
 import { ServiceContactForm } from "@/components/forms/ServiceContactForm";
 import { getImagePath } from "@/utils/assets";
+import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function SmaTesti() {
   return (
     <Layout>
+      <SEO
+        title="SMA Testi"
+        description="SMA testi, örnek alım süreci ve laboratuvar incelemesi hakkında bilgi alın."
+        path="/hizmetlerimiz/sma-testi"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Hizmetler", path: "/hizmetlerimiz" },
+          { name: "SMA Testi", path: "/hizmetlerimiz/sma-testi" },
+        ]}
+      />
       <PageHeader
         title="SMA Testi"
         description="Sağlığınızı Koruma ve Aile Planlaması"

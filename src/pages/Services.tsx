@@ -12,6 +12,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
+import { SEO } from "@/components/SEO";
 
 const services = [
   {
@@ -79,6 +80,11 @@ const services = [
 export default function Services() {
   return (
     <Layout>
+      <SEO
+        title="Hizmetlerimiz"
+        description="Etik Laboratuvar tarafından sunulan laboratuvar ve sağlık hizmetlerini inceleyin."
+        path="/hizmetlerimiz"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20">
         {/* Background Image */}
