@@ -3,10 +3,27 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Shield, Heart } from "lucide-react";
 import { ServiceContactForm } from "@/components/forms/ServiceContactForm";
 import { getImagePath } from "@/utils/assets";
+import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function GenetikTestleri() {
   return (
     <Layout>
+      <SEO
+        title="Genetik Testler"
+        description="Etik Laboratuvar tarafından sunulan genetik testler ve analiz süreçleri hakkında bilgi alın."
+        path="/hizmetlerimiz/genetik-testler"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Hizmetler", path: "/hizmetlerimiz" },
+          {
+            name: "Hamilelik Öncesi ve Sonrası Genetik Testler",
+            path: "/hizmetlerimiz/genetik-testler",
+          },
+        ]}
+      />
       <PageHeader
         title="Hamilelik Öncesi ve Sonrası Genetik Testler"
         description="Sağlıklı Bir Başlangıç İçin Genetik Testlerimizi Keşfedin"

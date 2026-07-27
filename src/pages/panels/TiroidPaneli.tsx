@@ -3,12 +3,26 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Calendar, Heart } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
 import { useLikes } from "@/hooks/useLikes";
+import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function TiroidPaneli() {
   const { likes, hasLiked, toggleLike } = useLikes("tiroid-paneli");
 
   return (
     <Layout>
+      <SEO
+  title="Tiroid Paneli"
+  description="Tiroid paneli kapsamında değerlendirilen testler ve laboratuvar hizmetleri hakkında bilgi alın."
+  path="/test-panelleri/tiroid"
+/>
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Test Panelleri", path: "/test-panelleri" },
+          { name: "Tiroid Paneli", path: "/test-panelleri/tiroid" },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20">
         <div className="absolute inset-0 -z-20">

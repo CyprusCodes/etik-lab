@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { getImagePath } from "@/utils/assets";
 import { blogPosts } from "@/data/blogPosts";
+import { SEO } from "@/components/SEO";
 
 const categories = [
   "Tümü",
@@ -35,6 +36,11 @@ export default function Blog() {
 
   return (
     <Layout>
+      <SEO
+        title="Sağlık Blogu"
+        description="Laboratuvar testleri, sağlık kontrolleri ve güncel sağlık konuları hakkında bilgilendirici içerikleri okuyun."
+        path="/blog"
+      />
       <PageHeader
         title="Blog"
         description="Uzmanlarımızdan güncel sağlık bilgileri ve öneriler."

@@ -3,12 +3,26 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Calendar, Heart } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
 import { useLikes } from "@/hooks/useLikes";
+import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function ColyakPaneli() {
   const { likes, hasLiked, toggleLike } = useLikes("colyak-paneli");
 
   return (
     <Layout>
+      <SEO
+        title="Çölyak Paneli"
+        description="Çölyak paneli kapsamında değerlendirilen testler ve laboratuvar süreci hakkında bilgi alın."
+        path="/test-panelleri/colyak"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Test Panelleri", path: "/test-panelleri" },
+          { name: "Çölyak Paneli", path: "/test-panelleri/colyak" },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20">
         <div className="absolute inset-0 -z-20">

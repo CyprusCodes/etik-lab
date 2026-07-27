@@ -7,10 +7,16 @@ import { CheckUpSection } from "@/components/home/CheckUpSection";
 import { WhyUsSection } from "@/components/home/WhyUsSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { CTASection } from "@/components/home/CTASection";
+import { SEO } from "@/components/SEO";
 
 const Index = () => {
   return (
     <Layout>
+      <SEO
+        title="Güvenilir Laboratuvar Hizmetleri"
+        description="Etik Laboratuvar’ın test, sağlık paketi ve laboratuvar hizmetlerini inceleyin."
+        path="/"
+      />
       <HeroSection />
       <ServicesSection />
       <TestPanelsSection />

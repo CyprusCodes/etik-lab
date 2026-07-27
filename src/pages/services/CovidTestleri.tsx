@@ -3,6 +3,8 @@ import { PageHeader } from "@/components/ui/page-header";
 import { CheckCircle, Shield } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
 import { ServiceContactForm } from "@/components/forms/ServiceContactForm";
+import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 const symptoms = [
   "Ateş",
@@ -45,6 +47,21 @@ const followUpTests = [
 export default function CovidTestleri() {
   return (
     <Layout>
+      <SEO
+        title="COVID Testleri"
+        description="Etik Laboratuvar tarafından sunulan COVID testleri ve test süreçleri hakkında bilgi alın."
+        path="/hizmetlerimiz/covid-testleri"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Hizmetler", path: "/hizmetlerimiz" },
+          {
+            name: "Koronavirüs Hakkında",
+            path: "/hizmetlerimiz/covid-testleri",
+          },
+        ]}
+      />
       <PageHeader
         title="Koronavirüs Hakkında"
         description="COVID-19 tanı, test ve tedavi hizmetleri hakkında kapsamlı bilgi"

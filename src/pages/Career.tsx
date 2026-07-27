@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Briefcase, Send } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 // Dummy career positions - commented out for now
 // const openPositions = [
@@ -16,6 +17,11 @@ const openPositions = [];
 export default function Career() {
   return (
     <Layout>
+      <SEO
+        title="Kariyer"
+        description="Etik Laboratuvar’daki kariyer fırsatları ve çalışma alanları hakkında bilgi alın."
+        path="/kariyer"
+      />
       <PageHeader
         title="Kariyer"
         description="Etik Laboratuvarı ailesine katılın ve sağlık sektöründe kariyer yapın."
