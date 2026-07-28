@@ -179,14 +179,36 @@ export default function BlogPost() {
               <p className="text-sm font-semibold uppercase tracking-wider mb-2 opacity-90">
                 {post.category}
               </p>
-              <h1 className="text-2xl md:text-4xl font-black leading-tight">
+              <div className="text-2xl md:text-4xl font-black leading-tight">
                 {post.title}
-              </h1>
+              </div>
             </div>
           </div>
 
           <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8 mb-10">
             <p className="text-xl text-gray-700 leading-relaxed">{post.lead}</p>
+            {post.slug === "gastropanel-testi" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/blog/ure-nefes-testi"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  C-13 Üre Nefes Testi
+                </Link>
+              </p>
+            )}
+            {post.slug === "ure-nefes-testi" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/blog/gastropanel-testi"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  GastroPanel Testi
+                </Link>
+              </p>
+            )}
           </div>
 
           <div className="space-y-10">
@@ -396,6 +418,22 @@ className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue
     </div>
   </div>
 )}
+          {post.slug === "gastropanel-testi" && (
+            <div className="mt-8 rounded-2xl border border-gray-100 bg-white shadow-sm p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <p className="text-gray-700 leading-relaxed">
+                GastroPanel testi hakkında bilgi almak veya randevu oluşturmak
+                için bize ulaşabilirsiniz.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+                <Button asChild size="sm">
+                  <Link to="/randevu">Randevu Al</Link>
+                </Button>
+                <Button asChild size="sm" variant="outline">
+                  <Link to="/iletisim">İletişim</Link>
+                </Button>
+              </div>
+            </div>
+          )}
           <div className="flex items-center justify-between mt-12 pt-8 border-t border-border">
             <Button variant="outline" asChild>
               <Link to="/blog">
