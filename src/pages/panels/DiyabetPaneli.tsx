@@ -88,6 +88,16 @@ export default function DiyabetPaneli() {
                 </p>
               </div>
 
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/blog/insulin-direnci"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  İnsülin Direnci Nedir?
+                </Link>
+              </p>
+
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Panelde Yer Alan Testler

@@ -209,6 +209,39 @@ export default function BlogPost() {
                 </Link>
               </p>
             )}
+            {post.slug === "anemi" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/test-panelleri/anemi"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Anemi Paneli
+                </Link>
+              </p>
+            )}
+            {post.slug === "insulin-direnci" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/test-panelleri/diyabet"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Diyabet Paneli
+                </Link>
+              </p>
+            )}
+            {post.slug === "tiroid-hastaliklari" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/test-panelleri/tiroid"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Tiroid Paneli
+                </Link>
+              </p>
+            )}
           </div>
 
           <div className="space-y-10">
