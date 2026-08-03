@@ -753,9 +753,9 @@ bullets: [
   {
     slug: "beta-hcg",
     title:
-      "Beta HCG Nedir? Gebelik Haftasına Göre Beta HCG Değerleri Nelerdir?",
+      "Beta HCG Nedir? Neden Ölçülür ve Nasıl Değerlendirilir?",
     excerpt:
-      "Beta HCG hormonu nedir, gebelikte nasıl değerlendirilir ve haftalara göre değer aralıkları.",
+      "Beta HCG hormonunun ne olduğu, gebelikte neden ölçüldüğü ve sonuçların nasıl değerlendirildiği hakkında temel bilgiler.",
     image: getImagePath("blog/ca0d22eb-85c7-482a-a132-8d8700540c0f.png"),
     date: "4 Eylül 2023",
     author: "Etiklab",

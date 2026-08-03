@@ -23,6 +23,10 @@ const qrItems = [
     name: "whatsapp-qr",
     url: "https://wa.me/905338403273",
   },
+  {
+  name: "genetik-testler-qr",
+  url: "https://etiklab.net/hizmetlerimiz/genetik-testler",
+},
 ];
 
 const outputDir = path.join(__dirname, "..", "qr-codes");

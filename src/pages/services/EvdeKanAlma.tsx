@@ -80,7 +80,7 @@ export default function EvdeKanAlma() {
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                     <div>
-                      İstanbul'un trafiğinde vakit kaybetmek istemiyorsanız
+                      Trafikte vakit kaybetmek istemiyorsanız
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -124,7 +124,7 @@ export default function EvdeKanAlma() {
                   laboratuvara götürüyoruz.
                 </p>
                 <p className="text-lg leading-relaxed text-gray-700 mb-8">
-                  İstanbul'un güvenilir laboratuvarlarında sonuçlandırılan
+                  Güvenilir laboratuvarlarda sonuçlandırılan
                   tahlilleriniz size vaat edilen zamanda hazır olduğunda
                   isterseniz e-mail, WhatsApp gibi mobil imkanlarla, isterseniz
                   hızlı kargo ile adresinize, talep ederseniz de ev veya iş
