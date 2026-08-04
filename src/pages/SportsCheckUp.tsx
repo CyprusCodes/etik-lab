@@ -116,13 +116,13 @@ export default function SportsCheckUp() {
                 Özel Sporcu Paketi
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-black text-foreground mb-6">
+              <h2 className="text-4xl md:text-5xl font-black text-foreground mb-6">
                 <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
                   SAMİ HAMİDİ
                 </span>
                 <br />
                 Sporcu Check-Up
-              </h1>
+              </h2>
 
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                 Profesyonel ve amatör sporcular için özel olarak tasarlanmış
