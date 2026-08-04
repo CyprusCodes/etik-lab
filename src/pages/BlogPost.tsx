@@ -76,6 +76,40 @@ const blogSeoTitles: Record<string, string> = {
   hpv: "HPV",
 };
 
+const blogCtaMessages: Record<string, string> = {
+  "sibo-testi":
+    "SIBO testi hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "gastropanel-testi":
+    "GastroPanel testi hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "ure-nefes-testi":
+    "C-13 üre nefes testi hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "idrar-yolu-enfeksiyonu":
+    "İdrar yolu enfeksiyonlarında kullanılan laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "laboratuvar-testlerinin-onemi":
+    "Laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "kolon-kanseri":
+    "Kolon kanseri taramasında kullanılan laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "insulin-direnci":
+    "İnsülin direncinin değerlendirilmesinde kullanılan laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "colyak-hastaligi":
+    "Çölyak hastalığının değerlendirilmesinde kullanılan laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  anemi:
+    "Anemi değerlendirmesinde kullanılan laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "check-up":
+    "Check-up paketleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  diyabet:
+    "Diyabet takibinde kullanılan laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "beta-hcg":
+    "Beta HCG testi hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  "tiroid-hastaliklari":
+    "Tiroid fonksiyonlarını değerlendiren laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+  hpv:
+    "HPV ile ilgili laboratuvar testleri hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.",
+};
+
+const fallbackBlogCtaMessage =
+  "Bu içerik hakkında bilgi almak için bizimle iletişime geçebilir veya randevu oluşturabilirsiniz.";
+
 export default function BlogPost() {
   const { slug } = useParams();
   const post = blogPosts.find((item) => item.slug === slug);
@@ -451,22 +485,19 @@ className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue
     </div>
   </div>
 )}
-          {post.slug === "gastropanel-testi" && (
-            <div className="mt-8 rounded-2xl border border-gray-100 bg-white shadow-sm p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <p className="text-gray-700 leading-relaxed">
-                GastroPanel testi hakkında bilgi almak veya randevu oluşturmak
-                için bize ulaşabilirsiniz.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-2 shrink-0">
-                <Button asChild size="sm">
-                  <Link to="/randevu">Randevu Al</Link>
-                </Button>
-                <Button asChild size="sm" variant="outline">
-                  <Link to="/iletisim">İletişim</Link>
-                </Button>
-              </div>
+          <div className="mt-8 rounded-2xl border border-gray-100 bg-white shadow-sm p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <p className="text-gray-700 leading-relaxed">
+              {blogCtaMessages[post.slug] ?? fallbackBlogCtaMessage}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+              <Button asChild size="sm">
+                <Link to="/randevu">Randevu Al</Link>
+              </Button>
+              <Button asChild size="sm" variant="outline">
+                <Link to="/iletisim">İletişim</Link>
+              </Button>
             </div>
-          )}
+          </div>
           <div className="flex items-center justify-between mt-12 pt-8 border-t border-border">
             <Button variant="outline" asChild>
               <Link to="/blog">
