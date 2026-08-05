@@ -6,6 +6,7 @@ interface SEOProps {
   path: string;
   robots?: string;
   noIndex?: boolean;
+  omitCanonical?: boolean;
   ogType?: "website" | "article";
   image?: string;
 }
@@ -18,6 +19,7 @@ export function SEO({
   path,
   robots = "index, follow",
   noIndex = false,
+  omitCanonical = false,
   ogType = "website",
   image,
 }: SEOProps) {
@@ -38,12 +40,12 @@ export function SEO({
       <meta name="description" content={description} />
       <meta name="robots" content={robotsContent} />
 
-      <link rel="canonical" href={canonicalUrl} />
+      {!omitCanonical && <link rel="canonical" href={canonicalUrl} />}
 
       <meta property="og:type" content={ogType} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
+      {!omitCanonical && <meta property="og:url" content={canonicalUrl} />}
       {imageUrl && <meta property="og:image" content={imageUrl} />}
 
       <meta name="twitter:card" content="summary_large_image" />
