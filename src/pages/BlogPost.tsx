@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { PageHeader } from "@/components/ui/page-header";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import {
   Calendar,
   User,
@@ -112,11 +112,19 @@ const fallbackBlogCtaMessage =
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const location = useLocation();
   const post = blogPosts.find((item) => item.slug === slug);
 
   if (!post) {
     return (
       <Layout>
+        <SEO
+          title="Yazı Bulunamadı"
+          description="Aradığınız blog yazısı bulunamadı veya kaldırılmış olabilir."
+          path={location.pathname}
+          noIndex
+          omitCanonical
+        />
         <PageHeader
           title="Yazı Bulunamadı"
           breadcrumbs={[
