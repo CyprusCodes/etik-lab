@@ -81,7 +81,7 @@ export default function Services() {
   return (
     <Layout>
       <SEO
-        title="Hizmetlerimiz"
+        title="Laboratuvar Hizmetleri"
         description="Etik Laboratuvar tarafından sunulan laboratuvar ve sağlık hizmetlerini inceleyin."
         path="/hizmetlerimiz"
       />

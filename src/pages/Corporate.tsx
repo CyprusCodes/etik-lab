@@ -23,8 +23,8 @@ export default function Corporate() {
   return (
     <Layout>
       <SEO
-        title="Kurumsal"
-        description="Etik Laboratuvar’ın kurumsal yapısı, hizmet anlayışı ve kalite yaklaşımı hakkında bilgi alın."
+        title="Kurumsal Yapı ve Laboratuvar Teknolojileri"
+        description="Etik Laboratuvar’ın kurumsal yapısını, kullandığı teknolojileri ve sunduğu laboratuvar hizmetlerini inceleyin."
         path="/hakkimizda/kurumsal"
       />
       <CorporateHero />

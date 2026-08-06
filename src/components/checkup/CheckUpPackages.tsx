@@ -29,6 +29,7 @@ import {
   ChevronUp,
   Calendar,
   FileText,
+  ArrowRight,
 } from "lucide-react";
 import {
   checkupPackages,
@@ -118,6 +119,17 @@ const PackageCard = ({ pkg, isSpecialPanel = false }) => {
             Randevu Al
           </Link>
         </Button>
+        <div className="mt-2 flex h-5 items-center justify-center">
+          {pkg.detailPath && pkg.detailLabel && (
+            <Link
+              to={pkg.detailPath}
+              className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            >
+              {pkg.detailLabel}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          )}
+        </div>
       </CardContent>
     </Card>
   );

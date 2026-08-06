@@ -12,8 +12,8 @@ export default function AnemiPaneli() {
   return (
     <Layout>
       <SEO
-        title="Anemi Paneli"
-        description="Anemi paneli kapsamında değerlendirilen testler ve laboratuvar süreci hakkında bilgi alın."
+        title="Anemi (Kansızlık) ve Demir Eksikliği Testleri"
+        description="Anemi, kansızlık ve demir eksikliğinin değerlendirilmesinde kullanılan laboratuvar testleri hakkında bilgi alın."
         path="/test-panelleri/anemi"
       />
       <BreadcrumbSchema

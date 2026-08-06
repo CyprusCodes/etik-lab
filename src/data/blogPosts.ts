@@ -216,9 +216,9 @@ export const blogPosts: BlogPostItem[] = [
 },
 {
   slug: "ure-nefes-testi",
-  title: "C-13 Üre Nefes Testi Nedir?",
+  title: "H. pylori C-13 Üre Nefes Testi Nedir?",
   excerpt:
-    "C-13 üre nefes testi, Helicobacter pylori bakterisinin tespitinde kullanılan güvenilir ve non-invaziv bir testtir.",
+    "H. pylori değerlendirmesinde kullanılan C-13 üre nefes testinin ne olduğu, nasıl uygulandığı ve test süreci hakkında bilgi alın.",
   image: "/blog/urenefestesti.webp",
   date: "1 Temmuz 2026",
   author: "Etiklab",
