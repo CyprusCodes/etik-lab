@@ -62,7 +62,7 @@ function toAbsolutePublicUrl(url: string) {
 const blogSeoTitles: Record<string, string> = {
   "sibo-testi": "SIBO Testi",
   "gastropanel-testi": "Gastropanel Testi",
-  "ure-nefes-testi": "C-13 Üre Nefes Testi",
+  "ure-nefes-testi": "H. pylori C-13 Üre Nefes Testi",
   "idrar-yolu-enfeksiyonu": "İdrar Yolu Enfeksiyonu",
   "laboratuvar-testlerinin-onemi": "Laboratuvar Testlerinin Önemi",
   "kolon-kanseri": "Kolon Kanseri",
@@ -262,6 +262,28 @@ export default function BlogPost() {
                 </Link>
               </p>
             )}
+            {post.slug === "kolon-kanseri" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/test-panelleri/kolon-kanseri"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Kolon Kanseri Panelini İnceleyin
+                </Link>
+              </p>
+            )}
+            {post.slug === "colyak-hastaligi" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/test-panelleri/colyak"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Çölyak Panelini İnceleyin
+                </Link>
+              </p>
+            )}
             {post.slug === "insulin-direnci" && (
               <p className="mt-3 text-sm text-gray-600">
                 İlgili içerik:{" "}
@@ -281,6 +303,28 @@ export default function BlogPost() {
                   className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
                 >
                   Tiroid Paneli
+                </Link>
+              </p>
+            )}
+            {post.slug === "hpv" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/test-panelleri/cinsel-hastaliklar"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Cinsel Yolla Bulaşan Hastalıklar Testlerini İnceleyin
+                </Link>
+              </p>
+            )}
+            {post.slug === "check-up" && (
+              <p className="mt-3 text-sm text-gray-600">
+                İlgili içerik:{" "}
+                <Link
+                  to="/paketler"
+                  className="font-medium text-teal-800 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Sağlık ve Check-Up Paketlerini İnceleyin
                 </Link>
               </p>
             )}

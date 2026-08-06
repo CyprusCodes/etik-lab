@@ -1,5 +1,17 @@
 // Real check-up packages from business documents
-export const checkupPackages = [
+export type CheckupPackage = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  ageGroup: string;
+  type: string;
+  tests: string[];
+  detailPath?: string;
+  detailLabel?: string;
+};
+
+export const checkupPackages: CheckupPackage[] = [
   {
     id: "40-alti-erkek",
     title: "40 Yaş Altı Erkek Check-Up Paketi",
@@ -359,7 +371,7 @@ export const checkupPackages = [
 ];
 
 // Age-specific and special panels from business documents
-export const specialPanels = [
+export const specialPanels: CheckupPackage[] = [
   {
     id: "11-aylik-paneli",
     title: "11 Aylık Paneli",
@@ -479,6 +491,8 @@ export const specialPanels = [
   {
     id: "cinsel-hastalik-paneli",
     title: "Cinsel Yolla Bulaşan Hastalıklar Paketi",
+    detailPath: "/test-panelleri/cinsel-hastaliklar",
+    detailLabel: "Paneli İncele",
     description: "CYBE hastalıkları tarama paketi",
     category: "Enfeksiyon",
     ageGroup: "Yetişkin",
@@ -488,6 +502,8 @@ export const specialPanels = [
   {
     id: "sibo-nefes-testi",
     title: "SIBO Nefes Testi",
+    detailPath: "/blog/sibo-testi",
+    detailLabel: "Test Hakkında Bilgi",
     description:
       "İnce bağırsakta aşırı bakteri üremesi (SIBO) tanısı için nefes testi",
     category: "Gastroenteroloji",
@@ -503,6 +519,8 @@ export const specialPanels = [
   {
     id: "gastropanel",
     title: "Gastropanel Testi",
+    detailPath: "/blog/gastropanel-testi",
+    detailLabel: "Test Hakkında Bilgi",
     description:
       "Mide fonksiyonu değerlendirmesi ve H. pylori tanısı için non-invaziv kan testi",
     category: "Gastroenteroloji",
