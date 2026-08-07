@@ -6,9 +6,10 @@
   "packageManager": "bun@1.3.4",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "bun run prerender:all",
+    "build:client": "vite build",
     "prerender:poc": "vite build && vite build --ssr src/prerender/entry-server.tsx --outDir dist-ssr && node scripts/prerender-poc.mjs",
-    "prerender:all": "vite build && vite build --ssr src/prerender/entry-server.tsx --outDir dist-ssr && node scripts/prerender-all.mjs",
+    "prerender:all": "bun run build:client && vite build --ssr src/prerender/entry-server.tsx --outDir dist-ssr && node scripts/prerender-all.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
