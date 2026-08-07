@@ -5,7 +5,16 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { getImagePath } from "@/utils/assets";
 
-const navigationItems = [
+type NavigationChild = {
+  label: string;
+  href: string;
+};
+
+type NavigationItem =
+  | { label: string; href: string; children?: NavigationChild[] }
+  | { label: string; children: NavigationChild[]; href?: never };
+
+const navigationItems: NavigationItem[] = [
   { label: "Anasayfa", href: "/" },
   {
     label: "Hakkımızda",
@@ -55,7 +64,6 @@ const navigationItems = [
   { label: "Paketler", href: "/paketler" },
   {
     label: "İletişim",
-    href: "#",
     children: [
       { label: "İletişim Formu", href: "/iletisim" },
       { label: "Randevu Formu", href: "/randevu" },
@@ -126,26 +134,53 @@ export function Header() {
                 }
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                <Link
-                  to={item.href}
-                  className={cn(
-                    "text-sm font-medium transition-colors relative py-2 px-1",
-                    isScrolled
-                      ? "text-foreground hover:text-primary"
-                      : "text-white/90 hover:text-white"
-                  )}
-                >
-                  {item.label}
-                  <span
+                {item.href ? (
+                  <Link
+                    to={item.href}
                     className={cn(
-                      "absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
-                      isScrolled ? "bg-primary" : "bg-white"
+                      "text-sm font-medium transition-colors relative py-2 px-1",
+                      isScrolled
+                        ? "text-foreground hover:text-primary"
+                        : "text-white/90 hover:text-white"
                     )}
-                  />
-                  {item.children && (
+                  >
+                    {item.label}
+                    <span
+                      className={cn(
+                        "absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
+                        isScrolled ? "bg-primary" : "bg-white"
+                      )}
+                    />
+                    {item.children && (
+                      <ChevronDown className="w-4 h-4 inline-block ml-1" />
+                    )}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    aria-expanded={openDropdown === item.label}
+                    onClick={() =>
+                      setOpenDropdown(
+                        openDropdown === item.label ? null : item.label
+                      )
+                    }
+                    className={cn(
+                      "text-sm font-medium transition-colors relative py-2 px-1",
+                      isScrolled
+                        ? "text-foreground hover:text-primary"
+                        : "text-white/90 hover:text-white"
+                    )}
+                  >
+                    {item.label}
+                    <span
+                      className={cn(
+                        "absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
+                        isScrolled ? "bg-primary" : "bg-white"
+                      )}
+                    />
                     <ChevronDown className="w-4 h-4 inline-block ml-1" />
-                  )}
-                </Link>
+                  </button>
+                )}
 
                 {item.children && openDropdown === item.label && (
                   <div className="absolute top-full left-0 pt-4 animate-fade-in-down">
