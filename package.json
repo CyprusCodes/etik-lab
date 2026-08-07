@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "prerender:poc": "vite build && vite build --ssr src/prerender/entry-server.tsx --outDir dist-ssr && node scripts/prerender-poc.mjs",
+    "prerender:all": "vite build && vite build --ssr src/prerender/entry-server.tsx --outDir dist-ssr && node scripts/prerender-all.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"

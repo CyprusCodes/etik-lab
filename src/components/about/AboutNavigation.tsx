@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Building2, Clock, Users, Briefcase, ArrowRight } from "lucide-react";
+import { Building2, Clock, Briefcase, ArrowRight } from "lucide-react";
 
 const sections = [
   {
@@ -19,13 +19,6 @@ const sections = [
     icon: Clock,
     path: "/hakkimizda/zaman-tuneli",
     color: "bg-green-500",
-  },
-  {
-    title: "Ekibimiz",
-    description: "Uzman kadromuz ve laboratuvar bilimcilerimiz ile tanışın",
-    icon: Users,
-    path: "/hakkimizda/ekibimiz",
-    color: "bg-purple-500",
   },
   {
     title: "Kariyer",

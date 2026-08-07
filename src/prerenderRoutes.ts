@@ -1,6 +1,13 @@
 import { blogPosts } from "@/data/blogPosts";
 
-const staticPrerenderRoutes = [
+export type PublicRoute = {
+  path: string;
+  active: boolean;
+  indexing: "index" | "noindex";
+  prerender: boolean;
+};
+
+const activeStaticPaths = [
   "/",
   "/hakkimizda",
   "/hakkimizda/kurumsal",
@@ -30,7 +37,33 @@ const staticPrerenderRoutes = [
   "/test-istem-formu",
 ] as const;
 
-export const prerenderRoutes = [
-  ...staticPrerenderRoutes,
-  ...blogPosts.map(({ slug }) => `/blog/${slug}`),
+export const publicRoutes: PublicRoute[] = [
+  ...activeStaticPaths.map((path) => ({
+    path,
+    active: true,
+    indexing: "index" as const,
+    prerender: true,
+  })),
+  ...blogPosts.map(({ slug }) => ({
+    path: `/blog/${slug}`,
+    active: true,
+    indexing: "index" as const,
+    prerender: true,
+  })),
+  {
+    path: "/hakkimizda/ekibimiz",
+    active: false,
+    indexing: "index",
+    prerender: false,
+  },
+  {
+    path: "/paketler/sporcu-paketi",
+    active: false,
+    indexing: "index",
+    prerender: false,
+  },
 ];
+
+export const prerenderRoutes = publicRoutes.filter(
+  ({ active, prerender }) => active && prerender,
+);

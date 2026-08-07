@@ -12,7 +12,7 @@ const outputPath = resolve(outputDirectory, "index.html");
 const template = await readFile(templatePath, "utf8");
 const { prerenderRoutes, render } = await import(pathToFileURL(serverEntryPath).href);
 
-if (!prerenderRoutes.includes(proofRoute)) {
+if (!prerenderRoutes.some(({ path }) => path === proofRoute)) {
   throw new Error(`Proof route is not active in the prerender manifest: ${proofRoute}`);
 }
 
