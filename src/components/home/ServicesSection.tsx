@@ -37,7 +37,7 @@ const services = [
     description:
       "Koronavirus, insanlar soğuk algınlığı ve grip gibi solunum yolu hastalıklarına neden olan bir virüstür.",
     image: getImagePath("hizmetleri/coronavirus.jpg"),
-    href: "/hizmetlerimiz/saglik-kontrol-paketleri",
+    href: "/hizmetlerimiz/covid-testleri",
   },
   {
     id: 4,
