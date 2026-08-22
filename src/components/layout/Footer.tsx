@@ -16,6 +16,7 @@ const footerLinks = {
   hizmetler: [
     { label: "Ayaktan Hasta Hizmetleri", href: "/hizmetlerimiz/ayaktan-hasta" },
     { label: "Evde Kan Alma Hizmeti", href: "/hizmetlerimiz/evde-kan-alma" },
+    { label: "Çocuktan Kan Alma", href: "/hizmetlerimiz/cocuktan-kan-alma" },
     { label: "COVID Testleri", href: "/hizmetlerimiz/covid-testleri" },
     { label: "Genetik Testler", href: "/hizmetlerimiz/genetik-testler" },
     { label: "SMA Testi", href: "/hizmetlerimiz/sma-testi" },
@@ -25,6 +26,10 @@ const footerLinks = {
     { label: "Tiroid Paneli", href: "/test-panelleri/tiroid" },
     { label: "TORCH Paneli", href: "/test-panelleri/torch" },
     { label: "Kolon Kanseri Paneli", href: "/test-panelleri/kolon-kanseri" },
+    {
+      label: "Kanser Tarama Testleri",
+      href: "/test-panelleri/kanser-tarama-testleri",
+    },
     { label: "Anemi Paneli", href: "/test-panelleri/anemi" },
     { label: "Çölyak Paneli", href: "/test-panelleri/colyak" },
     { label: "Diyabet Paneli", href: "/test-panelleri/diyabet" },

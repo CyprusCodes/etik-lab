@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Clock,
   CheckCircle,
+  Baby,
 } from "lucide-react";
 import { getImagePath } from "@/utils/assets";
 import { SEO } from "@/components/SEO";
@@ -37,6 +38,16 @@ const services = [
   },
   {
     id: 3,
+    icon: Baby,
+    title: "Çocuktan Kan Alma",
+    description:
+      "Çocuklarda güvenli, özenli ve deneyimli kan alma hizmeti.",
+    image: getImagePath("hizmetleri/cocuktan-kan-alma-gecici.jpg"),
+    href: "/hizmetlerimiz/cocuktan-kan-alma",
+    features: ["Deneyimli Personel", "Çocuklara Uygun", "Ebeveyn Odaklı"],
+  },
+  {
+    id: 4,
     icon: Activity,
     title: "Koronavirus Hakkında",
     description:
@@ -46,7 +57,7 @@ const services = [
     features: ["PCR Testi", "Antikor Testi", "Hızlı Sonuç"],
   },
   {
-    id: 4,
+    id: 5,
     icon: Dna,
     title: "Hamilelik Öncesi & Sonrası Genetik Testler",
     description:
@@ -56,7 +67,7 @@ const services = [
     features: ["Kapsamlı Tarama", "Uzman Analiz", "Güvenilir Sonuç"],
   },
   {
-    id: 5,
+    id: 6,
     icon: Activity,
     title: "SMA Testi",
     description:
@@ -66,7 +77,7 @@ const services = [
     features: ["Erken Tanı", "Genetik Danışmanlık", "Aile Taraması"],
   },
   {
-    id: 6,
+    id: 7,
     icon: Shield,
     title: "Kurumsal Hizmetler",
     description:

@@ -25,6 +25,10 @@ const navigationItems = [
         href: "/hizmetlerimiz/ayaktan-hasta",
       },
       { label: "Evden Kan Alma", href: "/hizmetlerimiz/evde-kan-alma" },
+      {
+        label: "Çocuktan Kan Alma",
+        href: "/hizmetlerimiz/cocuktan-kan-alma",
+      },
       { label: "Genetik Testler", href: "/hizmetlerimiz/genetik-testler" },
       { label: "SMA Testi", href: "/hizmetlerimiz/sma-testi" },
       { label: "COVID Testleri", href: "/hizmetlerimiz/covid-testleri" },
@@ -49,6 +53,10 @@ const navigationItems = [
       {
         label: "Kardiyovasküler Panel",
         href: "/test-panelleri/kardiyovaskuler",
+      },
+      {
+        label: "Kanser Tarama Testleri",
+        href: "/test-panelleri/kanser-tarama-testleri",
       },
     ],
   },

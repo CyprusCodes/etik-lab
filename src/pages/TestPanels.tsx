@@ -77,6 +77,23 @@ const panels = [
   image: "/panell/kardiyovaskulerpanel.webp",
   tests: ["Apo A", "Apo B", "Troponin I", "Troponin T" , "Lp(a)", "Homosistein", "hs-CRP", "CK-MB","BNP"],
 },
+  {
+    title: "Kanser Tarama Testleri",
+    description:
+      "Tümör belirteçleri ile kanser riskinin değerlendirilmesine yardımcı laboratuvar testleri.",
+    href: "/test-panelleri/kanser-tarama-testleri",
+    image: getImagePath("panels/kanser-tarama-testleri.webp"),
+    tests: [
+      "AFP",
+      "CEA",
+      "CA 15-3",
+      "CA 125",
+      "CA 19-9",
+      "CA 72-4",
+      "Total PSA",
+      "Free PSA",
+    ],
+  },
 ];
 
 export default function TestPanels() {

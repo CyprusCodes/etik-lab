@@ -10,6 +10,7 @@ import {
   FileText,
   Download,
   ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
@@ -18,6 +19,18 @@ import { Helmet } from "react-helmet-async";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 const SITE_URL = "https://etiklab.net";
+
+const bottomAlignedHeroSlugs = new Set([
+  "d-vitamini-testi",
+  "kalprotektin-testi",
+  "kan-tahlili",
+]);
+
+const customHeroObjectPositions: Record<string, string> = {
+  "bagirsak-hastaliklari": "object-[center_60%]",
+  "sperm-testi": "object-[center_60%]",
+  "topuk-testi": "object-[center_45%]",
+};
 
 const turkishMonths: Record<string, string> = {
   Ocak: "01",
@@ -60,6 +73,12 @@ function toAbsolutePublicUrl(url: string) {
 }
 
 const blogSeoTitles: Record<string, string> = {
+  "d-vitamini-testi": "D Vitamini Testi",
+  "kan-tahlili": "Kan Tahlili | Kan Testleri Hakkında Bilgi",
+  "bagirsak-hastaliklari": "Bağırsak Hastalıkları ve Bağırsak Sağlığı",
+  "sperm-testi": "Sperm Testi (Spermiogram)",
+  "kalprotektin-testi": "Kalprotektin Testi | Fekal Kalprotektin",
+  "topuk-testi": "Topuk Testi | Yenidoğan Tarama Testi",
   "sibo-testi": "SIBO Testi",
   "gastropanel-testi": "Gastropanel Testi",
   "ure-nefes-testi": "H. pylori C-13 Üre Nefes Testi",
@@ -74,6 +93,15 @@ const blogSeoTitles: Record<string, string> = {
   "beta-hcg": "Beta HCG",
   "tiroid-hastaliklari": "Tiroid Hastalıkları",
   hpv: "HPV",
+};
+
+const blogSeoDescriptions: Record<string, string> = {
+  "topuk-testi":
+    "Topuk Testi (Yenidoğan Tarama Testi), bebeğin topuğundan alınan birkaç damla kanla belirli hastalıkların erken dönemde taranmasına yardımcı olur.",
+  "sperm-testi":
+    "Sperm Testi (Spermiogram), semen örneği üzerinden sperm sayısı, hareketliliği ve morfolojisinin değerlendirilmesine yardımcı olur.",
+  "kan-tahlili":
+    "Kan Tahlili; genel sağlık durumunun değerlendirilmesi, hastalıkların araştırılması ve takip süreçlerinin desteklenmesinde kullanılan laboratuvar incelemelerini kapsar.",
 };
 
 const blogCtaMessages: Record<string, string> = {
@@ -172,7 +200,7 @@ export default function BlogPost() {
     <Layout>
       <SEO
         title={blogSeoTitles[post.slug] ?? post.title}
-        description={post.excerpt}
+        description={blogSeoDescriptions[post.slug] ?? post.excerpt}
         path={`/blog/${post.slug}`}
         ogType="article"
         image={post.image}
@@ -191,6 +219,7 @@ export default function BlogPost() {
       </Helmet>
       <PageHeader
         title={post.title}
+        description={post.subtitle}
         breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: post.title }]}
       />
 
@@ -214,7 +243,12 @@ export default function BlogPost() {
             <img
               src={post.image}
               alt={post.title}
-              className="w-full h-[410px] md:h-[510px] object-cover object-top"
+              className={`w-full h-[410px] md:h-[510px] object-cover ${
+                customHeroObjectPositions[post.slug] ??
+                (bottomAlignedHeroSlugs.has(post.slug)
+                  ? "object-bottom"
+                  : "object-top")
+              }`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white">
@@ -492,6 +526,55 @@ className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue
               </section>
             ))}
           </div>
+          {post.faqs && (
+            <section className="mt-10 rounded-3xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
+              <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6">
+                Sık Sorulan Sorular
+              </h2>
+              <div className="space-y-4">
+                {post.faqs.map((faq) => (
+                  <div
+                    key={faq.question}
+                    className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-teal-50/50 p-5"
+                  >
+                    <h3 className="text-lg font-bold text-foreground">
+                      {faq.question}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-gray-700">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+          {post.relatedPosts && (
+            <section className="mt-10">
+              <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6">
+                İlgili Laboratuvar Testleri
+              </h2>
+              <div className="grid md:grid-cols-3 gap-5">
+                {post.relatedPosts.map((relatedPost) => (
+                  <Link
+                    key={relatedPost.href}
+                    to={relatedPost.href}
+                    className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+                  >
+                    <h3 className="text-lg font-bold text-foreground transition-colors group-hover:text-primary">
+                      {relatedPost.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700">
+                      {relatedPost.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-800">
+                      Detaylı Bilgi
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 {post.document && (
   <div className="mt-10 rounded-2xl border border-teal-100 bg-white shadow-sm p-5">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
