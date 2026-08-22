@@ -19,6 +19,7 @@ export type BlogSection = {
 export type BlogPostItem = {
   slug: string;
   title: string;
+  subtitle?: string;
   excerpt: string;
   image: string;
   date: string;
@@ -26,6 +27,15 @@ export type BlogPostItem = {
   category: string;
   lead: string;
   sections: BlogSection[];
+  relatedPosts?: {
+    title: string;
+    description: string;
+    href: string;
+  }[];
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
   document?: {
     title: string;
     file: string;
@@ -34,6 +44,313 @@ export type BlogPostItem = {
 };
 
 export const blogPosts: BlogPostItem[] = [
+
+  {
+    slug: "kan-tahlili",
+    title: "Kan Tahlili",
+    excerpt:
+      "Kan tahlili, genel sağlık durumunun değerlendirilmesi, çeşitli hastalıkların araştırılması ve takip süreçlerinin desteklenmesi amacıyla yapılan laboratuvar incelemelerinin genel adıdır.",
+    image: "/blog/kan.webp",
+    date: "21 Ağustos 2026",
+    author: "Etiklab",
+    category: "Genel Sağlık",
+    lead:
+      "Kan tahlili, kişinin genel sağlık durumunun değerlendirilmesi, çeşitli hastalıkların araştırılması ve doktor tarafından gerekli görülen durumlarda takip süreçlerinin desteklenmesi amacıyla yapılan laboratuvar incelemelerinin genel adıdır.",
+    sections: [
+      {
+        heading: "Kan tahlili hakkında",
+        body:
+          "Kan örneği üzerinden hemogram, biyokimya, hormon, vitamin-mineral, enfeksiyon, alerji ve çeşitli özel testler gerçekleştirilebilir. Yapılacak testler kişinin şikâyetleri, sağlık geçmişi ve doktorun değerlendirmesine göre belirlenir.\n\nKan tahlili sonuçları tek başına değerlendirilmemeli; sonuçlar laboratuvarın referans aralıkları ve kişinin klinik durumu ile birlikte doktor tarafından yorumlanmalıdır.",
+      },
+      {
+        heading: "Hangi kan tahlilleri yapılabilir?",
+        bullets: [
+          "Hemogram / Tam Kan Sayımı",
+          "Biyokimya Testleri",
+          "Hormon Testleri",
+          "Vitamin ve Mineral Testleri",
+          "Alerji Testleri",
+          "Enfeksiyon Testleri",
+          "Tümör Belirteçleri",
+          "Check-up Testleri",
+          "Diğer özel laboratuvar testleri",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Kan tahlili nedir?",
+        answer:
+          "Kan örneği üzerinden çeşitli sağlık göstergelerinin laboratuvar ortamında değerlendirilmesidir.",
+      },
+      {
+        question: "Kan tahlili için aç olmak gerekir mi?",
+        answer:
+          "Her kan testi açlık gerektirmez. Yapılacak testlere göre hazırlık koşulları değişebilir.",
+      },
+      {
+        question: "Kan tahlili sonuçları ne zaman çıkar?",
+        answer:
+          "Testin türüne ve laboratuvarın çalışma sürecine göre değişiklik gösterir.",
+      },
+      {
+        question: "Kan tahlili hangi hastalıkları gösterir?",
+        answer:
+          "Kan testleri birçok sağlık durumunun değerlendirilmesine yardımcı olabilir ancak tek başına kesin tanı koydurmaz.",
+      },
+      {
+        question: "Kan tahlili yaptırmadan önce ne yapılmalı?",
+        answer:
+          "İstenen testlere göre açlık veya başka hazırlık koşulları gerekebilir. Test öncesinde laboratuvarın verdiği bilgilere uyulmalıdır.",
+      },
+    ],
+  },
+
+  {
+    slug: "bagirsak-hastaliklari",
+    title: "Bağırsak Hastalıkları",
+    excerpt:
+      "Bağırsak hastalıkları, karın ağrısı, şişkinlik, ishal, kabızlık ve dışkılama alışkanlıklarındaki değişikliklerle görülebilen sağlık sorunlarını kapsar.",
+    image: "/blog/bagirsaksagligi.webp",
+    date: "21 Ağustos 2026",
+    author: "Etiklab",
+    category: "Sindirim Sistemi",
+    lead:
+      "Bağırsak hastalıkları; sindirim sisteminin farklı bölümlerini etkileyebilen, çeşitli nedenlere bağlı olarak ortaya çıkabilen sağlık sorunlarını kapsar.",
+    sections: [
+      {
+        heading: "Görülebilen belirtiler",
+        body:
+          "Karın ağrısı, şişkinlik, ishal, kabızlık ve dışkılama alışkanlıklarında değişiklik gibi belirtiler görülebilir.",
+        bullets: [
+          "Karın ağrısı",
+          "Şişkinlik",
+          "İshal",
+          "Kabızlık",
+          "Dışkılama alışkanlıklarında değişiklik",
+        ],
+      },
+      {
+        heading: "Bağırsak sağlığının değerlendirilmesi",
+        body:
+          "Bağırsak sağlığının değerlendirilmesinde hastanın şikâyetlerine göre farklı laboratuvar testlerinden yararlanılabilir.\n\nKalprotektin, Üre Nefes Testi ve SIBO testi gibi incelemeler, doktorun değerlendirmesine yardımcı olabilir.",
+      },
+      {
+        heading: "Ne zaman değerlendirme yapılmalı?",
+        body:
+          "Belirtilerin uzun sürmesi veya tekrarlaması durumunda uygun testlerin belirlenmesi için doktor değerlendirmesi önerilir.",
+      },
+    ],
+    relatedPosts: [
+      {
+        title: "SIBO Testi",
+        description:
+          "SIBO testi, ince bağırsakta aşırı bakteri üremesinin değerlendirilmesine yardımcı olan nefes testidir.",
+        href: "/blog/sibo-testi",
+      },
+      {
+        title: "Üre Nefes Testi",
+        description:
+          "H. pylori değerlendirmesinde kullanılan C-13 üre nefes testinin ne olduğu, nasıl uygulandığı ve test süreci hakkında bilgi alın.",
+        href: "/blog/ure-nefes-testi",
+      },
+      {
+        title: "Kalprotektin Testi",
+        description:
+          "Kalprotektin testi, bağırsaklarda inflamasyonun değerlendirilmesine yardımcı olan bir dışkı testidir.",
+        href: "/blog/kalprotektin-testi",
+      },
+    ],
+  },
+
+  {
+    slug: "sperm-testi",
+    title: "Sperm Testi (Spermiogram)",
+    subtitle:
+      "Sperm sayısı, hareketliliği ve yapısal özelliklerinin değerlendirilmesi",
+    excerpt:
+      "Sperm sayısı, hareketliliği ve yapısal özelliklerinin değerlendirilmesi",
+    image: "/blog/spermtesti.webp",
+    date: "21 Ağustos 2026",
+    author: "Etiklab",
+    category: "Genel Sağlık",
+    lead:
+      "Sperm sayısı, hareketliliği ve yapısal özelliklerinin değerlendirilmesi",
+    sections: [
+      {
+        heading: "Sperm testi nedir?",
+        body:
+          "Sperm testi veya spermiogram, erkek üreme sağlığının değerlendirilmesine yardımcı olan temel laboratuvar testlerinden biridir.\n\nSemen örneği üzerinden sperm yoğunluğu, hareketliliği ve morfolojisi gibi çeşitli parametreler değerlendirilir.",
+      },
+      {
+        heading: "Sperm testi neden yapılır?",
+        body:
+          "Spermiogram, erkeklerde üreme kapasitesinin değerlendirilmesi, gebelik oluşmaması durumunda araştırma yapılması veya uygulanan tedavilerin takibi amacıyla doktor tarafından istenebilir.",
+        bullets: [
+          "Gebelik oluşmamasının nedenlerinin araştırılması",
+          "Sperm sayısı ve hareketliliğinin değerlendirilmesi",
+          "Erkek üreme sağlığının değerlendirilmesi",
+          "Varikosel gibi bazı durumların değerlendirilmesinde destekleyici inceleme",
+          "Üreme tedavileri öncesinde değerlendirme",
+          "Tedavi sonrası takip",
+        ],
+      },
+      {
+        heading: "Sperm testi nasıl yapılır?",
+        body:
+          "Spermiogram için semen örneği, laboratuvar tarafından belirtilen koşullara uygun şekilde alınır.\n\nNumune, analiz için laboratuvarda değerlendirilir ve sperm hücrelerinin sayı, hareketlilik ve morfoloji gibi özellikleri incelenir.",
+      },
+      {
+        heading: "Sperm testi öncesinde nelere dikkat edilmeli?",
+        body:
+          "Sperm testi öncesinde 3 gün cinsel perhiz uygulanması gerekir.\n\nTest öncesinde laboratuvarımızın belirttiği hazırlık koşullarına uyulması önemlidir.",
+        bullets: [
+          "Numunenin tamamının kaba alınması",
+          "Numunenin dış etkenlerle temas etmemesi",
+          "Örnek kabının uygun olması",
+          "Örneğin belirtilen sürede laboratuvara ulaştırılması",
+        ],
+      },
+      {
+        heading: "Sperm testi aç karnına mı yapılır?",
+        body:
+          "Hayır.\n\nSpermiogram için açlık gerekmez.",
+        note:
+          "Test öncesinde esas olarak laboratuvarın belirttiği cinsel perhiz ve numune verme koşullarına uyulması önemlidir.",
+      },
+    ],
+  },
+
+  {
+    slug: "kalprotektin-testi",
+    title: "Kalprotektin Testi",
+    subtitle:
+      "Bağırsaklarda inflamasyonun değerlendirilmesine yardımcı olan dışkı testi",
+    excerpt:
+      "Kalprotektin testi, bağırsaklarda inflamasyonun değerlendirilmesine yardımcı olan bir dışkı testidir.",
+    image: "/blog/kalprotektin.webp",
+    date: "21 Ağustos 2026",
+    author: "Etiklab",
+    category: "Sindirim Sistemi",
+    lead:
+      "Bağırsaklarda inflamasyonun değerlendirilmesine yardımcı olan dışkı testi",
+    sections: [
+      {
+        heading: "Kalprotektin testi nedir?",
+        body:
+          "Kalprotektin testi, dışkı örneğinde kalprotektin düzeyinin ölçülmesi amacıyla yapılan bir laboratuvar testidir.\n\nKalprotektin, bağırsaklarda meydana gelen inflamasyon hakkında bilgi sağlayabilen bir belirteçtir.\n\nTest, özellikle bağırsaklarda inflamasyonun değerlendirilmesine ve doktorun gerekli gördüğü durumlarda ileri incelemelerin planlanmasına yardımcı olabilir.",
+      },
+      {
+        heading: "Kalprotektin testi neden yapılır?",
+        body:
+          "Fekal kalprotektin testi, bağırsaklarda inflamasyon bulunup bulunmadığının değerlendirilmesine yardımcı olmak amacıyla istenebilir.",
+        bullets: [
+          "Süregelen veya tekrarlayan ishal",
+          "Karın ağrısı",
+          "Dışkılama alışkanlıklarında değişiklik",
+          "Dışkıda kan veya mukus gibi şikâyetlerin değerlendirilmesi",
+          "İnflamatuvar bağırsak hastalıklarının değerlendirilmesine yardımcı olmak",
+          "Tanı konmuş inflamatuvar bağırsak hastalıklarında takip",
+        ],
+      },
+      {
+        heading: "Kalprotektin testi nasıl yapılır?",
+        body:
+          "Kalprotektin testi için dışkı örneği alınır.\n\nNumunenin uygun bir örnek kabına alınması ve laboratuvar tarafından belirtilen koşullarda teslim edilmesi gerekir.\n\nTestin doğru şekilde gerçekleştirilebilmesi için numune toplama ve saklama konusunda laboratuvarın verdiği talimatlara uyulmalıdır.",
+      },
+      {
+        heading: "Kalprotektin testi aç karnına mı yapılır?",
+        body:
+          "Hayır.\n\nKalprotektin testi dışkı örneği üzerinden gerçekleştirildiği için klasik anlamda açlık gerektiren bir kan testi değildir.\n\nAncak bazı ilaçların veya diğer faktörlerin test sonucunu etkileyebilmesi mümkün olduğundan, test öncesinde laboratuvarınızın ve doktorunuzun önerilerine uyulmalıdır.",
+      },
+      {
+        heading: "Kalprotektin yüksekliği ne anlama gelir?",
+        body:
+          "Kalprotektin düzeyinin yüksek bulunması, bağırsaklarda inflamasyon olabileceğini düşündürebilir.\n\nAncak tek başına kesin bir hastalık tanısı anlamına gelmez.",
+        note:
+          "Sonuç; kişinin şikâyetleri, diğer laboratuvar bulguları ve gerektiğinde görüntüleme veya endoskopik incelemeler ile birlikte doktor tarafından değerlendirilmelidir.",
+      },
+    ],
+  },
+
+  {
+    slug: "d-vitamini-testi",
+    title: "D Vitamini Testi",
+    excerpt:
+      "D vitamini testi, kandaki D vitamini düzeyinin değerlendirilmesi amacıyla yapılan bir laboratuvar testidir.",
+    image: "/blog/dvitamini.webp",
+    date: "21 Ağustos 2026",
+    author: "Etiklab",
+    category: "Genel Sağlık",
+    lead:
+      "D vitamini testi, kandaki D vitamini düzeyinin değerlendirilmesi amacıyla yapılan bir laboratuvar testidir.",
+    sections: [
+      {
+        heading: "D vitamini testi nedir?",
+        body:
+          "D vitamini testi, kandaki D vitamini düzeyinin değerlendirilmesi amacıyla yapılan bir laboratuvar testidir. D vitamini, kemik ve kas sağlığı başta olmak üzere vücudun birçok önemli işlevinde rol oynayan bir vitamindir. D vitamini düzeyinin değerlendirilmesi, doktorunuzun gerekli gördüğü durumlarda kan testi ile yapılabilir.",
+      },
+      {
+        heading: "D vitamini testi neden yapılır?",
+        body:
+          "D vitamini düzeyinin değerlendirilmesi; kişinin klinik durumu, beslenme alışkanlıkları, güneş maruziyeti ve doktorun değerlendirmesine göre gerekli görülebilir.",
+        bullets: [
+          "D vitamini eksikliğinden şüphelenilmesi",
+          "Kemik sağlığının değerlendirilmesi",
+          "Kas ve kemik şikâyetlerinin araştırılması",
+          "D vitamini tedavisinin takibi",
+          "Risk faktörlerinin bulunması",
+        ],
+      },
+      {
+        heading: "D vitamini testi nasıl yapılır?",
+        body:
+          "D vitamini testi, alınan kan örneği üzerinden gerçekleştirilir. Alınan kan örneği laboratuvarda analiz edilerek kandaki 25(OH)D düzeyi belirlenir.",
+      },
+      {
+        heading: "D vitamini testi aç karnına mı yapılır?",
+        body:
+          "D vitamini testi tek başına yapılacaksa genellikle açlık gerektirmez. Ancak aynı anda farklı kan testleri yapılacaksa, diğer testlerin gerektirdiği hazırlık koşulları dikkate alınmalıdır. Test öncesinde laboratuvarınızdan bilgi almanız önerilir.",
+      },
+      {
+        heading: "D vitamini eksikliği ne anlama gelir?",
+        body:
+          "D vitamini düzeyinin düşük bulunması, kişinin klinik durumu ve diğer laboratuvar bulguları ile birlikte değerlendirilmelidir. Düşük bir sonuç elde edilmesi durumunda D vitamini desteği veya tedavisi gerekip gerekmediğine doktor karar vermelidir.",
+      },
+    ],
+  },
+
+  {
+    slug: "topuk-testi",
+    title: "Topuk Testi (Yenidoğan Tarama Testi)",
+    subtitle:
+      "Yenidoğanlarda bazı önemli hastalıkların erken dönemde taranmasına yardımcı olan test",
+    excerpt:
+      "Yenidoğanlarda bazı önemli hastalıkların erken dönemde taranmasına yardımcı olan test",
+    image: "/blog/topuktesti.webp",
+    date: "21 Ağustos 2026",
+    author: "Etiklab",
+    category: "Genel Sağlık",
+    lead:
+      "Topuk testi, yenidoğan döneminde uygulanan önemli tarama testlerinden biridir. Bebeğin topuğundan alınan birkaç damla kan örneği ile belirli hastalıklar açısından tarama yapılmasına yardımcı olur. Erken dönemde gerçekleştirilen bu taramalar, bazı hastalıkların henüz belirti ortaya çıkmadan fark edilmesine ve gerekli durumlarda ileri değerlendirme yapılmasına olanak sağlayabilir.",
+    sections: [
+      {
+        heading: "Topuk testi neden yapılır?",
+        body:
+          "Yenidoğan dönemindeki bazı kalıtsal, metabolik veya diğer sağlık sorunları başlangıçta herhangi bir belirti göstermeyebilir. Topuk testi, bu hastalıkların erken dönemde taranmasına yardımcı olarak gerekli durumlarda ileri tetkik ve değerlendirme yapılmasını sağlayabilir.",
+      },
+      {
+        heading: "Topuk testi ne zaman yapılır?",
+        body:
+          "Yenidoğan tarama programlarında testin uygun zamanda yapılması önemlidir.",
+      },
+      {
+        heading: "Topuk testi aç karnına mı yapılır?",
+        body:
+          "Hayır, klasik anlamda açlık gerektiren bir kan testi değildir.",
+      },
+    ],
+  },
 
   {
   slug: "sibo-testi",

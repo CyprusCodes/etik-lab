@@ -13,6 +13,7 @@
   <url><loc>https://etiklab.net/hizmetlerimiz</loc></url>
   <url><loc>https://etiklab.net/hizmetlerimiz/ayaktan-hasta</loc></url>
   <url><loc>https://etiklab.net/hizmetlerimiz/evde-kan-alma</loc></url>
+  <url><loc>https://etiklab.net/hizmetlerimiz/cocuktan-kan-alma</loc></url>
   <url><loc>https://etiklab.net/hizmetlerimiz/genetik-testler</loc></url>
   <url><loc>https://etiklab.net/hizmetlerimiz/sma-testi</loc></url>
   <url><loc>https://etiklab.net/hizmetlerimiz/kurumsal</loc></url>
@@ -29,12 +30,19 @@
   <url><loc>https://etiklab.net/test-panelleri/romatoloji</loc></url>
   <url><loc>https://etiklab.net/test-panelleri/cinsel-hastaliklar</loc></url>
   <url><loc>https://etiklab.net/test-panelleri/kardiyovaskuler</loc></url>
+  <url><loc>https://etiklab.net/test-panelleri/kanser-tarama-testleri</loc></url>
 
   <!-- Check-up -->
   <url><loc>https://etiklab.net/paketler</loc></url>
 
   <!-- Blog -->
   <url><loc>https://etiklab.net/blog</loc></url>
+  <url><loc>https://etiklab.net/blog/d-vitamini-testi</loc></url>
+  <url><loc>https://etiklab.net/blog/kan-tahlili</loc></url>
+  <url><loc>https://etiklab.net/blog/bagirsak-hastaliklari</loc></url>
+  <url><loc>https://etiklab.net/blog/sperm-testi</loc></url>
+  <url><loc>https://etiklab.net/blog/kalprotektin-testi</loc></url>
+  <url><loc>https://etiklab.net/blog/topuk-testi</loc></url>
   <url><loc>https://etiklab.net/blog/sibo-testi</loc></url>
   <url><loc>https://etiklab.net/blog/gastropanel-testi</loc></url>
   <url><loc>https://etiklab.net/blog/ure-nefes-testi</loc></url>

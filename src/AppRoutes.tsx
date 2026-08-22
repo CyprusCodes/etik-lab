@@ -13,6 +13,7 @@ import GenetikTestleri from "./pages/services/GenetikTestleri";
 import SmaTesti from "./pages/services/SmaTesti";
 import AyaktanHasta from "./pages/services/AyaktanHasta";
 import EvdeKanAlma from "./pages/services/EvdeKanAlma";
+import CocuktanKanAlma from "./pages/services/CocuktanKanAlma";
 import KurumsalHizmetler from "./pages/services/KurumsalHizmetler";
 import TestPanels from "./pages/TestPanels";
 import TiroidPaneli from "./pages/panels/TiroidPaneli";
@@ -24,6 +25,7 @@ import DiyabetPaneli from "./pages/panels/DiyabetPaneli";
 import RomatolojiPaneli from "./pages/panels/RomatolojiPaneli";
 import CinselHastaliklarPaneli from "./pages/panels/CinselHastaliklarPaneli";
 import KardiyovaskulerPaneli from "./pages/panels/KardiyovaskulerPaneli";
+import KanserTaramaTestleri from "./pages/panels/KanserTaramaTestleri";
 import CheckUp from "./pages/CheckUp";
 import SportsCheckUp from "./pages/SportsCheckUp";
 import Blog from "./pages/Blog";
@@ -48,6 +50,7 @@ export function AppRoutes() {
       <Route path="/hizmetlerimiz" element={<Services />} />
       <Route path="/hizmetlerimiz/ayaktan-hasta" element={<AyaktanHasta />} />
       <Route path="/hizmetlerimiz/evde-kan-alma" element={<EvdeKanAlma />} />
+      <Route path="/hizmetlerimiz/cocuktan-kan-alma" element={<CocuktanKanAlma />} />
       <Route path="/hizmetlerimiz/genetik-testler" element={<GenetikTestleri />} />
       <Route path="/hizmetlerimiz/sma-testi" element={<SmaTesti />} />
       <Route path="/hizmetlerimiz/kurumsal" element={<KurumsalHizmetler />} />
@@ -64,6 +67,7 @@ export function AppRoutes() {
       <Route path="/test-panelleri/romatoloji" element={<RomatolojiPaneli />} />
       <Route path="/test-panelleri/cinsel-hastaliklar" element={<CinselHastaliklarPaneli />} />
       <Route path="/test-panelleri/kardiyovaskuler" element={<KardiyovaskulerPaneli />} />
+      <Route path="/test-panelleri/kanser-tarama-testleri" element={<KanserTaramaTestleri />} />
 
       {/* Check-Up */}
       <Route path="/paketler" element={<CheckUp />} />
