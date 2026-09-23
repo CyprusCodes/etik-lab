@@ -262,7 +262,7 @@ export default function BlogPost() {
           </div>
 
           <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8 mb-10">
-            <p className="text-xl text-gray-700 leading-relaxed">{post.lead}</p>
+            <p className="text-xl text-gray-700 leading-relaxed whitespace-pre-line">{post.lead}</p>
             {post.slug === "gastropanel-testi" && (
               <p className="mt-3 text-sm text-gray-600">
                 İlgili içerik:{" "}
@@ -387,6 +387,55 @@ export default function BlogPost() {
                     {section.body}
                   </p>
                 )}
+
+                {section.blocks?.map((block, blockIndex) => {
+                  if (block.type === "paragraph") {
+                    return (
+                      <p key={blockIndex} className="mb-5 whitespace-pre-line text-lg leading-relaxed text-gray-700">
+                        {block.text}
+                      </p>
+                    );
+                  }
+
+                  if (block.type === "subheading") {
+                    return (
+                      <h3 key={blockIndex} className="mb-4 mt-7 text-xl font-bold text-foreground md:text-2xl">
+                        {block.text}
+                      </h3>
+                    );
+                  }
+
+                  if (block.type === "bullets") {
+                    return (
+                      <div key={blockIndex} className="mb-6 grid gap-3 md:grid-cols-2">
+                        {block.items.map((item, itemIndex) => (
+                          <div key={itemIndex} className="flex items-start gap-3 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-teal-50/60 p-4">
+                            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-teal-700" />
+                            <span className="leading-relaxed text-gray-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div key={blockIndex} className="my-6 overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+                      <table className="w-full min-w-[640px] border-collapse text-left">
+                        <thead className="bg-teal-800 text-white">
+                          <tr>{block.headers.map((header, headerIndex) => <th key={headerIndex} className="p-4 font-bold">{header}</th>)}</tr>
+                        </thead>
+                        <tbody>
+                          {block.rows.map((row, rowIndex) => (
+                            <tr key={rowIndex} className={rowIndex % 2 === 0 ? "bg-blue-50/50" : "bg-white"}>
+                              {row.map((cell, cellIndex) => <td key={cellIndex} className="border-t border-gray-200 p-4 text-gray-700">{cell}</td>)}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                      {block.caption && <p className="border-t border-gray-200 bg-gray-50 p-4 text-sm text-gray-700">{block.caption}</p>}
+                    </div>
+                  );
+                })}
 
                {section.image && section.bullets ? (
 
@@ -529,7 +578,7 @@ className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue
           {post.faqs && (
             <section className="mt-10 rounded-3xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
               <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6">
-                Sık Sorulan Sorular
+                {post.faqTitle ?? "Sık Sorulan Sorular"}
               </h2>
               <div className="space-y-4">
                 {post.faqs.map((faq) => (
@@ -540,7 +589,7 @@ className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue
                     <h3 className="text-lg font-bold text-foreground">
                       {faq.question}
                     </h3>
-                    <p className="mt-2 leading-relaxed text-gray-700">
+                    <p className="mt-2 whitespace-pre-line leading-relaxed text-gray-700">
                       {faq.answer}
                     </p>
                   </div>
