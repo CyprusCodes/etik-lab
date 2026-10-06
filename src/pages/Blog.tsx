@@ -80,12 +80,12 @@ export default function Blog() {
                 to={`/blog/${post.slug}`}
                 className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 card-hover"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
+                <div className="relative h-48 overflow-hidden bg-teal-800">
+                  {post.image && <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  />}
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
                       {post.category}

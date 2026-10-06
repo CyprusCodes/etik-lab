@@ -53,11 +53,11 @@ export function BlogSection() {
                 }}
               >
                 <div className="relative h-56 overflow-hidden bg-gray-100">
-                  <img
+                  {post.image && <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover image-3d group-hover:scale-110"
-                  />
+                  />}
 
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 group-hover:to-black/40 transition-all duration-500" />
 

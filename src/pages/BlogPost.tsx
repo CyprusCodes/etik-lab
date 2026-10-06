@@ -177,7 +177,7 @@ export default function BlogPost() {
 
   const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
   const datePublished = toIsoDate(post.date);
-  const imageUrl = toAbsolutePublicUrl(post.image);
+  const imageUrl = post.image ? toAbsolutePublicUrl(post.image) : undefined;
   const blogPosting = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -239,8 +239,8 @@ export default function BlogPost() {
             </span>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl mb-10 shadow-xl border border-gray-100">
-            <img
+          <div className="relative overflow-hidden rounded-3xl mb-10 shadow-xl border border-gray-100 bg-teal-800">
+            {post.image ? <img
               src={post.image}
               alt={post.title}
               className={`w-full h-[410px] md:h-[510px] object-cover ${
@@ -249,7 +249,7 @@ export default function BlogPost() {
                   ? "object-bottom"
                   : "object-top")
               }`}
-            />
+            /> : <div className="h-[410px] md:h-[510px]" aria-hidden="true" />}
             <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white">
               <p className="text-sm font-semibold uppercase tracking-wider mb-2 opacity-90">
@@ -261,7 +261,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8 mb-10">
+          {post.lead && <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8 mb-10">
             <p className="text-xl text-gray-700 leading-relaxed whitespace-pre-line">{post.lead}</p>
             {post.slug === "gastropanel-testi" && (
               <p className="mt-3 text-sm text-gray-600">
@@ -362,23 +362,28 @@ export default function BlogPost() {
                 </Link>
               </p>
             )}
-          </div>
+          </div>}
 
-          <div className="space-y-10">
-            {post.sections.map((section, index) => (
+          <div className={post.layout === "editorial" ? "space-y-10 md:space-y-12" : "space-y-10"}>
+            {post.sections.map((section, index) => {
+              const Heading = section.headingLevel === 3 ? "h3" : "h2";
+              const FaqHeading = section.headingLevel === 3 ? "h4" : "h3";
+              return (
               <section
-                key={section.heading}
-                className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8"
+                key={`${index}-${section.heading}`}
+                className={post.layout === "editorial"
+                  ? `bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8 ${section.headingLevel === 2 && index > 0 ? "border-t-teal-200" : ""}`
+                  : "bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8"}
               >
                 <div className="flex items-start gap-4 mb-5">
-                  <div className="shrink-0 w-10 h-10 rounded-2xl bg-primary/10 text-teal-800 flex items-center justify-center font-black">
+                  {post.layout !== "editorial" && <div className="shrink-0 w-10 h-10 rounded-2xl bg-primary/10 text-teal-800 flex items-center justify-center font-black">
                     {index + 1}
-                  </div>
+                  </div>}
 
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-black text-foreground">
+                    <Heading className={section.headingLevel === 3 ? "text-xl md:text-2xl font-bold text-foreground" : "text-2xl md:text-3xl font-black text-foreground"}>
                       {section.heading}
-                    </h2>
+                    </Heading>
                   </div>
                 </div>
 
@@ -406,12 +411,38 @@ export default function BlogPost() {
                   }
 
                   if (block.type === "bullets") {
+                    if (post.layout === "editorial") {
+                      return (
+                        <ul key={blockIndex} className="mb-6 grid list-disc gap-x-10 gap-y-2 pl-5 text-gray-700 leading-relaxed marker:text-teal-700 sm:grid-cols-2">
+                          {block.items.map((item, itemIndex) => <li key={itemIndex} className="pl-1">{item}</li>)}
+                        </ul>
+                      );
+                    }
                     return (
                       <div key={blockIndex} className="mb-6 grid gap-3 md:grid-cols-2">
                         {block.items.map((item, itemIndex) => (
                           <div key={itemIndex} className="flex items-start gap-3 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-teal-50/60 p-4">
                             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-teal-700" />
                             <span className="leading-relaxed text-gray-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  }
+
+                  if (block.type === "groups") {
+                    return (
+                      <div key={blockIndex} className="my-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                        {block.items.map((group) => (
+                          <div key={group.heading} className="min-w-0 rounded-2xl bg-blue-50/50 p-5">
+                            <h4 className="mb-3 text-lg font-bold text-teal-800">{group.heading}</h4>
+                            {group.blocks.map((content, contentIndex) => content.type === "paragraph" ? (
+                              <p key={contentIndex} className="mb-3 leading-relaxed text-gray-700">{content.text}</p>
+                            ) : (
+                              <ul key={contentIndex} className="mb-3 list-disc space-y-2 pl-5 leading-relaxed text-gray-700 marker:text-teal-700">
+                                {content.items.map((item) => <li key={item}>{item}</li>)}
+                              </ul>
+                            ))}
                           </div>
                         ))}
                       </div>
@@ -564,6 +595,16 @@ className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue
                   </div>
                 )}
 
+                {section.faqs && (
+                  <div className="space-y-4">
+                    {section.faqs.map((faq) => (
+                      <div key={faq.question} className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-teal-50/50 p-5">
+                        <FaqHeading className="text-lg font-bold text-foreground">{faq.question}</FaqHeading>
+                        <p className="mt-2 whitespace-pre-line leading-relaxed text-gray-700">{faq.answer}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 {section.note && (
                   <div className="mt-6 rounded-3xl bg-gradient-to-r from-primary/10 to-teal-50 border border-primary/20 p-6">
                     <p className="text-gray-700 leading-relaxed">
@@ -573,7 +614,7 @@ className="group bg-gradient-to-br from-blue-50 to-teal-50/60 border border-blue
                   </div>
                 )}
               </section>
-            ))}
+            );})}
           </div>
           {post.faqs && (
             <section className="mt-10 rounded-3xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
