@@ -2,6 +2,8 @@ import { getImagePath } from "@/utils/assets";
 
 export type BlogSection = {
   heading: string;
+  headingLevel?: 2 | 3;
+  faqs?: { question: string; answer: string }[];
   body?: string;
   bullets?: string[];
   blocks?: BlogContentBlock[];
@@ -21,9 +23,11 @@ export type BlogContentBlock =
   | { type: "paragraph"; text: string }
   | { type: "subheading"; text: string }
   | { type: "bullets"; items: string[] }
+  | { type: "groups"; items: { heading: string; blocks: ({ type: "paragraph"; text: string } | { type: "bullets"; items: string[] })[] }[] }
   | { type: "table"; headers: string[]; rows: string[][]; caption?: string };
 
 export type BlogPostItem = {
+  layout?: "editorial";
   slug: string;
   title: string;
   subtitle?: string;
@@ -52,6 +56,727 @@ export type BlogPostItem = {
 };
 
 export const blogPosts: BlogPostItem[] = [
+{
+  "slug": "alerji-testleri",
+  "title": "Alerji Testleri",
+  "excerpt": "Gıda tüketimi sonrasında ortaya çıkan kaşıntı, kızarıklık, kurdeşen, şişlik veya sindirim sistemi şikâyetlerinin nedeni ne olabilir?",
+  "image": "/blog/alerjitesti.jpg",
+  "date": "6 Ekim 2026",
+  "author": "Etiklab",
+  "category": "Genel Sağlık",
+  "layout": "editorial",
+  "lead": "",
+  "sections": [
+    {
+      "heading": "Gıda Alerjisi Testi Nedir? Hangi Gıdalara Karşı Alerjiniz Olduğunu Öğrenin",
+      "headingLevel": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gıda tüketimi sonrasında ortaya çıkan kaşıntı, kızarıklık, kurdeşen, şişlik veya sindirim sistemi şikâyetlerinin nedeni ne olabilir?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Bazı kişilerde belirli gıdalar bağışıklık sistemi tarafından yabancı olarak algılanabilir ve bu gıdalara karşı spesifik IgE antikorları oluşabilir. Gıda alerjilerinin değerlendirilmesinde kullanılan yöntemlerden biri, kandan alınan örnekte gıdalara karşı oluşan spesifik IgE antikorlarının araştırılmasıdır."
+        }
+      ]
+    },
+    {
+      "heading": "Gıda Alerjisi Kan Testi Nasıl Yapılır?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gıda alerjisi testi için kan örneği alınır. Kan örneğinden elde edilen serum, farklı gıda alerjenlerinin bulunduğu özel membran strip ile çalışılır."
+        },
+        {
+          "type": "paragraph",
+          "text": "Örnekte belirli bir gıdaya karşı spesifik IgE antikoru bulunması durumunda ilgili alerjen bölgesinde reaksiyon meydana gelir ve sonuç değerlendirilir."
+        }
+      ]
+    },
+    {
+      "heading": "Testte Hangi Gıdalar Araştırılır?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Panelde örneğin;"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Süt ve süt ürünleri",
+            "Yumurta",
+            "Buğday ve tahıllar",
+            "Fındık ve çeşitli kuruyemişler",
+            "Yer fıstığı",
+            "Soya",
+            "Susam",
+            "Domates",
+            "Havuç",
+            "Patates",
+            "Elma",
+            "Muz",
+            "Kivi",
+            "Çilek",
+            "Portakal",
+            "Şeftali",
+            "Kiraz",
+            "Zeytin",
+            "Balık",
+            "Tavuk ve çeşitli et kaynakları"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Gibi 35 farklı gıda kaynaklarına yönelik alerjenler bulunmaktadır."
+        }
+      ]
+    },
+    {
+      "heading": "Gıda Alerjisi Belirtileri Nelerdir?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gıda alerjileri kişiden kişiye farklı belirtiler gösterebilir. Bazı kişilerde belirtiler gıdanın tüketilmesinden kısa süre sonra ortaya çıkabilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sık görülebilen belirtiler arasında:"
+        },
+        {
+          "type": "groups",
+          "items": [
+            {
+              "heading": "Cilt belirtileri",
+              "blocks": [
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Kaşıntı",
+                    "Kurdeşen",
+                    "Kızarıklık",
+                    "Ciltte döküntü",
+                    "Dudak veya yüzde şişme"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Sindirim sistemi belirtileri",
+              "blocks": [
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Karın ağrısı",
+                    "Bulantı",
+                    "Kusma",
+                    "İshal"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Solunum sistemi belirtileri",
+              "blocks": [
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Hırıltılı solunum",
+                    "Öksürük",
+                    "Nefes almada güçlük",
+                    "Boğazda daralma veya şişlik"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "bulunabilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Şiddetli ve hızlı gelişen reaksiyonlarda acil tıbbi değerlendirme gerekebilir."
+        }
+      ]
+    },
+    {
+      "heading": "Gıda Alerjisi ile Gıda İntoleransı Aynı Şey mi?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hayır."
+        },
+        {
+          "type": "paragraph",
+          "text": "Gıda alerjisi ile gıda intoleransı birbirinden farklı durumlardır."
+        },
+        {
+          "type": "paragraph",
+          "text": "Örneğin bir kişinin belirli bir gıdayı tükettiğinde şişkinlik yaşaması tek başına IgE aracılı gıda alerjisi olduğu anlamına gelmez."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bu nedenle test sonuçları kişinin şikâyetleri ve klinik öyküsüyle birlikte değerlendirilmelidir."
+        }
+      ]
+    },
+    {
+      "heading": "Neden Gıda Alerjisi Testi Yapılır?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Doktor değerlendirmesi sonrasında, özellikle belirli gıdaların tüketilmesiyle tekrarlayan alerjik reaksiyon şüphesi bulunan kişilerde spesifik IgE testlerinden yararlanılabilir."
+        }
+      ]
+    },
+    {
+      "heading": "Sık Sorulan Sorular",
+      "headingLevel": 3,
+      "blocks": [],
+      "faqs": [
+        {
+          "question": "Gıda alerjisi testi kandan mı yapılır?",
+          "answer": "Evet. Test için alınan kan örneğinden elde edilen serum kullanılır."
+        },
+        {
+          "question": "Alerji testi aç karnına mı yapılır?",
+          "answer": "Spesifik IgE kan testleri için genellikle açlık gerekliliği testin kendisinden kaynaklanmaz. Ancak laboratuvarınızın veya hekiminizin özel bir hazırlık talimatı varsa buna uyulmalıdır."
+        },
+        {
+          "question": "Gıda alerjisi ile intolerans aynı testle anlaşılır mı?",
+          "answer": "Hayır. Bu test spesifik olarak IgE aracılı alerjik duyarlanmayı değerlendirmeye yöneliktir."
+        }
+      ]
+    },
+    {
+      "heading": "Solunum Yolu Alerjisi Testi Nedir? İnhalasyon Alerjenleri Nasıl Tespit Edilir?",
+      "headingLevel": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hapşırma, burun akıntısı, burun tıkanıklığı, gözlerde kaşıntı veya sulanma ve tekrarlayan solunum yolu şikâyetleri alerjiyle ilişkili olabilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Alerjik rinit, alerjik konjonktivit ve bazı alerjik solunum sistemi yakınmalarında, kişinin çevresinde bulunan çeşitli alerjenlere karşı bağışıklık sistemi tarafından oluşturulan spesifik IgE antikorlarının araştırılması tanısal değerlendirmeye yardımcı olabilir."
+        }
+      ]
+    },
+    {
+      "heading": "İnhalasyon Alerjisi Nedir?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "İnhalasyon alerjileri, havada bulunan ve solunum yoluyla vücuda ulaşan alerjenlere karşı gelişebilen bağışıklık yanıtlarıdır."
+        },
+        {
+          "type": "paragraph",
+          "text": "Polenler, ev tozu akarları, hayvan kaynaklı alerjenler, bazı böcekler ve küf mantarları sık karşılaşılan inhalasyon alerjenleri arasında yer alır."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bu alerjenlere duyarlılığı bulunan kişilerde özellikle belirli mevsimlerde veya belirli ortamlarda şikâyetler ortaya çıkabilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Örneğin:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Bahar aylarında artan hapşırma ve burun akıntısı",
+            "Ev ortamında artan burun tıkanıklığı",
+            "Kedi veya köpek temasından sonra gözlerde kaşıntı",
+            "Tozlu ortamlarda solunum şikâyetleri",
+            "Polen mevsiminde gözlerde sulanma",
+            "Tekrarlayan burun ve göz şikâyetleri"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "alerjik duyarlanma açısından değerlendirme gerektirebilir."
+        }
+      ]
+    },
+    {
+      "heading": "İnhalasyon Alerjisi Testi Nasıl Yapılır?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "İnhalasyon alerjenlerine yönelik spesifik IgE testi kan örneği kullanılarak gerçekleştirilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hastadan alınan kan örneğinden serum elde edilir. Örnek, farklı inhalasyon alerjenlerinin bulunduğu E membran strip üzerinde çalışılır."
+        },
+        {
+          "type": "paragraph",
+          "text": "Örnekte belirli bir alerjene karşı spesifik IgE antikorları bulunması durumunda ilgili alerjen bölgesinde reaksiyon meydana gelir. Oluşan reaksiyonlar değerlendirilerek test sonucu raporlanır."
+        }
+      ]
+    },
+    {
+      "heading": "Hangi Alerjenleri İçerir?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "panelde 29 alerjen kaynağı ve CCD belirteci bulunmaktadır."
+        },
+        {
+          "type": "groups",
+          "items": [
+            {
+              "heading": "Çayır ve çimen polenleri",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Panel içerisinde farklı çim ve tahıl polenlerini temsil eden alerjen karışımları ile kültür çavdarı bulunur."
+                }
+              ]
+            },
+            {
+              "heading": "Ağaç polenleri",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Ağaç polenlerine yönelik olarak;"
+                },
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Erken çiçeklenen ağaç karışımı",
+                    "Geç çiçeklenen ağaç karışımı",
+                    "Zeytin",
+                    "Dut"
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "gibi alerjen kaynakları değerlendirilir."
+                }
+              ]
+            },
+            {
+              "heading": "Yabani ot polenleri",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Panelde farklı yabani ot/polen karışımları da yer almaktadır. Bu grup özellikle mevsimsel alerjik şikâyetlerin değerlendirilmesinde önem taşıyabilir."
+                }
+              ]
+            },
+            {
+              "heading": "️ Ev tozu akarları",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Panelde iki önemli ev tozu akarı türü değerlendirilir:"
+                },
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Dermatophagoides pteronyssinus (d1)",
+                    "Dermatophagoides farinae (d2)"
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Ev tozu akarları, özellikle ev ortamında yıl boyunca maruziyet oluşturabilen önemli inhalasyon alerjenlerindendir."
+                }
+              ]
+            },
+            {
+              "heading": "Böcek ve kuş kaynaklı alerjenler",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Panel içerisinde Alman hamam böceği, tüy karışımları ve kafes kuşlarına yönelik alerjen kaynakları da bulunmaktadır."
+                }
+              ]
+            },
+            {
+              "heading": "Hayvan kaynaklı alerjenler",
+              "blocks": [
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Kedi",
+                    "Köpek",
+                    "At",
+                    "İnek",
+                    "Keçi",
+                    "Koyun",
+                    "Hamster"
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "gibi hayvan kaynaklı alerjenler yer almaktadır."
+                }
+              ]
+            },
+            {
+              "heading": "Küf mantarları",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Panelde çeşitli küf mantarlarına yönelik alerjenler de bulunmaktadır:"
+                },
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Penicillium notatum",
+                    "Cladosporium herbarum",
+                    "Aspergillus fumigatus",
+                    "Alternaria alternata"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Solunum Yolu Alerjisinin Belirtileri Nelerdir?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "İnhalasyon alerjenlerine karşı duyarlılığı bulunan kişilerde belirtiler alerjenin türüne, maruziyet miktarına ve kişinin duyarlılığına göre değişebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "En sık karşılaşılan şikâyetler arasında:"
+        },
+        {
+          "type": "groups",
+          "items": [
+            {
+              "heading": "Burun belirtileri",
+              "blocks": [
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Hapşırma",
+                    "Burun akıntısı",
+                    "Burun tıkanıklığı",
+                    "Burun ve burun çevresinde kaşıntı"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "️ Göz belirtileri",
+              "blocks": [
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Gözlerde kaşıntı",
+                    "Sulanma",
+                    "Kızarıklık",
+                    "Gözlerde yanma veya rahatsızlık hissi"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Solunum sistemi belirtileri",
+              "blocks": [
+                {
+                  "type": "bullets",
+                  "items": [
+                    "Öksürük",
+                    "Hırıltılı solunum",
+                    "Göğüste sıkışma hissi",
+                    "Nefes darlığı"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "görülebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Özellikle nefes darlığı veya ciddi solunum sıkıntısı gibi belirtiler ortaya çıktığında gecikmeden tıbbi değerlendirme alınmalıdır."
+        }
+      ]
+    },
+    {
+      "heading": "Mevsimsel Alerji ve Polenler",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bazı alerjik şikâyetler yılın belirli dönemlerinde belirgin şekilde artabilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Özellikle polen mevsiminde;"
+        },
+        {
+          "type": "paragraph",
+          "text": "hapşırma + burun akıntısı + burun tıkanıklığı + gözlerde kaşıntı/sulanma"
+        },
+        {
+          "type": "paragraph",
+          "text": "gibi şikâyetlerin tekrarlaması, polen duyarlılığının araştırılmasını gerektirebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ancak hangi alerjenin kişinin şikâyetlerinden sorumlu olduğunun belirlenmesi için test sonuçlarının kişinin klinik öyküsüyle birlikte değerlendirilmesi gerekir."
+        }
+      ]
+    },
+    {
+      "heading": "Ev Tozu Akarı Alerjisi Nedir?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ev tozu akarları, ev ve kapalı ortamlarda bulunabilen mikroskobik canlılardır."
+        },
+        {
+          "type": "paragraph",
+          "text": "Özellikle yatak, yastık, halı ve tekstil ürünlerinin bulunduğu ortamlarda maruziyet söz konusu olabilir."
+        }
+      ]
+    },
+    {
+      "heading": "Hayvan Alerjisi Kan Testi",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Kedi, köpek ve diğer hayvanlarla temas sonrasında hapşırma, burun akıntısı, gözlerde kaşıntı veya solunum şikâyetleri yaşayan kişilerde hayvan kaynaklı alerjenlere karşı duyarlanma araştırılabilir."
+        }
+      ]
+    },
+    {
+      "heading": "Küf Mantarı Alerjisi",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Küf mantarları da bazı kişilerde inhalasyon yoluyla alerjik duyarlanmaya neden olabilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bunlar arasında:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Penicillium, Cladosporium, Aspergillus ve Alternaria"
+        },
+        {
+          "type": "paragraph",
+          "text": "bulunmaktadır."
+        }
+      ]
+    },
+    {
+      "heading": "Pozitif IgE Sonucu Ne Anlama Gelir?",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Test sonucunda belirli bir alerjene karşı spesifik IgE antikorlarının saptanması, kişinin o alerjene karşı duyarlanmış olduğunu gösterebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Test sonucu; kişinin şikâyetleri, alerjenle karşılaşma öyküsü, belirtilerin ortaya çıkış zamanı ve hekim tarafından yapılan klinik değerlendirme ile birlikte yorumlanmalıdır."
+        }
+      ]
+    },
+    {
+      "heading": "İnhalasyon Alerjisi Testinin Avantajı",
+      "headingLevel": 3,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Böylece polenler, ev tozu akarları, hayvan kaynaklı alerjenler ve küf mantarları gibi farklı inhalasyon alerjeni gruplarına yönelik kapsamlı bir spesifik IgE değerlendirmesi gerçekleştirilebilir."
+        }
+      ]
+    },
+    {
+      "heading": "Sık Sorulan Sorular",
+      "headingLevel": 3,
+      "blocks": [],
+      "faqs": [
+        {
+          "question": "İnhalasyon alerjisi testi kandan mı yapılır?",
+          "answer": "Evet. Test, kan örneğinden elde edilen serum spesifik IgE antikorlarının araştırılması esasına dayanır."
+        },
+        {
+          "question": "Test aç karnına mı yapılır?",
+          "answer": "Testin kendisi açısından açlık genellikle gerekli değildir. Ancak laboratuvarınızın veya hekiminizin özel bir hazırlık talimatı varsa buna uyulmalıdır."
+        },
+        {
+          "question": "Test sadece polen alerjisini mi gösterir?",
+          "answer": "Hayır. Panel; polenlerin yanı sıra ev tozu akarları, hayvan kaynaklı alerjenler, böcek, kuş/tüy ve küf mantarları gibi çeşitli inhalasyon alerjenlerini içerir."
+        }
+      ]
+    }
+  ]
+},
+{
+  "slug": "hormon-testi",
+  "title": "Hormon Testi",
+  "excerpt": "Hormonlar; büyüme, metabolizma, üreme, enerji dengesi, stres yanıtı ve vücudun birçok temel fonksiyonunun düzenlenmesinde görev alan kimyasal habercilerdir.",
+  "image": "/blog/hormontesti.jpg",
+  "date": "6 Ekim 2026",
+  "author": "Etiklab",
+  "category": "Genel Sağlık",
+  "layout": "editorial",
+  "lead": "",
+  "sections": [
+    {
+      "heading": "Hormon Testi Nedir? Hormonlar Kandan Nasıl Ölçülür?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hormonlar; büyüme, metabolizma, üreme, enerji dengesi, stres yanıtı ve vücudun birçok temel fonksiyonunun düzenlenmesinde görev alan kimyasal habercilerdir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hormon seviyelerindeki değişiklikler farklı dönemlerde veya çeşitli sağlık durumlarında ortaya çıkabilir. Hormon testleri, kanda bulunan belirli hormonların düzeylerinin ölçülmesine ve klinik değerlendirmeye yardımcı olur."
+        },
+        {
+          "type": "paragraph",
+          "text": "Laboratuvarımızda hormon analizleri, uygun kan örneği üzerinden modern laboratuvar yöntemleri kullanılarak gerçekleştirilmektedir."
+        }
+      ]
+    },
+    {
+      "heading": "Hormon Testi Neden Yapılır?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hormon testleri, kişinin şikâyetlerine ve doktor değerlendirmesine göre farklı amaçlarla istenebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Örneğin;"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Adet düzensizliklerinin araştırılması",
+            "Gebelik ve üreme sağlığının değerlendirilmesi",
+            "İnfertilite araştırılması",
+            "Tiroid fonksiyonlarının değerlendirilmesi",
+            "Erkeklerde testosteron düzeyinin değerlendirilmesi",
+            "Erken veya gecikmiş ergenlik araştırılması",
+            "Menopoz döneminin değerlendirilmesi",
+            "Aşırı tüylenme ve hormonal dengesizliklerin araştırılması",
+            "Cinsel istekte veya fonksiyonlarda meydana gelen değişikliklerin değerlendirilmesi",
+            "Açıklanamayan kilo değişikliklerinin araştırılması",
+            "Halsizlik ve enerji değişikliklerinin değerlendirilmesi",
+            "Hormon tedavilerinin takip edilmesi"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "gibi birçok durumda hormon testlerinden yararlanılabilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bazı hormonların düzeyleri adet döngüsünün farklı dönemlerinde doğal olarak değişebildiğinden, testin hangi gün yapıldığı sonuçların değerlendirilmesinde önem taşıyabilir."
+        }
+      ]
+    },
+    {
+      "heading": "Hormon Testi Kandan mı Yapılır?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Evet. Birçok hormon testi kan örneğinden gerçekleştirilebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Koldan alınan kan örneği laboratuvara ulaştıktan sonra serum veya plazma ayrılarak ilgili hormon analizi gerçekleştirilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Kullanılan testin özelliğine göre farklı laboratuvar yöntemlerinden yararlanılabilir."
+        }
+      ]
+    },
+    {
+      "heading": "Hormon Testi İçin Aç Olmak Gerekir mi?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Her hormon testi için aynı hazırlık koşulları geçerli değildir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bazı hormon analizlerinde açlık gerekmezken, hormon testi başka biyokimyasal analizlerle birlikte istendiğinde açlık koşulu gerekebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ayrıca bazı hormonların düzeyi gün içerisinde değişebildiğinden, kan örneğinin belirli bir saatte alınması doktor tarafından önerilebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bu nedenle test öncesinde doktorunuzun ve laboratuvarınızın verdiği hazırlık talimatlarına uyulması önemlidir."
+        }
+      ]
+    },
+    {
+      "heading": "Hormon Testleri Ne Zaman Yapılmalıdır?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hormon testinin yapılacağı zaman hangi hormonun araştırıldığına göre değişebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Örneğin bazı hormonlarda günün belirli saatleri önem taşırken, kadınlarda bazı hormonların değerlendirilmesinde adet döngüsünün hangi gününde test yapıldığı önemlidir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bu nedenle özellikle:"
+        },
+        {
+          "type": "paragraph",
+          "text": "FSH, LH, estradiol, progesteron, AMH, testosteron, prolaktin ve kortizol"
+        },
+        {
+          "type": "paragraph",
+          "text": "gibi testlerde doktorunuzun önerdiği zamanlama dikkate alınmalıdır."
+        }
+      ]
+    },
+    {
+      "heading": "Hormon Testi Öncesinde İlaç Kullanımı?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bazı ilaçlar hormon seviyelerini etkileyebilir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bu nedenle düzenli olarak kullanılan ilaç, hormon veya takviyeler varsa doktorunuza ve laboratuvar personeline bilgi vermeniz önemlidir."
+        }
+      ]
+    }
+  ]
+},
 
   {
     slug: "cinsel-yolla-bulasan-hastaliklar",
