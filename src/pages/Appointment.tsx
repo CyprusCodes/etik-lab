@@ -10,7 +10,8 @@ import {
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { trackLeadSuccess } from "@/lib/tracking";
 import { SEO } from "@/components/SEO";
 
 export default function Appointment() {
@@ -18,11 +19,15 @@ export default function Appointment() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
 
+  const submissionPending = useRef(false);
+
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbxkBzH_ijiWMBAj9hJt-iJP_Y_fl3Tzyhp73GGAldEpEe2xFZKVSQe7Sly9UnZaMke3/exec";
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (submissionPending.current) return;
+    submissionPending.current = true;
     setFormStatus("submitting");
 
     const formData = new FormData(e.target);
@@ -38,9 +43,13 @@ export default function Appointment() {
     fetch(`${SCRIPT_URL}?${params.toString()}`, {
       method: "GET",
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Form submission failed");
+        return res.json();
+      })
       .then((data) => {
-        if (data.result === "success") {
+        if (data?.result === "success") {
+          trackLeadSuccess("appointment");
           setFormStatus("success");
           e.target.reset();
           // Reset status after 7 seconds for appointment (longer than contact)
@@ -53,6 +62,9 @@ export default function Appointment() {
       .catch(() => {
         setFormStatus("error");
         setTimeout(() => setFormStatus("idle"), 5000);
+      })
+      .finally(() => {
+        submissionPending.current = false;
       });
   }
 

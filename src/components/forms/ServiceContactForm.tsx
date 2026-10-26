@@ -4,7 +4,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle, XCircle } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { trackLeadSuccess } from "@/lib/tracking";
 import { getImagePath } from "@/utils/assets";
 
 interface ServiceContactFormProps {
@@ -21,11 +22,15 @@ export function ServiceContactForm({
     "idle" | "success" | "error"
   >("idle");
 
+  const submissionPending = useRef(false);
+
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbxkBzH_ijiWMBAj9hJt-iJP_Y_fl3Tzyhp73GGAldEpEe2xFZKVSQe7Sly9UnZaMke3/exec";
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (submissionPending.current) return;
+    submissionPending.current = true;
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -39,9 +44,13 @@ export function ServiceContactForm({
     fetch(`${SCRIPT_URL}?${params.toString()}`, {
       method: "GET",
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Form submission failed");
+        return res.json();
+      })
       .then((data) => {
-        if (data.result === "success") {
+        if (data?.result === "success") {
+          trackLeadSuccess("service_contact");
           setSubmitStatus("success");
           e.target.reset();
         } else {
@@ -52,6 +61,7 @@ export function ServiceContactForm({
         setSubmitStatus("error");
       })
       .finally(() => {
+        submissionPending.current = false;
         setIsSubmitting(false);
       });
   }
