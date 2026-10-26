@@ -12,7 +12,8 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, AlertCircle } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { trackLeadSuccess } from "@/lib/tracking";
 import { SEO } from "@/components/SEO";
 
 const mikroBiyolojiTests = [
@@ -73,11 +74,15 @@ export default function TestRequest() {
   >("idle");
   const [gender, setGender] = useState<string>("");
 
+  const submissionPending = useRef(false);
+
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbxkBzH_ijiWMBAj9hJt-iJP_Y_fl3Tzyhp73GGAldEpEe2xFZKVSQe7Sly9UnZaMke3/exec";
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submissionPending.current) return;
+    submissionPending.current = true;
     setFormStatus("submitting");
 
     const formData = new FormData(e.target as HTMLFormElement);
@@ -96,9 +101,13 @@ export default function TestRequest() {
     fetch(`${SCRIPT_URL}?${params.toString()}`, {
       method: "GET",
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Form submission failed");
+        return res.json();
+      })
       .then((data) => {
-        if (data.result === "success") {
+        if (data?.result === "success") {
+          trackLeadSuccess("test_request");
           setFormStatus("success");
           (e.target as HTMLFormElement).reset();
           setSelectedTests([]);
@@ -113,6 +122,9 @@ export default function TestRequest() {
       .catch(() => {
         setFormStatus("error");
         setTimeout(() => setFormStatus("idle"), 5000);
+      })
+      .finally(() => {
+        submissionPending.current = false;
       });
   }
 
